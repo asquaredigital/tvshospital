@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  
+<!-- Mirrored from wahabali.com/work/medicom/contact-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Jun 2024 11:48:54 GMT -->
+<head>
+    <base #href="" />
+	<!-- Basic Page Needs
+
+     ================================================== -->
+	 
+	 <meta charset="utf-8">
+	 
+	 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+	 <link rel="icon" type="image/png" href="images/favicon.png">
+	
+     <title>TVS Hosptial</title>
+    
+     <meta name="description" content="">
+    
+     <meta name="keywords" content="">
+    
+     <meta name="author" content="">
+
+	 
+	 <!-- Mobile Specific Metas
+    
+     ================================================== -->
+    
+     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    
+     <meta name="format-detection" content="telephone=no">
+
+	 
+	 <!-- Web Font
+	 ============================================= -->
+	 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet">
+	 
+	
+	<!-- CSS
+    
+     ================================================== -->
+	 
+	 
+	<!-- Theme Color
+	============================================= -->
+	<link rel="stylesheet" id="color" href="css/blue.css">
+    
+	
+	<!-- Medicom Style
+	============================================= -->
+    <link rel="stylesheet" href="css/medicom.css">
+
+	
+	<!-- Bootstrap
+	============================================= -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+
+	<!-- Theme Color
+	============================================= -->
+	<link href="css/light.css" rel="stylesheet" id="choose-theme">	
+
+    
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+	
+	
+	<!-- SCRIPTS
+    
+     ================================================== -->
+	
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<script src="js/jquery.js"></script>
+
+	<script>
+		$(function () {
+			$("#header1").load("header.html", function() {
+				var url = window.location.pathname;
+				console.log("Current URL Pathname:", url);
+				var navItems = document.querySelectorAll('#navbar-nav li a');
+	
+				console.log("Number of nav items found:", navItems.length);
+	
+				navItems.forEach(function(item) {
+					console.log("Checking URL:", item.getAttribute('href'));
+					if (url.includes(item.getAttribute('href'))) {
+						console.log("Match found:", item.getAttribute('href'));
+						item.parentElement.classList.add('active');
+					} else {
+						item.parentElement.classList.remove('active');
+					}
+				});
+			});
+			$("#footer").load("footer.html");
+
+	
+		});
+	</script>
+
+	</head>
+    <body class="fixed-header">
+		
+	
+    
+		<!-- Document Wrapper
+		============================================= -->
+		<div id="wrapper" class="clearfix">
+    
+    
+			<!-- Header
+			============================================= -->
+			<header id="header1"></header>
+
+			
+			
+			
+			<!-- Sub Page Banner
+			============================================= -->
+			<section class="sub-page-banner text-center" data-stellar-background-ratio="0.3">
+				
+				<div class="overlay"></div>
+				
+				<div class="container">
+					<h1 class="entry-title">Contact Us</h1>
+					<p>Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.</p>
+				</div>
+				
+			</section>
+    
+    
+  
+    
+			<!-- Sub Page Content
+			============================================= -->
+			<div id="sub-page-content" class="clearfix">
+				
+				<div class="container">
+					
+					<h2 class="light bordered">Get<span> Directions</span></h2>
+					
+					<div class="row">
+						
+						<div class="col-md-12">
+							
+							<!-- Map
+							============================================= -->
+							<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7838.856543472016!2d79.157258!3d10.778474!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baab90b776d259b%3A0x202e741cc9917eef!2sDr%20TVS%20MULTISPECIALITY%20HOSPITAL!5e0!3m2!1sen!2sin!4v1719408901618!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+							
+						</div>
+						
+					</div>
+					
+					<div class="row">
+						
+						<div class="col-md-8">
+							
+							<h2 class="light bordered">Give us a <span>Message</span></h2>
+							
+							
+							<!-- Contact Form
+							============================================= -->
+							<div class="contact-form clearfix">
+								<div id="message-contact" class="success" style="display:none;">Thank you! we'll contact you shortly.</div>
+								<form name="contact_form" id="contact_form" action="http://wahabali.com/work/medicom/submit.php" method="post" onSubmit="return false;">
+									<input type="text" name="fname" id="fname" placeholder="First Name" onKeyPress="removeChecks();">
+									<input type="text" name="email_address" id="email_address" placeholder="Email Address" onKeyPress="removeChecks();">
+									<input type="text" name="subject" id="subject" placeholder="Subject">
+									<textarea placeholder="Message" name="msg" id="msg"></textarea>
+									<input type="submit" class="btn btn-default" value="Submit" onClick="validateContact();">
+								</form>
+							</div>
+							
+						</div>
+						
+						<div class="col-md-4">
+							
+							<h2 class="light bordered">get in <span>touch</span></h2>
+							
+							
+							<!-- Get in Touch Widget
+							============================================= -->
+							<div class="get-in-touch-widget">
+								
+								<ul class="list-unstyled">
+									<li><i class="fa fa-phone"></i>04362 - 451900, 230055 / Mobile : 99947 16276, 93635 14411</li>
+									<li><i class="fa fa-envelope"></i><a href="#.">tvshospital@gmail.com</a></li>
+									<li><i class="fa fa-globe"></i><a href="#.">www.tvshospital.in</a></li>
+									<li><i class="fa fa-clock-o"></i>Mon - Sat 9:00am - 6:00 pm</li>
+									<li><i class="fa fa-map-marker"></i>No.1, Nagai Road,(Near Tholkappiar Square, On The Way To Mariyaman Koil),
+										Thanjavur - 613 001.</li>
+								</ul>
+								
+							</div>
+							
+							
+							<!-- Social
+							============================================= -->
+							<ul class="social-rounded">
+								<li><a href="#."><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#."><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#."><i class="fa fa-google-plus"></i></a></li>
+								<li><a href="#."><i class="fa fa-dribbble"></i></a></li>
+								<li><a href="#."><i class="fa fa-youtube"></i></a></li>
+								<li><a href="#."><i class="fa fa-vimeo-square"></i></a></li>
+								<li><a href="#."><i class="fa fa-linkedin"></i></a></li>
+								<li><a href="#."><i class="fa fa-rss"></i></a></li>
+								<li><a href="#."><i class="fa fa-pinterest"></i></a></li>
+								<li><a href="#."><i class="fa fa-android"></i></a></li>
+								<li><a href="#."><i class="fa fa-flickr"></i></a></li>
+							</ul>
+							
+						</div>
+						
+					</div>
+					
+				</div>
+			
+			
+			
+			</div><!--end sub-page-content-->
+    
+    
+    
+		<div class="colourfull-row"></div>
+	
+	
+	
+		<!-- Footer
+		============================================= -->
+		<footer id="footer"></footer>
+
+	
+		<!-- back to top -->
+		<a href="#." class="back-to-top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+	
+    </div><!--end #wrapper-->
+	
+		
+		
+		
+    <!-- All Javascript 
+	============================================= -->
+	<script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.stellar.js"></script>
+	<script src="js/jquery-ui-1.10.3.custom.js"></script>
+    <script src="js/owl.carousel.js"></script>
+    <script src="js/counter.js"></script>
+    <script src="js/waypoints.js"></script>
+	<script src="js/jquery.uniform.js"></script>
+    <script src="js/easyResponsiveTabs.js"></script>
+	<script src="js/jquery.fancybox.pack.js"></script>
+	<script src="js/jquery.fancybox-media.js"></script>
+	<script src="js/jquery.mixitup.js"></script>
+	<script src="js/forms-validation.js"></script>
+	<script src="js/jquery.jcarousel.min.js"></script>
+	<script src="js/jquery.easypiechart.min.js"></script>
+	<script src="js/scripts.js"></script>
+	
+	<script src="js/color-switcher.js"></script>
+	
+  </body>
+
+<!-- Mirrored from wahabali.com/work/medicom/contact-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Jun 2024 11:48:54 GMT -->
+</html>

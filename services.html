@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <base #href="" />
+    <!-- Basic Page Needs =============================================== -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <title>TVS Hospital</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet">
+    <!-- CSS ============================================================ -->
+    <link rel="stylesheet" id="color" href="css/blue.css">
+    <link rel="stylesheet" href="css/medicom.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link href="css/light.css" rel="stylesheet" id="choose-theme">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <!-- SCRIPTS ======================================================== -->
+    <script src="js/modernizr-2.6.2.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function () {
+            $("#header1").load("header.html", function() {
+                var url = window.location.pathname;
+                var navItems = document.querySelectorAll('#navbar-nav li a');
+                navItems.forEach(function(item) {
+                    if (url.includes(item.getAttribute('href'))) {
+                        item.parentElement.classList.add('active');
+                    } else {
+                        item.parentElement.classList.remove('active');
+                    }
+                });
+            });
+            $("#footer").load("footer.html");
+        });
+    </script>
+    <style>
+        .services-container {
+            display: flex;
+            flex-direction: row;
+            padding-top: 20px;
+        }
+        .services-list {
+            width: 25%;
+            height: calc(100vh - 100px); /* Adjust the height to account for the header */
+            overflow-y: auto;
+        }
+        .services-list .list-group-item {
+            cursor: pointer; /* Add hand cursor on hover */
+        }
+        .service-description {
+            width: 75%;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .service-description h2 {
+            margin-top: 0;
+        }
+        .active-service {
+            font-weight: bold;
+        }
+        /* Media query for mobile devices */
+        @media (max-width: 767px) {
+            .services-container {
+                flex-direction: column; /* Stack the service list and descriptions vertically */
+            }
+            .services-list {
+                width: 100%;
+                height: auto; /* Adjust height for mobile */
+                max-height: 300px; /* Optional: Limit the height */
+                overflow-y: auto; /* Ensure the list can scroll if it's too tall */
+            }
+            .service-description {
+                width: 100%;
+                padding: 20px;
+                overflow-y: auto;
+            }
+        }
+    </style>
+</head>
+<body class="fixed-header">
+    <!-- Document Wrapper =============================================== -->
+    <div id="wrapper" class="clearfix">
+        <!-- Header ================================================== -->
+        <header id="header1"></header>
+        <!-- Sub Page Banner ========================================== -->
+        <section class="sub-page-banner text-center" data-stellar-background-ratio="0.3">
+            <div class="overlay"></div>
+            <div class="container">
+                <h1 class="entry-title">services</h1>
+                <p>Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.</p>
+            </div>
+        </section>
+        <!-- Sub Page Content ========================================== -->
+        <div id="sub-page-content" class="clearfix">
+            <!-- Features ============================================== -->
+            <div class="container services-container">
+                <div class="services-list">
+                    <ul class="list-group">
+                        <li class="list-group-item active-service" onclick="showDescription(event, 'pediatrics')">Pediatrics</li>
+                        <li class="list-group-item" onclick="showDescription(event, 'pediatric-surgery')">Pediatric Surgery</li>
+                        <li class="list-group-item" onclick="showDescription(event, 'gynaecology')">Gynaecology and Obs</li>
+                        <li class="list-group-item" onclick="showDescription(event, 'obstetrics')">Obstetrics</li>
+                        <li class="list-group-item" onclick="showDescription(event, 'orthopedic')">Orthopedic</li>
+                        <li class="list-group-item" onclick="showDescription(event, 'ent-surgery')">ENT Surgery</li>
+                        <li class="list-group-item" onclick="showDescription(event, 'neurology')">Neurology and Neuro Surgery</li>
+                        <li class="list-group-item" onclick="showDescription(event, 'general-medicine')">General Medicine</li>
+                        <li class="list-group-item" onclick="showDescription(event, 'general-surgery')">General Surgery</li>
+                    </ul>
+                </div>
+                <div class="service-description">
+                    <div id="pediatrics">
+                        <h2>Pediatrics</h2>
+                        <p>Our pediatrics department offers comprehensive care for infants, children, and adolescents. We focus on preventive health care, the diagnosis and treatment of acute and chronic diseases, and the monitoring of physical and mental development.</p>
+                        <p>Our services include:</p>
+                        <ul>
+                            <li>Regular health check-ups</li>
+                            <li>Vaccinations</li>
+                            <li>Growth and development assessments</li>
+                            <li>Nutrition and diet advice</li>
+                            <li>Management of common illnesses</li>
+                            <li>Specialist referrals when necessary</li>
+                        </ul>
+                    </div>
+                    <div id="pediatric-surgery" style="display:none;">
+                        <h2>Pediatric Surgery</h2>
+                        <p>Our pediatric surgery department provides specialized surgical care for children, addressing both congenital and acquired conditions. Our team of expert surgeons is dedicated to delivering the highest standard of care in a child-friendly environment.</p>
+                        <p>Our services include:</p>
+                        <ul>
+                            <li>Corrective surgery for congenital anomalies</li>
+                            <li>Minimally invasive surgery</li>
+                            <li>Emergency surgical care</li>
+                            <li>Postoperative care and rehabilitation</li>
+                            <li>Parental guidance and support</li>
+                        </ul>
+                    </div>
+                    <div id="gynaecology" style="display:none;">
+                        <h2>Gynaecology and Obstetrics</h2>
+                        <p>Our gynaecology and obstetrics department provides comprehensive care for women's reproductive health. From routine check-ups to complex surgeries, our team is dedicated to ensuring the well-being of women at every stage of life.</p>
+                        <p>Our services include:</p>
+                        <ul>
+                            <li>Annual gynecological exams</li>
+                            <li>Pregnancy care and delivery</li>
+                            <li>Fertility treatments</li>
+                            <li>Menopause management</li>
+                            <li>Gynecological surgeries</li>
+                            <li>Family planning and contraceptive advice</li>
+                        </ul>
+                    </div>
+                    <div id="obstetrics" style="display:none;">
+                        <h2>Obstetrics</h2>
+                        <p>Our obstetrics department is dedicated to providing comprehensive prenatal, childbirth, and postpartum care. We aim to support mothers through every stage of pregnancy, ensuring both mother and baby receive the best possible care.</p>
+                        <p>Our services include:</p>
+                        <ul>
+                            <li>Prenatal check-ups and monitoring</li>
+                            <li>Labor and delivery support</li>
+                            <li>High-risk pregnancy management</li>
+                            <li>Postpartum care and support</li>
+                            <li>Lactation consulting</li>
+                            <li>Parental education classes</li>
+                        </ul>
+                    </div>
+                    <div id="orthopedic" style="display:none;">
+                        <h2>Orthopedic</h2>
+                        <p>Our orthopedic department offers advanced treatments for musculoskeletal issues. We provide care for injuries and disorders affecting the bones, joints, ligaments, tendons, and muscles.</p>
+                        <p>Our services include:</p>
+                        <ul>
+                            <li>Joint replacement surgery</li>
+                            <li>Arthroscopic surgery</li>
+                            <li>Fracture care</li>
+                            <li>Sports medicine</li>
+                            <li>Spine surgery</li>
+                            <li>Rehabilitation and physical therapy</li>
+                        </ul>
+                    </div>
+                    <div id="ent-surgery" style="display:none;">
+                        <h2>ENT Surgery</h2>
+                        <p>Our ENT (Ear, Nose, and Throat) surgery department provides expert care for a wide range of conditions. Our specialists use the latest techniques to treat both common and complex ENT disorders.</p>
+                        <p>Our services include:</p>
+                        <ul>
+                            <li>Sinus surgery</li>
+                            <li>Ear surgery</li>
+                            <li>Throat and voice surgery</li>
+                            <li>Treatment for sleep apnea</li>
+                            <li>Allergy testing and treatment</li>
+                            <li>Pediatric ENT care</li>
+                        </ul>
+                    </div>
+                    <div id="neurology" style="display:none;">
+                        <h2>Neurology and Neuro Surgery</h2>
+                        <p>Our neurology and neurosurgery department offers comprehensive care for neurological disorders. We provide both surgical and non-surgical treatments for conditions affecting the brain, spine, and nervous system.</p>
+                        <p>Our services include:</p>
+                        <ul>
+                            <li>Stroke management</li>
+                            <li>Epilepsy treatment</li>
+                            <li>Brain and spine surgery</li>
+                            <li>Management of neurological disorders</li>
+                            <li>Neurorehabilitation</li>
+                            <li>Chronic pain management</li>
+                        </ul>
+                    </div>
+                    <div id="general-medicine" style="display:none;">
+                        <h2>General Medicine</h2>
+                        <p>Our general medicine department provides a broad range of medical services for adults. We focus on the prevention, diagnosis, and treatment of various health conditions.</p>
+                        <p>Our services include:</p>
+                        <ul>
+                            <li>Routine health check-ups</li>
+                            <li>Management of chronic diseases</li>
+                            <li>Acute illness treatment</li>
+                            <li>Preventive care and screenings</li>
+                            <li>Nutritional counseling</li>
+                            <li>Health education and promotion</li>
+                        </ul>
+                    </div>
+                    <div id="general-surgery" style="display:none;">
+                        <h2>General Surgery</h2>
+                        <p>Our general surgery department offers expert surgical services for a wide range of conditions. Our experienced surgeons use the latest techniques to ensure the best outcomes for our patients.</p>
+                        <p>Our services include:</p>
+                        <ul>
+                            <li>Laparoscopic surgery</li>
+                            <li>Gastrointestinal surgery</li>
+                            <li>Hernia repair</li>
+                            <li>Appendectomy</li>
+                            <li>Gallbladder surgery</li>
+                            <li>Postoperative care and follow-up</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div><!-- end sub-page-content -->
+        <div class="colourfull-row"></div>
+        <!-- Footer ================================================== -->
+        <footer id="footer"></footer>
+        <!-- back to top -->
+        <a href="#." class="back-to-top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+    </div><!-- end #wrapper -->
+    <!-- All Javascript ============================================== -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.stellar.js"></script>
+    <script src="js/jquery-ui-1.10.3.custom.js"></script>
+    <script src="js/owl.carousel.js"></script>
+    <script src="js/counter.js"></script>
+    <script src="js/waypoints.js"></script>
+    <script src="js/jquery.uniform.js"></script>
+    <script src="js/easyResponsiveTabs.js"></script>
+    <script src="js/jquery.fancybox.pack.js"></script>
+    <script src="js/jquery.fancybox-media.js"></script>
+    <script src="js/jquery.mixitup.js"></script>
+    <script src="js/forms-validation.js"></script>
+    <script src="js/jquery.jcarousel.min.js"></script>
+    <script src="js/jquery.easypiechart.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/color-switcher.js"></script>
+    <script>
+        function showDescription(event, service) {
+            event.preventDefault(); // Prevent default link behavior
+            var services = document.getElementsByClassName('service-description')[0].children;
+            for (var i = 0; i < services.length; i++) {
+                services[i].style.display = 'none';
+            }
+            document.getElementById(service).style.display = 'block';
+            var listItems = document.getElementsByClassName('list-group-item');
+            for (var i = 0; i < listItems.length; i++) {
+                listItems[i].classList.remove('active-service');
+            }
+            event.target.classList.add('active-service');
+            window.scrollTo(0, 0); // Scroll to top when a service is selected
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+</body>
+</html>
