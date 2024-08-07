@@ -114,8 +114,7 @@
 		});
 	</script>
 	<style>
-
-		.tp-banner-container{
+		.tp-banner-container {
 			width: 100% !important;
 		}
 
@@ -123,20 +122,66 @@
 			.minn {
 				display: none;
 			}
+
 		}
 
+		 
+
+
 		@media (max-width: 1300px) {
-			.maxx {
-				display: none;
+			.caption strong {
+				font-weight: 700;
+				margin-left: 20px;
+				font-size: 25px;
 			}
 
 		}
 
 		@media (max-width: 750px) {
+			.caption strong {
+				font-weight: 700;
+				margin-left: 20px;
+				font-size: 25px;
+			}
+			.maxx {
+				display: none;
+			}
+
+
+		}
+
+		@media (max-width: 420px) {
+
+			.caption strong {
+				font-weight: 700;
+				margin-left: 0px;
+				font-size: 12px;
+			}
+
+			
+			.caption img {
+				margin-left: 30px;
+			}
+
+			.caption a {
+				margin-left: 2px;
+				margin-top: 0px;
+			}
+
+			.caption p {
+				font-size: 1.3rem !important;
+				margin-left: 20px;
+				line-height: 0;
+			}
+		}
+
+
+		@media (min-width:420px) and (max-width: 850px) {
 
 			.caption strong {
 				font-weight: 700;
 				margin-left: 20px;
+				font-size: 12px;
 			}
 
 
@@ -150,17 +195,18 @@
 			}
 
 			.caption p {
-				font-size: 1.3rem !important;
+				font-size: 15px !important;
 				margin-left: 20px;
 				line-height: 18px;
 			}
 		}
 
-		@media (min-width: 750px) {
+		@media (min-width: 850px) {
 
 			.caption strong {
 				font-weight: 700;
 				margin-left: 70px;
+				font-size: 22px;
 			}
 
 
@@ -176,7 +222,7 @@
 			.caption p {
 				font-size: 1.6rem !important;
 				margin-left: 70px;
-				line-height: 18px;
+				line-height: 25px;
 			}
 		}
 
@@ -208,6 +254,14 @@
 		.feature-box h4 {
 			margin-bottom: 15px;
 		}
+
+		.insurance h5 {
+			font-size: 15px;
+		}
+
+		.testimonials-patient-detail p { 
+    color: #00953f !important;
+}
 	</style>
 </head>
 
@@ -252,17 +306,25 @@
 
 								<div class="caption sft big_white" data-x="0" data-y="265" data-speed="1000"
 									data-start="1700" data-easing="easeOutExpo">
-									<strong>Pediatric Care</strong>
+									<strong>Multispecialty Hospital - All Specialties Under One Roof</strong>
 								</div>
-								<div class="caption sfr medium_grey" data-x="0" data-y="340" data-speed="1000"
+								<div class="caption sft medium_grey" data-x="0" data-y="340" data-speed="1000"
 									data-start="2500" data-easing="easeOutExpo">
-									<p class="maxx">Ensuring your child's health and well-being with our expert medical
-										services.</p>
+									<p class="maxx ">Experience comprehensive healthcare with all specialties under one
+										roof at TVS Multispecialty
+										Hospital. <br>
+										Our services include General Medicine, General Surgery, Pediatric Surgery,
+										Gynecology, Obstetrics,<br> Orthopedic, ENT Surgery, Neurology and Neuro
+										Surgery, Surgery and
+										Implants, Medical Counseling,<br> Physiotherapy, Rehabilitation, Pain
+										Management, Respiratory
+										Medicine, Urology, Nephrology, <br>Dermatology and Cosmetic, Dentistry, and
+										Oncosurgery.<br>
+										We are here to provide expert care for every health need.</p>
 
-									<p class="minn">Ensuring your child's health and well-being <br>with our expert
-										medical services.</p>
+
 								</div>
-								<div class="caption sfb" data-x="0" data-y="410" data-speed="2500" data-start="2500"
+								<div class="caption sfb" data-x="0" data-y="490" data-speed="2500" data-start="2500"
 									data-easing="easeOutExpo">
 									<a href="services.html" class="btn btn-rounded btn-bordered">Our Services</a>
 								</div>
@@ -278,20 +340,18 @@
 							<div class="slide-content">
 								<div class="caption sft big_white" data-x="0" data-y="265" data-speed="1000"
 									data-start="1700" data-easing="easeOutExpo">
-									<strong>Expert Orthopedic Care</strong>
+									<strong>Your Health, Our Priority</strong>
 								</div>
 								<div class="caption sfr medium_grey" data-x="0" data-y="340" data-speed="1000"
 									data-start="2500" data-easing="easeOutExpo">
-									<p class="maxx">Providing comprehensive solutions for bone and joint health with
-										advanced treatments
-										and care</p>
-
-									<p class="minn">Providing comprehensive solutions for bone and joint <br>health
-										with advanced treatments
-										and care</p>
+									<p class="maxx">At TVS Multispecialty Hospital, your health is our top priority. <br>
+										 With cutting-edge technology and a team of experienced professionals, we deliver <br>
+										  personalized care tailored to your unique needs.
+										Trust us to be your partner in health.</p>
+ 
 								</div>
 
-								<div class="caption sfb" data-x="0" data-y="410" data-speed="2500" data-start="2500"
+								<div class="caption sfb" data-x="0" data-y="450" data-speed="2500" data-start="2500"
 									data-easing="easeOutExpo">
 									<a href="services.html" class="btn btn-rounded btn-bordered">Our Services</a>
 								</div>
@@ -310,17 +370,19 @@
 									data-easing="easeOutExpo">
 								</div>
 								<div class="caption sft big_white" data-x="0" data-y="265" data-speed="1500"
-									data-start="1700" data-easing="easeOutExpo"><strong>Comprehensive ENT Care</strong>
+									data-start="1700" data-easing="easeOutExpo">
+									<strong>Advanced Healthcare, Close to Home</strong>
 								</div>
 								<div class="caption sfr medium_grey" data-x="0" data-y="340" data-speed="1500"
 									data-start="2500" data-easing="easeOutExpo">
-									<p class="maxx">Expert diagnosis and treatment for ear, nose, and throat conditions.
+									<p class="maxx">Experience world-class healthcare right in your community. <br>
+										 Our multispecialty hospital offers a wide range of services to keep you and your <br>
+										  loved ones healthy. We are here to support your
+										journey to wellness.
 									</p>
-
-									<p class="minn">Expert diagnosis and treatment for ear, <br> nose, and throat
-										conditions.</p>
+ 
 								</div>
-								<div class="caption sfb" data-x="0" data-y="410" data-speed="300" data-start="2500"
+								<div class="caption sfb" data-x="0" data-y="450" data-speed="300" data-start="2500"
 									data-easing="easeOutExpo"><a href="services.html"
 										class="btn btn-rounded btn-bordered">Our Services</a></div>
 
@@ -356,12 +418,12 @@
 
 					<div class="home-box opening-hours clearfix">
 
-						<span class="glyphicon glyphicon-time"></span>
-						<h3>Opening Hours</h3>
-						<p>If you need a doctor for to the consectetuer
-							consectetur adipiscing Graphic Design is elit.</p>
+						<span class="glyphicon glyphicon-tint" style="color: #302582;"></span>
+						<h3>15 Years of Experience</h3>
+						<p class="mt-4">We are having experienced and top 10
+							Specialists in the city.</p>
 
-						<ul class="list-unstyled">
+						<!-- <ul class="list-unstyled">
 							<li class="clearfix">
 								<span>
 									Monday - Friday
@@ -386,7 +448,7 @@
 									9.30 - 17.00
 								</div>
 							</li>
-						</ul>
+						</ul> -->
 
 					</div>
 
@@ -473,8 +535,9 @@
 						<div class="col-md-6">
 							<div class="appointment-form clearfix">
 								<div class="success" id="message-app" style="display:none;"></div>
-								<form name="appoint_form" id="appoint_form" method="post"
-									action="http://wahabali.com/work/medicom/submit.php" onSubmit="return false">
+
+								<form name="appoint_form" id="appoint_form" method="post" action=" "
+									onSubmit="validateAppoint1(event);">
 									<input type="text" name="app_fname" id="app_fname" placeholder="First Name"
 										onKeyPress="removeChecks();">
 									<input type="text" name="app_lname" id="app_lname" placeholder="Last Name"
@@ -490,9 +553,12 @@
 										<option>Child</option>
 									</select>
 									<textarea placeholder="Message" name="app_msg" id="app_msg"></textarea>
-									<input type="submit" value="submit" class="btn btn-default btn-rounded"
-										onClick="validateAppoint();">
+									<input type="submit" value="submit" class="btn btn-default btn-rounded">
 								</form>
+
+
+
+
 							</div>
 						</div>
 
@@ -516,26 +582,26 @@
 					<div class="row text-center" id="counters">
 						<div class="col-md-3 col-xs-6">
 							<div class="counter">
-								<span class="quantity-counter1 highlight">0</span>
-								<h6 class="counter-details">Servcies</h6>
+								<span class="quantity-counter1 highlight">28</span>
+								<h6 class="counter-details">Specialties</h6>
 							</div>
 						</div>
 						<div class="col-md-3 col-xs-6">
 							<div class="counter">
-								<span class="quantity-counter2 highlight">0</span>
-								<h6 class="counter-details">Doctors </h6>
+								<span class="quantity-counter2 highlight">25</span>
+								<h6 class="counter-details">Doctors</h6>
 							</div>
 						</div>
 						<div class="col-md-3 col-xs-6">
 							<div class="counter">
-								<span class="quantity-counter3 highlight">0</span>
+								<span class="quantity-counter3 highlight">10000</span>
 								<h6 class="counter-details">Patients</h6>
 							</div>
 						</div>
 						<div class="col-md-3 col-xs-6">
 							<div class="counter">
-								<span class="quantity-counter4 highlight">0</span>
-								<h6 class="counter-details">clinic rooms</h6>
+								<span class="quantity-counter4 highlight">100</span>
+								<h6 class="counter-details">Facilities</h6>
 							</div>
 						</div>
 					</div>
@@ -823,14 +889,13 @@
 							<div class="panel-group" id="accordion">
 								<div class="panel panel-default">
 									<div class="panel-heading">
-										<h4 class="panel-title active">
-											<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-												<span><i class="fa fa-plus fa-minus"></i></span>Pediatric Care
+										<h4 class="panel-title">
+											<a data-toggle="collapse" data-parent="#accordion" href="#collapseEight">
+												<span><i class="fa fa-plus"></i></span>General Medicine
 											</a>
 										</h4>
 									</div>
-
-									<div id="collapseOne" class="panel-collapse collapse in">
+									<div id="collapseEight" class="panel-collapse collapse">
 										<div class="panel-body">
 											It has survived not only five centuries, but also the leap into electronic
 											typesetting, remaining essentially unchanged. It was popularised in the
@@ -843,28 +908,60 @@
 									<div class="panel-heading">
 										<h4 class="panel-title">
 											<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-												<span><i class="fa fa-plus"></i></span>Pediatric Surgery
+												<span><i class="fa fa-plus"></i></span>General Surgery
 											</a>
 										</h4>
 									</div>
-									<div id="collapseTwo" class="panel-collapse collapse">
+									<!-- <div id="collapseTwo" class="panel-collapse collapse">
 										<div class="panel-body">
 											It has survived not only five centuries, but also the leap into electronic
 											typesetting, remaining essentially unchanged. It was popularised in the
 											1960s with the release of Letraset sheets containing Lorem Aldus
 											Page Maker including versions.
+										</div>
+									</div> -->
+								</div>
+
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a data-toggle="collapse" data-parent="#accordion" href="#pediatric">
+												<span><i class="fa fa-plus"></i></span>Pediatric
+											</a>
+										</h4>
+									</div>
+									<div id="pediatric" class="panel-collapse collapse">
+										<div class="panel-body">
+											Our pediatrics department offers comprehensive care for infants, children, and adolescents. We focus on preventive health care, the diagnosis and treatment of acute and chronic diseases, and the monitoring of physical and mental development.
 										</div>
 									</div>
 								</div>
 								<div class="panel panel-default">
 									<div class="panel-heading">
 										<h4 class="panel-title">
-											<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-												<span><i class="fa fa-plus"></i></span>Gynaecology and OBS
+											<a data-toggle="collapse" data-parent="#accordion" href="#pediatric_surgery">
+												<span><i class="fa fa-plus"></i></span>Pediatric Surgery
 											</a>
 										</h4>
 									</div>
-									<div id="collapseThree" class="panel-collapse collapse">
+									<div id="pediatric_surgery" class="panel-collapse collapse">
+										<div class="panel-body">
+											Our pediatric surgery department provides specialized surgical care for children, addressing both congenital and acquired conditions. Our team of expert surgeons is dedicated to delivering the highest standard of care in a child-friendly environment.
+										</div>
+									</div>
+								</div>
+
+
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a data-toggle="collapse" data-parent="#accordion"
+												href="#collapse_Pediatric">
+												<span><i class="fa fa-plus"></i></span>Gynaecology
+											</a>
+										</h4>
+									</div>
+									<div id="collapse_Pediatric" class="panel-collapse collapse">
 										<div class="panel-body">
 											It has survived not only five centuries, but also the leap into electronic
 											typesetting, remaining essentially unchanged. It was popularised in the
@@ -873,6 +970,7 @@
 										</div>
 									</div>
 								</div>
+
 								<div class="panel panel-default">
 									<div class="panel-heading">
 										<h4 class="panel-title">
@@ -940,16 +1038,8 @@
 											Page Maker including versions.
 										</div>
 									</div>
-								</div>
-								<div class="panel panel-default">
-									<div class="panel-heading">
-										<h4 class="panel-title">
-											<a data-toggle="collapse" data-parent="#accordion" href="#collapseEight">
-												<span><i class="fa fa-plus"></i></span>General Medicine
-											</a>
-										</h4>
-									</div>
-									<div id="collapseEight" class="panel-collapse collapse">
+								</div> 
+								<!-- <div id="collapseEight" class="panel-collapse collapse">
 										<div class="panel-body">
 											It has survived not only five centuries, but also the leap into electronic
 											typesetting, remaining essentially unchanged. It was popularised in the
@@ -974,7 +1064,7 @@
 											Page Maker including versions.
 										</div>
 									</div>
-								</div>
+								</div> -->
 								<div class="panel panel-default">
 									<div class="panel-heading">
 										<h4 class="panel-title">
@@ -1009,6 +1099,107 @@
 										</div>
 									</div>
 								</div>
+
+
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwelve">
+												<span><i class="fa fa-plus"></i></span>Physiotherapy
+											</a>
+										</h4>
+									</div>
+									<!-- <div id="collapseTwelve" class="panel-collapse collapse">
+										<div class="panel-body">
+											It has survived not only five centuries, but also the leap into electronic
+											typesetting, remaining essentially unchanged. It was popularised in the
+											1960s with the release of Letraset sheets containing Lorem Aldus
+											Page Maker including versions.
+										</div>
+									</div> -->
+								</div>
+
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a data-toggle="collapse" data-parent="#accordion" href="#collapseThirteen">
+												<span><i class="fa fa-plus"></i></span>Rehabilitation
+											</a>
+										</h4>
+									</div>
+								</div>
+
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a data-toggle="collapse" data-parent="#accordion" href="#collapseFourteen">
+												<span><i class="fa fa-plus"></i></span>Pain Management
+											</a>
+										</h4>
+									</div>
+								</div>
+
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a data-toggle="collapse" data-parent="#accordion" href="#collapseFifteen">
+												<span><i class="fa fa-plus"></i></span> Respiratory Medicine
+											</a>
+										</h4>
+									</div>
+								</div>
+
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a data-toggle="collapse" data-parent="#accordion" href="#collapseSixteen">
+												<span><i class="fa fa-plus"></i></span> Urology
+											</a>
+										</h4>
+									</div>
+								</div>
+
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a data-toggle="collapse" data-parent="#accordion"
+												href="#collapseSeventeen">
+												<span><i class="fa fa-plus"></i></span> Nephrology
+											</a>
+										</h4>
+									</div>
+								</div>
+
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a data-toggle="collapse" data-parent="#accordion" href="#collapseEighteen">
+												<span><i class="fa fa-plus"></i></span> Dermatology and Cosmetic
+											</a>
+										</h4>
+									</div>
+								</div>
+
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a data-toggle="collapse" data-parent="#accordion" href="#collapseNineteen">
+												<span><i class="fa fa-plus"></i></span> Dentistry
+											</a>
+										</h4>
+									</div>
+								</div>
+
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwenty">
+												<span><i class="fa fa-plus"></i></span> Oncosurgery
+											</a>
+										</h4>
+									</div>
+								</div>
+
 							</div>
 
 						</aside>
@@ -1029,53 +1220,61 @@
 		============================================= -->
 			<section class="testimonials bg-white text-center">
 
-				<div class="container">
+				<div class="container"> 
+					<h1>Testimonials</h1>
 
-					<div class="row">
+					<div class="row mt-5">
 
 						<div class="col-md-12">
 
 							<div id="carousel-testimonials" class="owl-carousel slide testimonials-carousel">
 
 								<div class="item">
-									<h1>What Our patients Say About Us</h1>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-										euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Nam vitae felis
-										pretium, euismod ipsum nec, placerat turpis. Aenean eu gravida arcu, et
-										consectetur
-										orci Quisque posuere dolor in malesuada fermentum.</p>
+									<!-- <h1>What Our patients Say About Us</h1> -->
+									<p style="text-align: justify">Dr Tvs Multi-speciality, I am new to this hospital &
+										been admitted for my sterilization operation.I really appreciate the services
+										,concern and care towards the process.Including senior doctors treated and
+										supported us well with extensive care.
+										Dr.Mrs.Sangeetha Sathappan ,she is such a gem and always treats her patience
+										with class,grace,positivity and extreme care .when am pregnant for every
+										appointment she treated me with good advice and suggestions.
+										For any queries she always ready to give answers ,i would say am lucky to have
+										her throughout my pregnancy lifecycle.
+										On the whole i happily recommend Dr Sangeetha Mam and Dr TVS Multi-speciality
+										hospital to anyone seeking for good treatment with special concern.</p>
 									<div class="testimonials-patient-detail">
-										<img src="images/patient-img.png" class="img-circle img-thumbnail" alt=""
-											title="">
-										<p>fred albert<span>Heart patient</span></p>
+										<!-- <img src="images/patient-img.png" class="img-circle img-thumbnail" alt=""
+											title=""> -->
+										<p>Kalpa Srinivas </p>
 									</div>
 								</div>
 
 								<div class="item">
-									<h1>What Our patients Say About Us</h1>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-										euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Nam vitae felis
-										pretium, euismod ipsum nec, placerat turpis. Aenean eu gravida arcu, et
-										consectetur
-										orci Quisque posuere dolor in malesuada fermentum.</p>
+									<!-- <h1>What Our patients Say About Us</h1> -->
+									<p style="text-align: justify">Good hospitality... and friendly staff.. Affordable
+										cost in my daughter surgery...Rooms and restrooms are neat and clean..over all I
+										am satisfied.
+										My daughter admitted in TVs hospital and treated with Dr. Sangeetha
+										gynecologist. Very successful surgery done in left ovarian cyst. Mam was very
+										experience good manner. Really very thank to sangeetha mam.</p>
 									<div class="testimonials-patient-detail">
-										<img src="images/patient-img.png" class="img-circle img-thumbnail" alt=""
-											title="">
-										<p>fred albert<span>Heart patient</span></p>
+										<!-- <img src="images/patient-img.png" class="img-circle img-thumbnail" alt=""
+											title=""> -->
+										<p>Hari Priyan </p>
 									</div>
 								</div>
 
 								<div class="item">
-									<h1>What Our patients Say About Us</h1>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-										euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Nam vitae felis
-										pretium, euismod ipsum nec, placerat turpis. Aenean eu gravida arcu, et
-										consectetur
-										orci Quisque posuere dolor in malesuada fermentum.</p>
+									<!-- <h1>What Our patients Say About Us</h1> -->
+									<p style="text-align: justify">74 years old of my mother spinal problem since in 1
+										month. My first visited he told me I needed to have correct off all procedures.
+										He was very thorough in his evaluation and explanations of what is to come. Now
+										my mother is better feel 💯. Dr. Rajarajan was best neurologist. so grateful and
+										very thankful..</p>
 									<div class="testimonials-patient-detail">
-										<img src="images/patient-img.png" class="img-circle img-thumbnail" alt=""
-											title="">
-										<p>fred albert<span>Heart patient</span></p>
+										<!-- <img src="images/patient-img.png" class="img-circle img-thumbnail" alt=""
+											title=""> -->
+										<p>sheela prasanna </p>
 									</div>
 								</div>
 
@@ -1087,6 +1286,52 @@
 
 				</div>
 
+			</section>
+
+			<section class="why-choose-us">
+
+				<div class="container ">
+					<h1>Insurance Tie Ups</h1>
+					<div class="row insurance">
+						<div class="col-md-4">
+							<div class="feature-box">
+								<h5>CM Comprehensive Health Scheme</h5>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="feature-box">
+								<h5>BHEL Scheme</h5>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="feature-box">
+								<h5>CGHS Scheme</h5>
+							</div>
+						</div>
+					</div>
+					<div class="row insurance">
+						<div class="col-md-4">
+							<div class="feature-box">
+								<h5>All Approved Private Health Insurance
+									Schemes</h5>
+								<!-- <p>We prioritize our patients' needs and ensure their comfort throughout the treatment
+								process.</p> -->
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="feature-box">
+								<h5>Tamil Nadu State Government Employees Scheme</h5>
+								<!-- <p>We offer holistic treatments that address the root cause of ENT issues.</p> -->
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="feature-box align-items-center">
+								<h5>Pensionaries Scheme</h5>
+								<!-- <p>Our clinic is easily accessible, making it convenient for you to visit us.</p> -->
+							</div>
+						</div>
+					</div>
+				</div>
 			</section>
 
 		</div><!--end #content-index-->
@@ -1133,6 +1378,70 @@
 
 
 	<script src="js/color-switcher.js"></script>
+
+	<script>
+
+		function checkcontact(email) {
+			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			return emailRegex.test(email);
+		}
+
+
+		function sendWhatsAppMessage() {
+			const fname = document.getElementById('app_fname').value;
+			const lname = document.getElementById('app_lname').value;
+			const email = document.getElementById('app_email_address').value;
+			const phone = document.getElementById('app_phone').value;
+			const date = document.getElementById('datepicker').value;
+			const gender = document.getElementById('gender').value;
+			const msg = document.getElementById('app_msg').value;
+
+			const message = `First Name: ${fname}\nLast Name: ${lname}\nEmail: ${email}\nPhone: ${phone}\nAppointment Date: ${date}\nGender: ${gender}\nMessage: ${msg}`;
+
+			const whatsappUrl = `https://api.whatsapp.com/send?phone=+917010497996&text=${encodeURIComponent(message)}`;
+
+			window.open(whatsappUrl, '_blank');
+		}
+
+		function validateAppoint1(event) {
+			event.preventDefault(); // Prevent the form from submitting
+
+			console.log("validateAppoint1 called");
+
+			var app_fname = document.getElementById("app_fname");
+			var app_lname = document.getElementById("app_lname");
+			var app_email_address = document.getElementById("app_email_address");
+			var app_date = document.getElementById("datepicker");
+
+			var flag = 0;
+
+			if (app_fname.value == "") {
+				app_fname.style.borderColor = "#FE847B";
+				flag = 1;
+			} else if (app_lname.value == "") {
+				app_lname.style.borderColor = "#FE847B";
+				flag = 1;
+			} else if (app_email_address.value == "") {
+				app_email_address.style.borderColor = "#FE847B";
+				flag = 1;
+			} else if (checkcontact(app_email_address.value) == false) {
+				app_email_address.style.borderColor = "#FE847B";
+				flag = 1;
+			} else if (app_date.value == "") {
+				app_date.style.borderColor = "#FE847B";
+				flag = 1;
+			}
+
+			if (flag == 0) {
+				console.log("Validation passed, sending WhatsApp message");
+				sendWhatsAppMessage(); // Send WhatsApp message
+			} else {
+				console.log("Validation failed");
+			}
+		}
+
+
+	</script>
 
 
 	<script>

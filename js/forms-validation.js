@@ -119,6 +119,24 @@
 			
 		}
 	}
+
+	function sendWhatsAppMessage() {
+		const fname = document.getElementById('app_fname').value;
+		const lname = document.getElementById('app_lname').value;
+		const email = document.getElementById('app_email_address').value;
+		const phone = document.getElementById('app_phone').value;
+		const date = document.getElementById('datepicker').value;
+		const gender = document.getElementById('gender').value;
+		const msg = document.getElementById('app_msg').value;
+	
+		const message = `First Name: ${fname}\nLast Name: ${lname}\nEmail: ${email}\nPhone: ${phone}\nAppointment Date: ${date}\nGender: ${gender}\nMessage: ${msg}`;
+		
+		const whatsappUrl = `https://api.whatsapp.com/send?phone=+917010497996&text=${encodeURIComponent(message)}`;
+	
+		window.open(whatsappUrl, '_blank');
+	}
+	
+	
 	
 	function validateNewsletter(){
 		var news_name = document.getElementById("news_name");
@@ -168,6 +186,7 @@
 								}
 							}
 						});
+ 
 						
 		}
 }
