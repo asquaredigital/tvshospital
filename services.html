@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="format-detection" content="telephone=no">
     <link rel="icon" type="image/png" href="images/favicon.png">
-    <title>TVS Hospital</title>
+    <title>Dr. TVS Multispeciality Hospital</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet">
     <!-- CSS ============================================================ -->
     <link rel="stylesheet" id="color" href="css/blue.css">
@@ -92,7 +92,7 @@
             <div class="overlay"></div>
             <div class="container">
                 <h1 class="entry-title">services</h1>
-                <p>Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.</p>
+                <!-- <p>Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.</p> -->
             </div>
         </section>
         <!-- Sub Page Content ========================================== -->
@@ -101,13 +101,15 @@
             <div class="container services-container">
                 <div class="services-list">
                     <ul class="list-group">
-                        <li class="list-group-item active-service" onclick="showDescription(event, 'pediatrics')">Pediatrics</li>
-                        <li class="list-group-item" onclick="showDescription(event, 'pediatric-surgery')">Pediatric Surgery</li>
-                        <li class="list-group-item" onclick="showDescription(event, 'gynaecology')">Gynaecology</li>
+                        <li class="list-group-item active-service" onclick="showDescription(event, 'pediatric-surgery')">Pediatric Surgery</li>
+                        <li class="list-group-item " onclick="showDescription(event, 'pediatrics')">Pediatric</li>
                         <li class="list-group-item" onclick="showDescription(event, 'obstetrics')">Obstetrics</li>
-                        <li class="list-group-item" onclick="showDescription(event, 'orthopedic')">Orthopedic</li>
-                        <li class="list-group-item" onclick="showDescription(event, 'ent-surgery')">ENT Surgery</li>
+                        <li class="list-group-item" onclick="showDescription(event, 'gynaecology')">Gynecology</li>
                         <li class="list-group-item" onclick="showDescription(event, 'neurology')">Neurology and Neuro Surgery</li>
+                        <li class="list-group-item" onclick="showDescription(event, 'ent-surgery')">ENT Surgery</li>
+                        <li class="list-group-item" onclick="showDescription(event, 'orthopedic')">Orthopedic</li>
+                        <li class="list-group-item" onclick="showDescription(event, 'dentistry')">Dentistry</li>
+                        <li class="list-group-item" onclick="showDescription(event, 'physiotherapy')">Physiotherapy</li>
                         <li class="list-group-item" onclick="showDescription(event, 'general-medicine')">General Medicine</li>
                         <li class="list-group-item" onclick="showDescription(event, 'general-surgery')">General Surgery</li>
 
@@ -115,22 +117,34 @@
                         <li class="list-group-item" onclick="showDescription(event, 'surgery-and-mplants')">Surgery and Implants</li>
                         <li class="list-group-item" onclick="showDescription(event, 'medical-counseling')">Medical Counseling</li>
                         
-                        <li class="list-group-item" onclick="showDescription(event, 'physiotherapy')">Physiotherapy</li>
                         <li class="list-group-item" onclick="showDescription(event, 'rehabilitation')">Rehabilitation</li>
                         
                         <li class="list-group-item" onclick="showDescription(event, 'pain-management')">Pain Management</li>
                         <li class="list-group-item" onclick="showDescription(event, 'respiratory-medicine')">Respiratory Medicine</li>
-                        
+                        <li class="list-group-item" onclick="showDescription(event, 'urology')">Urology</li>
                         <li class="list-group-item" onclick="showDescription(event, 'nephrology')">Nephrology</li>
                         <li class="list-group-item" onclick="showDescription(event, 'dermatology-and-cosmetic,')">Dermatology and Cosmetic,</li>
                         
-                        <li class="list-group-item" onclick="showDescription(event, 'dentistry')">Dentistry</li>
                         <li class="list-group-item" onclick="showDescription(event, 'oncosurgery')">Oncosurgery</li>
 
                     </ul>
                 </div>
                 <div class="service-description">
-                    <div id="pediatrics">
+                    
+                    <div id="pediatric-surgery" >
+                        <h2>Pediatric Surgery</h2>
+                        <p>Our pediatric surgery department provides specialized surgical care for children, addressing both congenital and acquired conditions. Our team of expert surgeons is dedicated to delivering the highest standard of care in a child-friendly environment.</p>
+                        <p>Our services include:</p>
+                        <ul>
+                            <li>Corrective surgery for congenital anomalies</li>
+                            <li>Minimally invasive surgery</li>
+                            <li>Emergency surgical care</li>
+                            <li>Postoperative care and rehabilitation</li>
+                            <li>Parental guidance and support</li>
+                        </ul>
+                    </div>
+
+                    <div id="pediatrics" style="display:none;">
                         <h2>Pediatrics</h2>
                         <p>Our pediatrics department offers comprehensive care for infants, children, and adolescents. We focus on preventive health care, the diagnosis and treatment of acute and chronic diseases, and the monitoring of physical and mental development.</p>
                         <p>Our services include:</p>
@@ -143,31 +157,8 @@
                             <li>Specialist referrals when necessary</li>
                         </ul>
                     </div>
-                    <div id="pediatric-surgery" style="display:none;">
-                        <h2>Pediatric Surgery</h2>
-                        <p>Our pediatric surgery department provides specialized surgical care for children, addressing both congenital and acquired conditions. Our team of expert surgeons is dedicated to delivering the highest standard of care in a child-friendly environment.</p>
-                        <p>Our services include:</p>
-                        <ul>
-                            <li>Corrective surgery for congenital anomalies</li>
-                            <li>Minimally invasive surgery</li>
-                            <li>Emergency surgical care</li>
-                            <li>Postoperative care and rehabilitation</li>
-                            <li>Parental guidance and support</li>
-                        </ul>
-                    </div>
-                    <div id="gynaecology" style="display:none;">
-                        <h2>Gynaecology and Obstetrics</h2>
-                        <p>Our gynaecology and obstetrics department provides comprehensive care for women's reproductive health. From routine check-ups to complex surgeries, our team is dedicated to ensuring the well-being of women at every stage of life.</p>
-                        <p>Our services include:</p>
-                        <ul>
-                            <li>Annual gynecological exams</li>
-                            <li>Pregnancy care and delivery</li>
-                            <li>Fertility treatments</li>
-                            <li>Menopause management</li>
-                            <li>Gynecological surgeries</li>
-                            <li>Family planning and contraceptive advice</li>
-                        </ul>
-                    </div>
+
+                    
                     <div id="obstetrics" style="display:none;">
                         <h2>Obstetrics</h2>
                         <p>Our obstetrics department is dedicated to providing comprehensive prenatal, childbirth, and postpartum care. We aim to support mothers through every stage of pregnancy, ensuring both mother and baby receive the best possible care.</p>
@@ -181,6 +172,37 @@
                             <li>Parental education classes</li>
                         </ul>
                     </div>
+
+                    <div id="gynaecology" style="display:none;">
+                        <h2>Gynaecology and Obstetrics</h2>
+                        <p>Our gynaecology and obstetrics department provides comprehensive care for women's reproductive health. From routine check-ups to complex surgeries, our team is dedicated to ensuring the well-being of women at every stage of life.</p>
+                        <p>Our services include:</p>
+                        <ul>
+                            <li>Annual gynecological exams</li>
+                            <li>Pregnancy care and delivery</li>
+                            <li>Fertility treatments</li>
+                            <li>Menopause management</li>
+                            <li>Gynecological surgeries</li>
+                            <li>Family planning and contraceptive advice</li>
+                        </ul>
+                    </div>
+
+                    
+                    <div id="neurology" style="display:none;">
+                        <h2>Neurology and Neuro Surgery</h2>
+                        <p>Our neurology and neurosurgery department offers comprehensive care for neurological disorders. We provide both surgical and non-surgical treatments for conditions affecting the brain, spine, and nervous system.</p>
+                        <p>Our services include:</p>
+                        <ul>
+                            <li>Stroke management</li>
+                            <li>Epilepsy treatment</li>
+                            <li>Brain and spine surgery</li>
+                            <li>Management of neurological disorders</li>
+                            <li>Neurorehabilitation</li>
+                            <li>Chronic pain management</li>
+                        </ul>
+                    </div>
+                    
+
                     <div id="orthopedic" style="display:none;">
                         <h2>Orthopedic</h2>
                         <p>Our orthopedic department offers advanced treatments for musculoskeletal issues. We provide care for injuries and disorders affecting the bones, joints, ligaments, tendons, and muscles.</p>
@@ -205,19 +227,6 @@
                             <li>Treatment for sleep apnea</li>
                             <li>Allergy testing and treatment</li>
                             <li>Pediatric ENT care</li>
-                        </ul>
-                    </div>
-                    <div id="neurology" style="display:none;">
-                        <h2>Neurology and Neuro Surgery</h2>
-                        <p>Our neurology and neurosurgery department offers comprehensive care for neurological disorders. We provide both surgical and non-surgical treatments for conditions affecting the brain, spine, and nervous system.</p>
-                        <p>Our services include:</p>
-                        <ul>
-                            <li>Stroke management</li>
-                            <li>Epilepsy treatment</li>
-                            <li>Brain and spine surgery</li>
-                            <li>Management of neurological disorders</li>
-                            <li>Neurorehabilitation</li>
-                            <li>Chronic pain management</li>
                         </ul>
                     </div>
                     <div id="general-medicine" style="display:none;">

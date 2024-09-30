@@ -68,7 +68,7 @@ jQuery(function($) {
         });
         $('.quantity-counter3').countTo({
             from: 0,
-            to: 10000,
+            to: 18000,
             speed: 2000,
             refreshInterval: 50,
             onComplete: function(value) {
