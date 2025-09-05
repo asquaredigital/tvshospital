@@ -285,39 +285,45 @@
 		.testimonials-patient-detail p { 
     color: #00953f !important;
 }
-.topbar { background:#fff; border-bottom:1px solid #eee; margin-top:6px; padding:6px 0; }
+/* ---------------- Topbar ---------------- */
+.topbar {
+  background:#fff;
+  border-bottom:1px solid #eee;
+  margin:0;
+  padding:6px 0;
+}
 .top-cta .btn { margin-left:8px; }
 
 /* ---------------- Buttons ---------------- */
 .btn-rounded {
-    border-radius: 25px;
-    padding: 8px 18px;
-    font-weight: 600;
-    text-transform: none;
+  border-radius:25px;
+  padding:8px 18px;
+  font-weight:600;
+  text-transform:none;
 }
 
 /* Blue outline (Find Doctor) */
 .btn-outline-blue {
-    color: #1a237e;
-    border: 2px solid #1a237e;
-    background: transparent;
-    transition: all 0.3s ease;
+  color:#1a237e;
+  border:2px solid #1a237e;
+  background:transparent;
+  transition:all 0.3s ease;
 }
 .btn-outline-blue:hover {
-    background: #1a237e;
-    color: #fff;
+  background:#1a237e;
+  color:#fff;
 }
 
 /* Green outline (Book Appointment) */
 .btn-outline-green {
-    color: #388e3c;
-    border: 2px solid #388e3c;
-    background: transparent;
-    transition: all 0.3s ease;
+  color:#388e3c;
+  border:2px solid #388e3c;
+  background:transparent;
+  transition:all 0.3s ease;
 }
 .btn-outline-green:hover {
-    background: #388e3c;
-    color: #fff;
+  background:#388e3c;
+  color:#fff;
 }
 
 /* Red solid (Emergency) */
@@ -326,24 +332,111 @@
 .btn-red:focus,
 .btn-red:active,
 .btn-red.active {
-    background: #d32f2f !important;
-    border: 2px solid #d32f2f !important;
-    color: #fff !important;
-    outline: none !important;
-    box-shadow: none !important;
+  background:#d32f2f !important;
+  border:2px solid #d32f2f !important;
+  color:#fff !important;
+  outline:none !important;
+  box-shadow:none !important;
 }
 
 /* ---------------- Navbar ---------------- */
-.navbar { margin:0 !important; border:none; min-height:90px; }
-.navbar-brand { height:80px; padding:5px 15px; }
-.navbar-brand img { height:80px; width:auto; display:block; }
+.navbar {
+  margin:0 !important;
+  border:none;
+  min-height:60px;
+}
+.navbar-brand {
+  height:60px;
+  padding:5px 15px;
+}
+.navbar-brand img {
+  height:60px;
+  width:auto;
+  display:block;
+}
 .navbar-nav > li > a {
-    padding-top:20px;
-    padding-bottom:20px;
-    line-height:20px;
-    font-weight:600;
+  padding-top:20px;
+  padding-bottom:20px;
+  line-height:20px;
+  font-weight:600;
 }
 .navbar-collapse { padding:0; }
+
+/* ---------------- Departments Mega Menu ---------------- */
+.navbar-nav > li.mega-dept { position:static; }
+
+.navbar-nav > li.mega-dept .mega-menu {
+  width:650px;                 /* reduced width */
+  padding:8px 12px !important; /* tighter padding */
+  border-top:2px solid #eee;
+  background:#fff;
+  left:70%;
+  transform:translateX(-50%);
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+  border-radius:4px;
+  display:none;                /* hidden by default, shown on hover */
+}
+
+/* Columns */
+.navbar-nav > li.mega-dept .mega-menu .row {
+  margin-left:-5px !important;
+  margin-right:-5px !important;
+}
+.navbar-nav > li.mega-dept .mega-menu .col-sm-6 {
+  width:50%;
+  float:left;
+  padding-left:5px !important;
+  padding-right:5px !important;
+}
+
+/* Headings */
+.mega-heading {
+  font-size:13px !important;
+  font-weight:700;
+  color:#1a237e;
+  margin:0 0 6px 0 !important;
+  padding:0 0 4px 0 !important;
+  border-bottom:1px solid #e9e9e9 !important;
+}
+
+/* Links */
+.navbar-nav > li.mega-dept .mega-menu .mega-col {
+  margin:0 !important;
+  padding:0 !important;
+}
+.navbar-nav > li.mega-dept .mega-menu .mega-col li {
+  margin:0 !important;
+  padding:0 !important;
+  border:none !important;
+}
+.navbar-nav > li.mega-dept .mega-menu .mega-col li + li {
+  margin-top:2px !important; /* small gap */
+}
+.navbar-nav > li.mega-dept .mega-menu .mega-col li a {
+  display:block;
+  padding:3px 0 !important;
+  line-height:1.25 !important;
+  font-size:14px;
+  font-weight:600;
+  color:#444;
+  border:none !important;
+  background:none !important;
+}
+.navbar-nav > li.mega-dept .mega-menu .mega-col li a:hover {
+  color:#388e3c; /* green hover */
+  text-decoration:none;
+}
+
+/* kill pseudo dividers some themes add */
+.navbar-nav > li.mega-dept .mega-menu .mega-col li a:before,
+.navbar-nav > li.mega-dept .mega-menu .mega-col li a:after {
+  display:none !important;
+}
+
+/* Show on hover (desktop) */
+@media (min-width:768px){
+  .navbar-nav > li.mega-dept:hover > .mega-menu { display:block; }
+}
 
 /* ---------------- Mobile ---------------- */
 @media (max-width:767px){
@@ -353,9 +446,22 @@
 
   /* Shrink navbar + logo */
   #header .navbar { min-height:54px; }
-  #header .navbar-brand { height:58px; padding:6px 10px; }
-  #header .navbar-brand img { max-height:46px; height:auto; width:auto; }
+  #header .navbar-brand { height:48px; padding:6px 10px; }
+  #header .navbar-brand img { max-height:36px; height:auto; width:auto; }
   #header .navbar-toggle { margin-top:10px; margin-bottom:10px; }
+
+  /* Mega menu full width stacked */
+  .navbar-nav > li.mega-dept { position:relative; }
+  .navbar-nav > li.mega-dept .mega-menu {
+    width:100%;
+    min-width:0;
+    left:0;
+    transform:none;
+    padding:10px 15px;
+    box-shadow:none;
+    border-radius:0;
+  }
+  .navbar-nav > li.mega-dept .col-sm-6 { width:100%; float:none; }
 }
 
 
