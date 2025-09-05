@@ -285,7 +285,81 @@
 		.testimonials-patient-detail p { 
     color: #00953f !important;
 }
+.topbar { background:#fff; border-bottom:1px solid #eee; margin:0; padding:6px 0; }
+.top-cta .btn { margin-left:8px; }
+
+/* ---------------- Buttons ---------------- */
+.btn-rounded {
+    border-radius: 25px;
+    padding: 8px 18px;
+    font-weight: 600;
+    text-transform: none;
+}
+
+/* Blue outline (Find Doctor) */
+.btn-outline-blue {
+    color: #1a237e;
+    border: 2px solid #1a237e;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+.btn-outline-blue:hover {
+    background: #1a237e;
+    color: #fff;
+}
+
+/* Green outline (Book Appointment) */
+.btn-outline-green {
+    color: #388e3c;
+    border: 2px solid #388e3c;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+.btn-outline-green:hover {
+    background: #388e3c;
+    color: #fff;
+}
+
+/* Red solid (Emergency) */
+.btn-red,
+.btn-red:hover,
+.btn-red:focus,
+.btn-red:active,
+.btn-red.active {
+    background: #d32f2f !important;
+    border: 2px solid #d32f2f !important;
+    color: #fff !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* ---------------- Navbar ---------------- */
+.navbar { margin:0 !important; border:none; min-height:60px; }
+.navbar-brand { height:60px; padding:5px 15px; }
+.navbar-brand img { height:60px; width:auto; display:block; }
+.navbar-nav > li > a {
+    padding-top:20px;
+    padding-bottom:20px;
+    line-height:20px;
+    font-weight:600;
+}
+.navbar-collapse { padding:0; }
+
+/* ---------------- Mobile ---------------- */
+@media (max-width:767px){
+  /* Top buttons center */
+  .top-cta { text-align:center; }
+  .top-cta .btn { margin:4px 6px; display:inline-block; }
+
+  /* Shrink navbar + logo */
+  #header .navbar { min-height:54px; }
+  #header .navbar-brand { height:58px; padding:6px 10px; }
+  #header .navbar-brand img { max-height:46px; height:auto; width:auto; }
+  #header .navbar-toggle { margin-top:10px; margin-bottom:10px; }
+}
+
 	</style>
+	
 </head>
 
 <body class="fixed-header">
