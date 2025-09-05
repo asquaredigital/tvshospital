@@ -346,11 +346,11 @@
   min-height:60px;
 }
 .navbar-brand {
-  height:60px;
+  height:90px;
   padding:5px 15px;
 }
 .navbar-brand img {
-  height:60px;
+  height:80px;
   width:auto;
   display:block;
 }
@@ -465,6 +465,78 @@
 }
 
 
+
+/* Container */
+.tvs-hero {
+  display:flex;
+  min-height:420px;
+  border-radius:0 0 12px 12px;
+  overflow:hidden;
+  margin-top: 300px;
+}
+
+/* Left magenta panel */
+.tvs-hero__left {
+  flex:0 0 48%;
+  background:#d81b60;
+  color:#fff;
+  display:flex;
+}
+.tvs-hero__content {
+  margin:auto 0;
+  padding:60px 40px;
+}
+.tvs-hero__content h1 {
+  font-size:40px;
+  font-weight:800;
+  line-height:1.2;
+  margin-bottom:16px;
+}
+.tvs-hero__content p {
+  font-size:20px;
+  font-weight:600;
+  margin:0;
+}
+
+/* Right image panel */
+.tvs-hero__right {
+  flex:1;
+  position:relative;
+}
+.tvs-hero__img {
+  position:absolute;
+  top:0; left:0; right:0; bottom:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* Decorative swoosh overlay */
+.tvs-hero__overlay {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: radial-gradient(ellipse at left center,
+              rgba(216,27,96,0.65) 0%,
+              rgba(216,27,96,0.3) 40%,
+              transparent 70%);
+  pointer-events:none;
+}
+
+/* Responsive */
+@media(max-width:991px){
+  .tvs-hero { flex-direction:column; }
+  .tvs-hero__left, .tvs-hero__right { flex:none; width:100%; }
+  .tvs-hero__right { height:240px; }
+  .tvs-hero__content { padding:40px 20px; text-align:center; }
+  .tvs-hero__content h1 { font-size:28px; }
+  .tvs-hero__content p { font-size:16px; }
+}
+
+
+
 	</style>
 	
 </head>
@@ -492,7 +564,23 @@
 
 			<!-- Main Banner
 		============================================= -->
-			
+			<!-- HERO -->
+<section class="tvs-hero" >
+  <!-- Left Magenta Panel -->
+  <div class="tvs-hero__left">
+    <div class="tvs-hero__content">
+      <h1>BEST HOSPITAL IN<br>TRICHY, CANTONMENT</h1>
+      <p>Experience world-class care at Kauvery hospital</p>
+    </div>
+  </div>
+
+  <!-- Right Image Panel -->
+  <div class="tvs-hero__right">
+    <img src="images/tvs.jpg" alt="Hospital Exterior" class="tvs-hero__img">
+    <div class="tvs-hero__overlay"></div>
+  </div>
+</section>
+
 
 
 
