@@ -1,760 +1,382 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 
-<!-- Mirrored from wahabali.com/work/medicom/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Jun 2024 11:35:53 GMT -->
-
 <head>
-	<base #href="" />
-	<!-- Basic Page Needs
-
-     ================================================== -->
-
-	<meta charset="utf-8">
-
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
-	<link rel="icon" type="image/png" href="images/favicon.png">
-
-	<title>Dr. TVS Hosptial</title>
-
-	<meta name="description" content="">
-
-	<meta name="keywords" content="">
-
-	<meta name="author" content="">
-
-
-	<!-- Mobile Specific Metas
-    
-     ================================================== -->
-
-	<meta name="viewport"
-		content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-
-	<meta name="format-detection" content="telephone=no">
-
-
-	<!-- Web Font
-	 ============================================= -->
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet">
-
-
-	<!-- CSS
-    
-     ================================================== -->
-
-
-	<!-- Theme Color
-	============================================= -->
-	<link rel="stylesheet" id="color" href="css/blue.css">
-
-
-	<!-- Medicom Style
-	============================================= -->
-	<link rel="stylesheet" href="css/medicom.css">
-
-
-	<!-- This page
-	============================================= -->
-	<link href="css/revolution_style.css" rel="stylesheet">
-	<link href="css/settings.css" rel="stylesheet">
-
-
-	<!-- Bootstrap
-	============================================= -->
-	<link rel="stylesheet" href="css/bootstrap.css">
-
-
-	<!-- Theme Skin
-	============================================= -->
-	<link href="css/light.css" rel="stylesheet" id="choose-theme">
-
-
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-
-
-
-	<!-- Header Scripts
-    
-    ================================================== -->
-
-	<script src="js/modernizr-2.6.2.min.js"></script>
-	<script src="js/jquery.js"></script>
-
-
-
-
-	<script>
-		$(function () {
-			$("#header1").load("header.html", function () {
-				var url = window.location.pathname;
-				console.log("Current URL Pathname:", url);
-				var navItems = document.querySelectorAll('#navbar-nav li a');
-
-				console.log("Number of nav items found:", navItems.length);
-
-				navItems.forEach(function (item) {
-					console.log("Checking URL:", item.getAttribute('href'));
-					if (url.includes(item.getAttribute('href'))) {
-						console.log("Match found:", item.getAttribute('href'));
-						item.parentElement.classList.add('active');
-					} else {
-						item.parentElement.classList.remove('active');
-					}
-				});
-			});
-			$("#footer").load("footer.html");
-
-
-		});
-	</script>
-	<style>
-		.tp-banner-container {
-			width: 100% !important;
-		}
-
-		@media (min-width: 1300px) {
-			.minn {
-				display: none;
-			}
-
-		}
-
-		 
-
-
-		@media (max-width: 1300px) {
-			.caption strong {
-				font-weight: 700;
-				margin-left: 20px;
-				font-size: 25px;
-			}
-
-		}
-
-		@media (max-width: 750px) {
-			.caption strong {
-				font-weight: 700;
-				margin-left: 20px;
-				font-size: 25px;
-			}
-		}
- 
-		@media (max-width: 500px) {
-
-			.caption strong {
-				font-weight: 700;
-				margin-left: 0px;
-				font-size: 12px;
-			}
-
-			
-			.caption img {
-				margin-left: 30px;
-			}
-
-			.caption a {
-				margin-left: 2px;
-				margin-top: 0px;
-			}
-
-			.caption p {
-				font-size: 1.3rem !important;
-				margin-left: 20px;
-				line-height: 0;
-				display:none;
-			}
-		}
-
-
-		@media (min-width:500px) and (max-width: 850px) {
-
-			.caption strong {
-				font-weight: 700;
-				margin-left: 0px;
-				font-size: 15px;
-			}
-
-
-			.caption img {
-				margin-left: 20px;
-			}
-
-			.caption a {
-				margin-left: 0px;
-				margin-top: 25px;
-			}
-
-			.caption p {
-				font-size: 10px !important;
-				margin-left: 0px;
-				line-height: 18px;
-	/* display: none; */
-			}
-		}
-
-		@media (min-width:300px) and (max-width: 420px) {
-
-.caption strong {
-	font-weight: 700;
-	margin-left: 0px;
-	font-size: 15px;
-}
-
-
-.caption img {
-	margin-left: 20px;
-}
-
-.caption a {
-	margin-left: 0px;
-	margin-top: 25px;
-}
-
-.caption p {
-	font-size: 9px !important;
-	margin-left: 0px;
-	line-height: 18px;
-	display: none;
-}
-}
-
-		@media (min-width: 850px) {
-
-			.caption strong {
-				font-weight: 700;
-				margin-left: 70px;
-				font-size: 22px;
-			}
-
-
-			.caption img {
-				margin-left: 70px;
-			}
-
-			.caption a {
-				margin-left: 70px;
-				/* margin-top: 25px; */
-			}
-
-			.caption p {
-				font-size: 1.6rem !important;
-				margin-left: 70px;
-				line-height: 25px;
-			}
-		}
-
-		.why-choose-us {
-			background-color: #ffffff;
-			padding: 60px 0;
-		}
-
-		.why-choose-us h2 {
-			text-align: center;
-			margin-bottom: 40px;
-		}
-
-		.why-choose-us h1 {
-			text-align: center;
-			margin-bottom: 40px;
-			color: #00953f;
-		}
-
-		.feature-box {
-			text-align: center;
-			padding: 20px;
-			border: 1px solid #dee2e6;
-			border-radius: 10px;
-			background-color: #fff;
-			margin-bottom: 30px;
-		}
-
-		.feature-box h4 {
-			margin-bottom: 15px;
-		}
-
-		.insurance h5 {
-			font-size: 15px;
-		}
-
-		.testimonials-patient-detail p { 
-    color: #00953f !important;
-}
-/* ---------------- Topbar ---------------- */
-.topbar {
+  <base #href="" />
+  <!-- Basic Page Needs -->
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <title>Dr. TVS Hospital</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas -->
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- Web Font -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" id="color" href="css/blue.css">
+  <link rel="stylesheet" href="css/medicom.css">
+  <link href="css/revolution_style.css" rel="stylesheet">
+  <link href="css/settings.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link href="css/light.css" rel="stylesheet" id="choose-theme">
+
+  <!-- HTML5 Shim and Respond.js IE8 support -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Header Scripts -->
+  <script src="js/modernizr-2.6.2.min.js"></script>
+  <script src="js/jquery.js"></script>
+
+  <script>
+    $(function () {
+      $("#header1").load("header.html", function () {
+        var url = window.location.pathname;
+        var navItems = document.querySelectorAll('#navbar-nav li a');
+
+        navItems.forEach(function (item) {
+          if (url.includes(item.getAttribute('href'))) {
+            item.parentElement.classList.add('active');
+          } else {
+            item.parentElement.classList.remove('active');
+          }
+        });
+      });
+      $("#footer").load("footer.html");
+    });
+  </script>
+
+  <style>
+    .tp-banner-container {
+      width: 100% !important;
+    }
+
+    @media (min-width: 1300px) {
+      .minn {
+        display: none;
+      }
+    }
+
+    @media (max-width: 1300px) {
+      .caption strong {
+        font-weight: 700;
+        margin-left: 20px;
+        font-size: 25px;
+      }
+    }
+
+    @media (max-width: 750px) {
+      .caption strong {
+        font-weight: 700;
+        margin-left: 20px;
+        font-size: 25px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .caption strong {
+        font-weight: 700;
+        margin-left: 0px;
+        font-size: 12px;
+      }
+
+      .caption img {
+        margin-left: 30px;
+      }
+
+      .caption a {
+        margin-left: 2px;
+        margin-top: 0px;
+      }
+
+      .caption p {
+        font-size: 1.3rem !important;
+        margin-left: 20px;
+        line-height: 0;
+        display: none;
+      }
+    }
+
+    @media (min-width: 500px) and (max-width: 850px) {
+      .caption strong {
+        font-weight: 700;
+        margin-left: 0px;
+        font-size: 15px;
+      }
+
+      .caption img {
+        margin-left: 20px;
+      }
+
+      .caption a {
+        margin-left: 0px;
+        margin-top: 25px;
+      }
+
+      .caption p {
+        font-size: 10px !important;
+        margin-left: 0px;
+        line-height: 18px;
+      }
+    }
+
+    @media (min-width: 300px) and (max-width: 420px) {
+      .caption strong {
+        font-weight: 700;
+        margin-left: 0px;
+        font-size: 15px;
+      }
+
+      .caption img {
+        margin-left: 20px;
+      }
+
+      .caption a {
+        margin-left: 0px;
+        margin-top: 25px;
+      }
+
+      .caption p {
+        font-size: 9px !important;
+        margin-left: 0px;
+        line-height: 18px;
+        display: none;
+      }
+    }
+
+    @media (min-width: 850px) {
+      .caption strong {
+        font-weight: 700;
+        margin-left: 70px;
+        font-size: 22px;
+      }
+
+      .caption img {
+        margin-left: 70px;
+      }
+
+      .caption a {
+        margin-left: 70px;
+      }
+
+      .caption p {
+        font-size: 1.6rem !important;
+        margin-left: 70px;
+        line-height: 25px;
+      }
+    }
+
+    .why-choose-us {
+      background-color: #ffffff;
+      padding: 60px 0;
+    }
+
+    .why-choose-us h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #00953f;
+    }
+
+    .feature-box {
+      text-align: center;
+      padding: 20px;
+      border: 1px solid #dee2e6;
+      border-radius: 10px;
+      background-color: #fff;
+      margin-bottom: 30px;
+    }
+
+    .feature-box h4 {
+      margin-bottom: 15px;
+    }
+
+    .insurance h5 {
+      font-size: 15px;
+    }
+
+    .testimonials-patient-detail p {
+      color: #00953f !important;
+    }
+
+	/* === Split Banner === */
+.banner-split{
   background:#fff;
-  border-bottom:1px solid #eee;
-  margin:0;
-  padding:8px 0;
 }
-.top-cta .btn { margin-left:8px; }
-
-/* ---------------- Buttons ---------------- */
-.btn-rounded {
-  border-radius:25px;
-  padding:8px 18px;
-  font-weight:600;
-  text-transform:none;
+.banner-split .banner-inner{
+  max-width:1200px;           /* align with site width */
+  margin:0 auto;
+  padding:40px 15px;
+  display:flex;
+  align-items:center;
+  gap:32px;
+  flex-wrap:wrap;             /* stack on small screens */
 }
-
-/* Blue outline (Find Doctor) */
-.btn-outline-blue {
-  color:#1a237e;
-  border:2px solid #1a237e;
-  background:transparent;
-  transition:all 0.3s ease;
+.banner-split .banner-col{
+  flex:1 1 420px;             /* two cols on wide, stack on narrow */
+  min-width:280px;
 }
-.btn-outline-blue:hover {
-  background:#1a237e;
-  color:#fff;
+.banner-split .banner-text{
+  color:#00953f;
+  line-height:1.35;
 }
-
-/* Green outline (Book Appointment) */
-.btn-outline-green {
-  color:#388e3c;
-  border:2px solid #388e3c;
-  background:transparent;
-  transition:all 0.3s ease;
+.banner-split .banner-text *{
+  text-transform:none !important;   /* prevent theme uppercase */
+  letter-spacing:normal !important;
 }
-.btn-outline-green:hover {
-  background:#388e3c;
-  color:#fff;
-}
-
-/* Red solid (Emergency) */
-.btn-red,
-.btn-red:hover,
-.btn-red:focus,
-.btn-red:active,
-.btn-red.active {
-  background:#d32f2f !important;
-  border:2px solid #d32f2f !important;
-  color:#fff !important;
-  outline:none !important;
-  box-shadow:none !important;
-}
-
-/* ---------------- Navbar ---------------- */
-.navbar {
-  margin:0 !important;
-  border:none;
-  min-height:60px;
-}
-.navbar-brand {
-  height:90px;
-  padding:5px 15px;
-}
-.navbar-brand img {
-  height:80px;
-  width:auto;
-  display:block;
-}
-.navbar-nav > li > a {
-  padding-top:20px;
-  padding-bottom:20px;
-  line-height:20px;
-  font-weight:600;
-}
-.navbar-collapse { padding:0; }
-
-/* ---------------- Departments Mega Menu ---------------- */
-.navbar-nav > li.mega-dept { position:static; }
-
-.navbar-nav > li.mega-dept .mega-menu {
-  width:650px;                 /* reduced width */
-  padding:8px 12px !important; /* tighter padding */
-  border-top:2px solid #eee;
-  background:#fff;
-  left:70%;
-  transform:translateX(-50%);
-  box-shadow:0 4px 10px rgba(0,0,0,0.08);
-  border-radius:4px;
-  display:none;                /* hidden by default, shown on hover */
-}
-
-/* Columns */
-.navbar-nav > li.mega-dept .mega-menu .row {
-  margin-left:-5px !important;
-  margin-right:-5px !important;
-}
-.navbar-nav > li.mega-dept .mega-menu .col-sm-6 {
-  width:50%;
-  float:left;
-  padding-left:5px !important;
-  padding-right:5px !important;
-}
-
-/* Headings */
-.mega-heading {
-  font-size:13px !important;
+.banner-split .banner-text h1{
+  margin:0 0 12px;
   font-weight:700;
-  color:#1a237e;
-  margin:0 0 6px 0 !important;
-  padding:0 0 4px 0 !important;
-  border-bottom:1px solid #e9e9e9 !important;
+  font-size:32px;
+  color: #302582;
 }
-
-/* Links */
-.navbar-nav > li.mega-dept .mega-menu .mega-col {
-  margin:0 !important;
-  padding:0 !important;
-}
-.navbar-nav > li.mega-dept .mega-menu .mega-col li {
-  margin:0 !important;
-  padding:0 !important;
-  border:none !important;
-}
-.navbar-nav > li.mega-dept .mega-menu .mega-col li + li {
-  margin-top:2px !important; /* small gap */
-}
-.navbar-nav > li.mega-dept .mega-menu .mega-col li a {
-  display:block;
-  padding:3px 0 !important;
-  line-height:1.25 !important;
-  font-size:14px;
-  font-weight:600;
-  color:#444;
-  border:none !important;
-  background:none !important;
-}
-.navbar-nav > li.mega-dept .mega-menu .mega-col li a:hover {
-  color:#388e3c; /* green hover */
-  text-decoration:none;
-}
-
-/* kill pseudo dividers some themes add */
-.navbar-nav > li.mega-dept .mega-menu .mega-col li a:before,
-.navbar-nav > li.mega-dept .mega-menu .mega-col li a:after {
-  display:none !important;
-}
-
-/* Show on hover (desktop) */
-@media (min-width:768px){
-  .navbar-nav > li.mega-dept:hover > .mega-menu { display:block; }
-}
-
-/* ---------------- Mobile ---------------- */
-@media (max-width:767px){
-  /* Top buttons center */
-  .top-cta { text-align:center; }
-  .top-cta .btn { margin:4px 6px; display:inline-block; }
-
-  /* Shrink navbar + logo */
-  #header .navbar { min-height:54px; }
-  #header .navbar-brand { height:48px; padding:6px 10px; }
-  #header .navbar-brand img { max-height:36px; height:auto; width:auto; }
-  #header .navbar-toggle { margin-top:10px; margin-bottom:10px; }
-
-  /* Mega menu full width stacked */
-  .navbar-nav > li.mega-dept { position:relative; }
-  .navbar-nav > li.mega-dept .mega-menu {
-    width:100%;
-    min-width:0;
-    left:0;
-    transform:none;
-    padding:10px 15px;
-    box-shadow:none;
-    border-radius:0;
-  }
-  .navbar-nav > li.mega-dept .col-sm-6 { width:100%; float:none; }
-}
-
-
-
-/* Container */
-.tvs-hero {
-  display:flex;
-  min-height:420px;
-  border-radius:0 0 12px 12px;
-  overflow:hidden;
-  margin-top: 300px;
-}
-
-/* Left magenta panel */
-.tvs-hero__left {
-  flex:0 0 48%;
-  background:#d81b60;
-  color:#fff;
-  display:flex;
-}
-.tvs-hero__content {
-  margin:auto 0;
-  padding:60px 40px;
-}
-.tvs-hero__content h1 {
-  font-size:40px;
-  font-weight:800;
-  line-height:1.2;
-  margin-bottom:16px;
-}
-.tvs-hero__content p {
-  font-size:20px;
-  font-weight:600;
+.banner-split .banner-text p{
   margin:0;
+  font-size:18px;
 }
 
-/* Right image panel */
-.tvs-hero__right {
-  flex:1;
-  position:relative;
-}
-.tvs-hero__img {
-  position:absolute;
-  top:0; left:0; right:0; bottom:0;
+/* Image */
+.banner-split .banner-visual img{
   width:100%;
-  height:100%;
-  object-fit:cover;
+  height:auto;
+  display:block;
+  border-radius:12px;          /* optional, remove if unwanted */
 }
 
-/* Decorative swoosh overlay */
-.tvs-hero__overlay {
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background: radial-gradient(ellipse at left center,
-              rgba(216,27,96,0.65) 0%,
-              rgba(216,27,96,0.3) 40%,
-              transparent 70%);
-  pointer-events:none;
+/* Tablet */
+@media (max-width: 992px){
+  .banner-split .banner-text h1{ font-size:30px; }
+  .banner-split .banner-text p { font-size:16px; }
 }
 
-/* Responsive */
-@media(max-width:991px){
-  .tvs-hero { flex-direction:column; }
-  .tvs-hero__left, .tvs-hero__right { flex:none; width:100%; }
-  .tvs-hero__right { height:240px; }
-  .tvs-hero__content { padding:40px 20px; text-align:center; }
-  .tvs-hero__content h1 { font-size:28px; }
-  .tvs-hero__content p { font-size:16px; }
+/* Mobile */
+@media (max-width: 600px){
+  .banner-split .banner-inner{ padding:28px 15px; }
+  .banner-split .banner-text{ text-align:center; }
+  .banner-split .banner-text h1{ font-size:22px; }
+  .banner-split .banner-text p { font-size:14px; }
 }
 
 
-
-	</style>
 	
+  </style>
 </head>
 
 <body class="fixed-header">
 
+  <div id="wrapper" class="clearfix">
 
+    <!-- Header -->
+    <header id="header1"></header>
 
+    <div id="content-index">
 
+      <!-- Main Banner -->
+   
 
-	<!-- Document Wrapper
-		============================================= -->
-	<div id="wrapper" class="clearfix">
-
-
-		<!-- Header
-		============================================= -->
-		<header id="header1">
-
-		</header>
-
-
-		<div id="content-index">
-
-
-			<!-- Main Banner
-		============================================= -->
-			<!-- HERO -->
-<section class="tvs-hero" >
-  <!-- Left Magenta Panel -->
-  <div class="tvs-hero__left">
-    <div class="tvs-hero__content">
-      <h1>BEST HOSPITAL IN<br>TRICHY, CANTONMENT</h1>
-      <p>Experience world-class care at Kauvery hospital</p>
+      <!-- Split Banner -->
+<section class="banner-split">
+  <div class="banner-inner">
+    <!-- LEFT: Text -->
+    <div class="banner-col banner-text">
+      <h1>Multispeciality high-tech hospital in the delta region</h1>
+      <p>Healthcare services at the entry point of Thanjavur</p>
     </div>
-  </div>
 
-  <!-- Right Image Panel -->
-  <div class="tvs-hero__right">
-    <img src="images/tvs.jpg" alt="Hospital Exterior" class="tvs-hero__img">
-    <div class="tvs-hero__overlay"></div>
+    <!-- RIGHT: Image -->
+    <div class="banner-col banner-visual">
+      <img src="images/tvs.jpg" alt="Dr. TVS Multispeciality Hospital">
+    </div>
   </div>
 </section>
 
+	
 
 
 
+      <!-- Home Boxes -->
+      <div class="row text-center no-margin">
+        <div class="col-md-4 bg-default">
+          <div class="home-box">
+            <span class="glyphicon glyphicon-tint"></span>
+            <h3>About Us</h3>
+            <p>Dr. TVS Multispeciality Hospital has a great reputation in the industry for treating children and keeping them in the best of health</p>
+            <a href="about-us.html" class="btn-rounded btn-bordered">Read more</a>
+          </div>
+        </div>
 
-			<!-- Home Boxes
+        <div class="col-md-4">
+          <div class="home-box opening-hours clearfix">
+            <span class="glyphicon glyphicon-tint" style="color: #302582;"></span>
+            <h3>1 Year Anniversary</h3>
+            <p class="mt-4">1000s of successful surgeries and 18000 outpatients.</p>
+            <img src="images/events/oneyearjubilee/1yearlogo.JPG" width="105px" height="100px">
+          </div>
+        </div>
+
+        <div class="col-md-4 bg-default">
+          <div class="home-box">
+            <span class="glyphicon glyphicon-tint"></span>
+            <h3>Emergency Care</h3>
+            <p>We are available 24/7</p>
+            <p>Phone : 04362 - 451900, 230055, 99947 16276, 93635 14411</p>
+            <p>Address : No.1 Nagai Road,(Near Tholkappiar Square, On The Way To Mariyaman Koil), Thanjavur - 613 001</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why Choose Us -->
+      <div class="container why-choose-us">
+        <h1>Why Choose Us</h1>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="feature-box">
+              <h4>Experienced Doctors</h4>
+              <p>Our team consists of Pediatric Surgeon, ENT, Obstetrics, Gynecologist, Fertility Specialist, Hip and Knee Replacement Surgeon, Neuro Surgeon, Physicians, Physiotherapists, Maxillo Dental Surgeon.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-box">
+              <h4>Advanced Technology</h4>
+              <p>We use the latest technology for accurate diagnosis and effective treatment.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-box">
+              <h4>All Services under One Roof</h4>
+              <p>We are providing all kind of treatments under one roof</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="feature-box">
+              <h4>Patient-Friendly</h4>
+              <p>We prioritize our patients' needs and ensure their comfort throughout the treatment process.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-box">
+              <h4>Convenient Location</h4>
+              <p>Our clinic is easily accessible, which is on Thanjavur-Nagapattinam state highway making it convenient for you to visit us.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Appointment
 		============================================= -->
-			<div class="row text-center no-margin">
-
-				<div class="col-md-4 bg-default">
-
-					<div class="home-box">
-						<span class="glyphicon glyphicon-tint"></span>
-						<h3>About Us</h3>
-						<p>Dr. TVS Multispeciality Hospital has a great reputation in the industry for treating children
-							and keeping them in the best of health</p>
-						<a href="about-us.html" class="btn-rounded btn-bordered">Read more</a>
-					</div>
-
-				</div>
-
-				<div class="col-md-4">
-
-					<div class="home-box opening-hours clearfix">
-
-						<span class="glyphicon glyphicon-tint" style="color: #302582;"></span>
-						<h3>1 Year Anniversary</h3>
-						<p class="mt-4">1000s of
-							successful surgeries and 18000 outpatients.
-							</p>
-							<img src="images/events/oneyearjubilee/1yearlogo.JPG" width="105px" height="100px">
-
-						<!-- <ul class="list-unstyled">
-							<li class="clearfix">
-								<span>
-									Monday - Friday
-								</span>
-								<div class="value">
-									8.00 - 16.00
-								</div>
-							</li>
-							<li class="clearfix">
-								<span>
-									Saturday
-								</span>
-								<div class="value">
-									9.30 - 15.30
-								</div>
-							</li>
-							<li class="clearfix">
-								<span>
-									Sunday
-								</span>
-								<div class="value">
-									9.30 - 17.00
-								</div>
-							</li>
-						</ul> -->
-
-					</div>
-
-				</div>
-
-				<div class="col-md-4 bg-default">
-
-					<div class="home-box">
-						<span class="glyphicon glyphicon-tint"></span>
-						<h3>Emergency Care</h3>
-						<p>We are available 24/7</p>
-						<p>Phone : 04362 - 451900, 230055,99947 16276, 93635 14411  </p> 
-						<p>Address : No.1 Nagai Road,(Near Tholkappiar Square, On The Way To Mariyaman Koil),
-							Thanjavur - 613 001</p>
-
-					<a href="tel:+919829282999" class="btn-rounded btn-bordered">Call Now</a>
-					</div>
-
-				</div>
-
-			</div>
-
-			<div class="container why-choose-us">
-				<h1>Why Choose Us</h1>
-				<div class="row">
-					<div class="col-md-4">
-						<div class="feature-box">
-							<h4>Experienced Doctors</h4>
-							<p>Our team consists of Pediatric Surgeon, ENT, Obstetrics,
-								Gynecologist, Fertility Specialist, Hip and Knee Replacement Surgeon, Neuro
-								Surgeon, Physicians, Physiotherapists, Maxillo Dental Surgeon.</p>
- 						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="feature-box">
-							<h4>Advanced Technology</h4>
-							<p>We use the latest technology for accurate diagnosis and effective treatment.</p>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="feature-box">
-							<h4>All Services under One Roof</h4>
-							<p>We are providing all kind of treatments under one roof</p>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4">
-						<div class="feature-box">
-							<h4>Patient-Friendly</h4>
-							<p>We prioritize our patients' needs and ensure their comfort throughout the treatment
-								process.</p>
-						</div>
-					</div>
-				
-					<div class="col-md-4">
-						<div class="feature-box">
-							<h4>Convenient Location</h4>
-							<p>Our clinic is easily accessible, which is on Thanjavur-Nagapattinam state highway making it convenient for you to visit us.
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- Appointment
-		============================================= -->
-			<section class="appointment-sec text-center">
-
-				<div class="container">
-
-					<h1>Make an appointment</h1>
-					<p class="lead">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-						euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-
-					<div class="row">
-
-						<div class="col-md-6">
-							<figure><img src="images/appointment-img.jpg" alt="image" title="Appointment image"
-									class="img-responsive lady1"></figure>
-						</div>
-
-						<div class="col-md-6">
-							<div class="appointment-form clearfix">
-								<div class="success" id="message-app" style="display:none;"></div>
-
-								<form name="appoint_form" id="appoint_form" method="post" action=" "
-									onSubmit="validateAppoint1(event);">
-									<input type="text" name="app_fname" id="app_fname" placeholder="First Name"
-										onKeyPress="removeChecks();">
-									<input type="text" name="app_lname" id="app_lname" placeholder="Last Name"
-										onKeyPress="removeChecks();">
-									<input type="email" name="app_email_address" id="app_email_address"
-										placeholder="Email Address" onKeyPress="removeChecks();">
-									<input type="text" name="app_phone" id="app_phone" placeholder="Phone No">
-									<input type="text" name="datepicker" id="datepicker" placeholder="Appointment Date"
-										onClick="removeChecks();">
-									<select name="gender" id="gender">
-										<option>Male</option>
-										<option>Female</option>
-										<option>Child</option>
-									</select>
-									<textarea placeholder="Message" name="app_msg" id="app_msg"></textarea>
-									<input type="submit" value="submit" class="btn btn-default btn-rounded">
-								</form>
-
-
-
-
-							</div>
-						</div>
-
-					</div>
-
-				</div>
-
-			</section>
-
+		
 
 
 			<!-- About
@@ -801,124 +423,7 @@
 
 			<!-- Team
 		============================================= -->
-			<section class="meet-the-doctors no-bg-img team-carousel">
-
-				<div class="container">
-
-					<h2 class="light bordered">Our <span>Team</span></h2>
-
-					<div id="team-carousel" class="owl-carousel wrapper-padding-none">
-
-						<div class="team-member">
-							<div class="team-thumb">
-								<img src="images/team-member-img1.jpg" class="img-rounded" alt="">
-								<div class="links"><a href="#."><i class="fa fa-facebook"></i></a>
-									<a href="#."><i class="fa fa-twitter"></i></a>
-									<a href="#."><i class="fa fa-google-plus"></i></a>
-								</div>
-							</div>
-							<h5><a href="#.">J. Vicente Gaby</a><br><span>senior doctor at medicom</span></h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec eros eget nisl
-								fringilla commodo. Maecenas ornare, augue ut ultricies tristique, enim lectus pretium
-								quam, quis bibendum metus tellus sed magna. Donec eu dolor.</p>
-							<a href="member-detail.html"><em>- View Profile</em></a>
-						</div>
-
-						<div class="team-member">
-							<div class="team-thumb">
-								<img src="images/team-member-img2.jpg" class="img-rounded" alt="">
-								<div class="links"><a href="#."><i class="fa fa-facebook"></i></a>
-									<a href="#."><i class="fa fa-twitter"></i></a>
-									<a href="#."><i class="fa fa-google-plus"></i></a>
-								</div>
-							</div>
-							<h5><a href="#.">J. Vicente Gaby</a><br><span>senior doctor at medicom</span></h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec eros eget nisl
-								fringilla commodo. Maecenas ornare, augue ut ultricies tristique, enim lectus pretium
-								quam, quis bibendum metus tellus sed magna. Donec eu dolor.</p>
-							<a href="member-detail.html"><em>- View Profile</em></a>
-						</div>
-
-						<div class="team-member">
-							<div class="team-thumb">
-								<img src="images/team-member-img3.jpg" class="img-rounded" alt="">
-								<div class="links"><a href="#."><i class="fa fa-facebook"></i></a>
-									<a href="#."><i class="fa fa-twitter"></i></a>
-									<a href="#."><i class="fa fa-google-plus"></i></a>
-								</div>
-							</div>
-							<h5><a href="#.">J. Vicente Gaby</a><br><span>senior doctor at medicom</span></h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec eros eget nisl
-								fringilla commodo. Maecenas ornare, augue ut ultricies tristique, enim lectus pretium
-								quam, quis bibendum metus tellus sed magna. Donec eu dolor.</p>
-							<a href="member-detail.html"><em>- View Profile</em></a>
-						</div>
- 
-						<div class="team-member">
-							<div class="team-thumb">
-								<img src="images/team-member-img1.jpg" class="img-rounded" alt="">
-								<div class="links"><a href="#."><i class="fa fa-facebook"></i></a>
-									<a href="#."><i class="fa fa-twitter"></i></a>
-									<a href="#."><i class="fa fa-google-plus"></i></a>
-								</div>
-							</div>
-							<h5><a href="#.">J. Vicente Gaby</a><br><span>senior doctor at medicom</span></h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec eros eget nisl
-								fringilla commodo. Maecenas ornare, augue ut ultricies tristique, enim lectus pretium
-								quam, quis bibendum metus tellus sed magna. Donec eu dolor.</p>
-							<a href="member-detail.html"><em>- View Profile</em></a>
-						</div>
-						
-						<div class="team-member">
-							<div class="team-thumb">
-								<img src="images/team-member-img2.jpg" class="img-rounded" alt="">
-								<div class="links"><a href="#."><i class="fa fa-facebook"></i></a>
-									<a href="#."><i class="fa fa-twitter"></i></a>
-									<a href="#."><i class="fa fa-google-plus"></i></a>
-								</div>
-							</div>
-							<h5><a href="#.">J. Vicente Gaby</a><br><span>senior doctor at medicom</span></h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec eros eget nisl
-								fringilla commodo. Maecenas ornare, augue ut ultricies tristique, enim lectus pretium
-								quam, quis bibendum metus tellus sed magna. Donec eu dolor.</p>
-							<a href="member-detail.html"><em>- View Profile</em></a>
-						</div>
-
-						<div class="team-member">
-							<div class="team-thumb">
-								<img src="images/team-member-img3.jpg" class="img-rounded" alt="">
-								<div class="links"><a href="#."><i class="fa fa-facebook"></i></a>
-									<a href="#."><i class="fa fa-twitter"></i></a>
-									<a href="#."><i class="fa fa-google-plus"></i></a>
-								</div>
-							</div>
-							<h5><a href="#.">J. Vicente Gaby</a><br><span>senior doctor at medicom</span></h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec eros eget nisl
-								fringilla commodo. Maecenas ornare, augue ut ultricies tristique, enim lectus pretium
-								quam, quis bibendum metus tellus sed magna. Donec eu dolor.</p>
-							<a href="member-detail.html"><em>- View Profile</em></a>
-						</div>
-						<div class="team-member">
-							<div class="team-thumb">
-								<img src="images/team-member-img3.jpg" class="img-rounded" alt="">
-								<div class="links"><a href="#."><i class="fa fa-facebook"></i></a>
-									<a href="#."><i class="fa fa-twitter"></i></a>
-									<a href="#."><i class="fa fa-google-plus"></i></a>
-								</div>
-							</div>
-							<h5><a href="#.">J. Vicente Gaby</a><br><span>senior doctor at medicom</span></h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec eros eget nisl
-								fringilla commodo. Maecenas ornare, augue ut ultricies tristique, enim lectus pretium
-								quam, quis bibendum metus tellus sed magna. Donec eu dolor.</p>
-							<a href="member-detail.html"><em>- View Profile</em></a>
-						</div>
-					</div>
- 
-
-				</div>
- 
-
-			</section>
+		
 
 
 
@@ -1610,135 +1115,148 @@
 
 
 		<div class="colourfull-row"></div>
+    <section class="appointment-sec text-center">
+
+				<div class="container">
+
+					<h1>Make an appointment</h1>
+				
+
+					<div class="row">
+
+						
+            	<div class="col-md-3">
+
+              </div>
+						<div class="col-md-6">
+							<div class="appointment-form clearfix">
+								<div class="success" id="message-app" style="display:none;"></div>
+
+								<form name="appoint_form" id="appoint_form" method="post" action=" "
+									onSubmit="validateAppoint1(event);">
+									<input type="text" name="app_fname" id="app_fname" placeholder="First Name"
+										onKeyPress="removeChecks();">
+									<input type="text" name="app_lname" id="app_lname" placeholder="Last Name"
+										onKeyPress="removeChecks();">
+									<input type="email" name="app_email_address" id="app_email_address"
+										placeholder="Email Address" onKeyPress="removeChecks();">
+									<input type="text" name="app_phone" id="app_phone" placeholder="Phone No">
+									<input type="text" name="datepicker" id="datepicker" placeholder="Appointment Date"
+										onClick="removeChecks();">
+									<select name="gender" id="gender">
+										<option>Male</option>
+										<option>Female</option>
+										<option>Child</option>
+									</select>
+									<textarea placeholder="Message" name="app_msg" id="app_msg"></textarea>
+									<input type="submit" value="submit" class="btn btn-default btn-rounded">
+								</form>
 
 
-		<!-- Footer
-	============================================= -->
-		<footer id="footer">
-
-		</footer>
-
-		<!-- back to top -->
-		<a href="#." class="back-to-top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
-
-	</div><!--end #wrapper-->
 
 
+							</div>
+						</div>
+            <div class="col-md-3">
 
-	<!-- All Javascript 
-	============================================= -->
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.stellar.js"></script>
-	<script src="js/jquery-ui-1.10.3.custom.js"></script>
-	<script src="js/owl.carousel.js"></script>
-	<script src="js/counter.js"></script>
-	<script src="js/waypoints.js"></script>
-	<script src="js/jquery.uniform.js"></script>
-	<script src="js/easyResponsiveTabs.js"></script>
-	<script src="js/jquery.fancybox.pack.js"></script>
-	<script src="js/jquery.fancybox-media.js"></script>
-	<script src="js/jquery.mixitup.js"></script>
-	<script src="js/forms-validation.js"></script>
-	<script src="js/jquery.jcarousel.min.js"></script>
-	<script src="js/jquery.easypiechart.min.js"></script>
-	<script src="js/scripts.js"></script>
+              </div>
 
-	<!-- This page
-	============================================= -->
-	<script src="js/jquery.themepunch.plugins.min.js"></script>
-	<script src="js/jquery.themepunch.revolution.min.js"></script>
+					</div>
+
+				</div>
+
+			</section>
 
 
-	<script src="js/color-switcher.js"></script>
+      <!-- Footer -->
+      <footer id="footer"></footer>
+      <a href="#." class="back-to-top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+    </div>
+  </div>
 
-	<script>
+  <!-- Scripts -->
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.stellar.js"></script>
+  <script src="js/jquery-ui-1.10.3.custom.js"></script>
+  <script src="js/owl.carousel.js"></script>
+  <script src="js/counter.js"></script>
+  <script src="js/waypoints.js"></script>
+  <script src="js/jquery.uniform.js"></script>
+  <script src="js/easyResponsiveTabs.js"></script>
+  <script src="js/jquery.fancybox.pack.js"></script>
+  <script src="js/jquery.fancybox-media.js"></script>
+  <script src="js/jquery.mixitup.js"></script>
+  <script src="js/forms-validation.js"></script>
+  <script src="js/jquery.jcarousel.min.js"></script>
+  <script src="js/jquery.easypiechart.min.js"></script>
+  <script src="js/scripts.js"></script>
+  <script src="js/jquery.themepunch.plugins.min.js"></script>
+  <script src="js/jquery.themepunch.revolution.min.js"></script>
+  <script src="js/color-switcher.js"></script>
 
-		function checkcontact(email) {
-			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-			return emailRegex.test(email);
-		}
+  <script>
+    function checkcontact(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
 
+    function sendWhatsAppMessage() {
+      const fname = document.getElementById('app_fname').value;
+      const lname = document.getElementById('app_lname').value;
+      const email = document.getElementById('app_email_address').value;
+      const phone = document.getElementById('app_phone').value;
+      const date = document.getElementById('datepicker').value;
+      const gender = document.getElementById('gender').value;
+      const msg = document.getElementById('app_msg').value;
 
-		function sendWhatsAppMessage() {
-			const fname = document.getElementById('app_fname').value;
-			const lname = document.getElementById('app_lname').value;
-			const email = document.getElementById('app_email_address').value;
-			const phone = document.getElementById('app_phone').value;
-			const date = document.getElementById('datepicker').value;
-			const gender = document.getElementById('gender').value;
-			const msg = document.getElementById('app_msg').value;
+      const message = `First Name: ${fname}\nLast Name: ${lname}\nEmail: ${email}\nPhone: ${phone}\nAppointment Date: ${date}\nGender: ${gender}\nMessage: ${msg}`;
+      const whatsappUrl = `https://api.whatsapp.com/send?phone=+917010497996&text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+    }
 
-			const message = `First Name: ${fname}\nLast Name: ${lname}\nEmail: ${email}\nPhone: ${phone}\nAppointment Date: ${date}\nGender: ${gender}\nMessage: ${msg}`;
+    function validateAppoint1(event) {
+      event.preventDefault();
+      var app_fname = document.getElementById("app_fname");
+      var app_lname = document.getElementById("app_lname");
+      var app_email_address = document.getElementById("app_email_address");
+      var app_date = document.getElementById("datepicker");
 
-			const whatsappUrl = `https://api.whatsapp.com/send?phone=+917010497996&text=${encodeURIComponent(message)}`;
+      var flag = 0;
+      if (app_fname.value == "") {
+        app_fname.style.borderColor = "#FE847B";
+        flag = 1;
+      } else if (app_lname.value == "") {
+        app_lname.style.borderColor = "#FE847B";
+        flag = 1;
+      } else if (app_email_address.value == "") {
+        app_email_address.style.borderColor = "#FE847B";
+        flag = 1;
+      } else if (checkcontact(app_email_address.value) == false) {
+        app_email_address.style.borderColor = "#FE847B";
+        flag = 1;
+      } else if (app_date.value == "") {
+        app_date.style.borderColor = "#FE847B";
+        flag = 1;
+      }
 
-			window.open(whatsappUrl, '_blank');
-		}
+      if (flag == 0) {
+        sendWhatsAppMessage();
+      }
+    }
+  </script>
 
-		function validateAppoint1(event) {
-			event.preventDefault(); // Prevent the form from submitting
-
-			console.log("validateAppoint1 called");
-
-			var app_fname = document.getElementById("app_fname");
-			var app_lname = document.getElementById("app_lname");
-			var app_email_address = document.getElementById("app_email_address");
-			var app_date = document.getElementById("datepicker");
-
-			var flag = 0;
-
-			if (app_fname.value == "") {
-				app_fname.style.borderColor = "#FE847B";
-				flag = 1;
-			} else if (app_lname.value == "") {
-				app_lname.style.borderColor = "#FE847B";
-				flag = 1;
-			} else if (app_email_address.value == "") {
-				app_email_address.style.borderColor = "#FE847B";
-				flag = 1;
-			} else if (checkcontact(app_email_address.value) == false) {
-				app_email_address.style.borderColor = "#FE847B";
-				flag = 1;
-			} else if (app_date.value == "") {
-				app_date.style.borderColor = "#FE847B";
-				flag = 1;
-			}
-
-			if (flag == 0) {
-				console.log("Validation passed, sending WhatsApp message");
-				sendWhatsAppMessage(); // Send WhatsApp message
-			} else {
-				console.log("Validation failed");
-			}
-		}
-
-
-	</script>
-
-
-	<script>
-
-		(function () {
-
-			// Revolution slider
-			var revapi;
-			revapi = jQuery('.tp-banner').revolution(
-				{
-					delay: 9000,
-					startwidth: 1170,
-					startheight: 682,
-					hideThumbs: 200,
-					fullWidth: "on",
-					forceFullWidth: "on"
-				});
-
-
-		})();
-
-	</script>
-
+  <script>
+    (function () {
+      var revapi;
+      revapi = jQuery('.tp-banner').revolution({
+        delay: 9000,
+        startwidth: 1170,
+        startheight: 682,
+        hideThumbs: 200,
+        fullWidth: "on",
+        forceFullWidth: "on"
+      });
+    })();
+  </script>
 </body>
-
-<!-- Mirrored from wahabali.com/work/medicom/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Jun 2024 11:35:53 GMT -->
-
 </html>
