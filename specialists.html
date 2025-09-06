@@ -56,24 +56,17 @@
 	============================================= -->
     <link rel="stylesheet" href="css/bootstrap.css">
 
+	    <link rel="stylesheet" href="css/header.css">
+
 
 	<!-- Theme Color
 	============================================= -->
 	<link href="css/light.css" rel="stylesheet" id="choose-theme">	
 
     
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-
 	
-	
-	<!-- SCRIPTS
     
-     ================================================== -->
+
 	
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<script src="js/jquery.js"></script>
@@ -103,6 +96,119 @@
 		});
 	</script>
 
+	<style>
+	/* Doctors grid */
+/* Doctors grid */
+/* Doctors grid */
+.doctors-grid { 
+  margin-top: 25px; 
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -10px;
+  margin-right: -10px;
+  row-gap: 20px;   /* 👈 space between rows */
+}
+
+/* Default: 2 doctors per row */
+.doctors-grid > [class*="col-"] {
+  padding-left: 10px;
+  padding-right: 10px;
+  flex: 0 0 50%;
+  max-width: 50%;
+  display: flex;
+}
+
+.doctor-card {
+  background: #fff;
+  border: 1px solid #e6edf3;
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(16,24,40,0.05);
+  transition: transform .2s ease, box-shadow .2s ease;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.doctor-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(16,24,40,0.08);
+}
+
+.doctor-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.doctor-photo {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #f6f9fc;
+}
+
+.doctor-photo::before {
+  content: "";
+  display: block;
+  padding-top: 100%; /* square aspect ratio */
+}
+
+.doctor-photo img {
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Doctor name */
+.doctor-name {
+  font-weight: 700;
+  font-size: 16px;
+  margin: 12px 0 2px;
+  line-height: 1.3;
+  color: #19324b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.doctor-link:hover .doctor-name {
+  color: #0072ce; /* hover highlight */
+}
+
+/* Doctor specialization */
+.doctor-spec {
+  margin: 0 0 4px;
+  font-size: 13px;
+  color: #5e7180;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Mobile: 1 doctor per row */
+@media (max-width: 575.98px) {
+  .doctors-grid > [class*="col-"] {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  /* Slightly smaller text for mobile */
+  .doctor-name {
+    font-size: 15px;
+  }
+  .doctor-spec {
+    font-size: 12px;
+  }
+}
+
+
+	</style>
+
 	</head>
     <body class="fixed-header">
 		
@@ -118,8 +224,6 @@
 			<header id="header1"></header>
 
 			
-			
-			
 			<!-- Sub Page Banner
 			============================================= -->
 			<section class="sub-page-banner text-center" data-stellar-background-ratio="0.3">
@@ -134,7 +238,6 @@
 			</section>
     
     
-			
 			<!-- Sub Page Content
 			============================================= -->
 			<div id="sub-page-content" class="clearfix">
@@ -143,177 +246,76 @@
 				<div class="container">
 					
 					<h2 class="light bordered main-title">meet <span>specialists</span></h2>
-					
-					<div class="row">
-						
-						<div class="col-md-12 padding-bottom-60 clearfix">
-							
-							<div class="doctors-img"><img src="images/doctor-img1.jpg" width="234" alt="" title="">
-								<ul class="list-unstyled social2">
-									<li><a href="#." class="fb"><i class="fa fa-twitter"></i></a></li>
-									<li><a href="#." class="twitter"><i class="fa fa-facebook"></i></a></li>
-									<li><a href="#." class="g-plus"><i class="fa fa-google-plus"></i></a></li>
-								</ul>
-							</div>
-							
-							<div class="doctors-detail">
-								<h4>Dr.Mark Leon<span>senior doctor at medicom</span></h4>
-								<p><label class="heading">Speciality</label><label class="detail">Physiotherapist</label></p>
-								<p><label class="heading">Degrees</label><label class="detail">M.D. of Medicine</label></p>
-								<p><label class="heading">Experience</label><label class="detail">38 years of Experience</label></p>
-								<p><label class="heading">Training</label><label class="detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec eros eget nisl fringilla commodo
-	ornare, augue.</label></p>
-								<p><label class="heading">Work days</label><label class="detail">Monday, Friday</label></p>
-							</div>
-							
+
+						<div class="row doctors-grid">
+						<!-- Doctor 1 -->
+						<div class="col-xs-6 col-sm-4 col-md-3">
+							<article class="doctor-card">
+							<a href="Dr. T.V. Sathappan.html" class="doctor-link">
+								<div class="doctor-photo">
+								<img src="images/grey.jpg"  loading="lazy">
+								</div>
+								<h3 class="doctor-name">Dr. T.V. Sathappan, M.S., M.Ch., FACS., FICS</h3>
+							</a>
+							<p class="doctor-spec">Laparoscopic Surgeon, Paediatric Surgeon & Paediatric Urologist.</p>
+							</article>
 						</div>
-						
-						<div class="col-md-12 padding-bottom-60 clearfix">
-							
-							<div class="doctors-img"><img src="images/doctor-img2.jpg" width="234" alt="" title="">
-								<ul class="list-unstyled social2">
-									<li><a href="#." class="fb"><i class="fa fa-twitter"></i></a></li>
-									<li><a href="#." class="twitter"><i class="fa fa-facebook"></i></a></li>
-									<li><a href="#." class="g-plus"><i class="fa fa-google-plus"></i></a></li>
-								</ul>
-							</div>
-							
-							<div class="doctors-detail">
-								<h4>Dr.Mark Leon 1<span>senior doctor at medicom</span></h4>
-								<p><label class="heading">Speciality</label><label class="detail">Physiotherapist</label></p>
-								<p><label class="heading">Degrees</label><label class="detail">M.D. of Medicine</label></p>
-								<p><label class="heading">Experience</label><label class="detail">38 years of Experience</label></p>
-								<p><label class="heading">Training</label><label class="detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec eros eget nisl fringilla commodo
-	ornare, augue.</label></p>
-								<p><label class="heading">Work days</label><label class="detail">Monday, Friday</label></p>
-							</div>
-							
+
+						<!-- Doctor 2 -->
+						<div class="col-xs-6 col-sm-4 col-md-3">
+							<article class="doctor-card">
+							<a href="Dr. Rajarajan.html" class="doctor-link">
+								<div class="doctor-photo">
+								<img src="images/grey.jpg"  loading="lazy">
+								</div>
+								<h3 class="doctor-name">Dr. Rajarajan Jayachandran, MBBS, MS, MCh </h3>
+							</a>
+							<p class="doctor-spec">Brain & Spine Surgeon, Neuro Endoscopist.</p>
+							</article>
 						</div>
-						
-					</div>
-					
-					<div class="row">
-					
-						<div class="col-md-12 padding-bottom-60 clearfix">
-							
-							<div class="doctors-img"><img src="images/doctor-img3.jpg" width="234" alt="" title="">
-								<ul class="list-unstyled social2">
-									<li><a href="#." class="fb"><i class="fa fa-twitter"></i></a></li>
-									<li><a href="#." class="twitter"><i class="fa fa-facebook"></i></a></li>
-									<li><a href="#." class="g-plus"><i class="fa fa-google-plus"></i></a></li>
-								</ul>
-							</div>
-							
-							<div class="doctors-detail">
-								<h4>Dr.Mark Leon 2<span>senior doctor at medicom</span></h4>
-								<p><label class="heading">Speciality</label><label class="detail">Physiotherapist</label></p>
-								<p><label class="heading">Degrees</label><label class="detail">M.D. of Medicine</label></p>
-								<p><label class="heading">Experience</label><label class="detail">38 years of Experience</label></p>
-								<p><label class="heading">Training</label><label class="detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec eros eget nisl fringilla commodo
-	ornare, augue.</label></p>
-								<p><label class="heading">Work days</label><label class="detail">Monday, Friday</label></p>
-							</div>
-							
+
+						<!-- Doctor 3 -->
+						<div class="col-xs-6 col-sm-4 col-md-3">
+							<article class="doctor-card">
+							<a href="Dr. Rajendran.html" class="doctor-link">
+								<div class="doctor-photo">
+								<img src="images/grey.jpg" alt="Dr. Arun Kumar - Cardiology" loading="lazy">
+								</div>
+								<h3 class="doctor-name">Dr. T. Rajendran, MBBS., DNB</h3>
+							</a>
+							<p class="doctor-spec">Joint Replacement & Paediatric Ortho Surgeon.</p>
+							</article>
 						</div>
-						
-						<div class="col-md-12 padding-bottom-60 clearfix">
-							
-							<div class="doctors-img"><img src="images/doctor-img4.jpg" width="234" alt="" title="">
-								<ul class="list-unstyled social2">
-									<li><a href="#." class="fb"><i class="fa fa-twitter"></i></a></li>
-									<li><a href="#." class="twitter"><i class="fa fa-facebook"></i></a></li>
-									<li><a href="#." class="g-plus"><i class="fa fa-google-plus"></i></a></li>
-								</ul>
-							</div>
-							
-							<div class="doctors-detail">
-								<h4>Dr.Mark Leon 3<span>senior doctor at medicom</span></h4>
-								<p><label class="heading">Speciality</label><label class="detail">Physiotherapist</label></p>
-								<p><label class="heading">Degrees</label><label class="detail">M.D. of Medicine</label></p>
-								<p><label class="heading">Experience</label><label class="detail">38 years of Experience</label></p>
-								<p><label class="heading">Training</label><label class="detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec eros eget nisl fringilla commodo
-	ornare, augue.</label></p>
-								<p><label class="heading">Work days</label><label class="detail">Monday, Friday</label></p>
-							</div>
-							
+
+						<!-- Doctor 4 -->
+						<div class="col-xs-6 col-sm-4 col-md-3">
+							<article class="doctor-card">
+							<a href="Dr. Sangeetha.html" class="doctor-link">
+								<div class="doctor-photo">
+								<img src="images/grey.jpg" alt="Dr. Arun Kumar - Cardiology" loading="lazy">
+								</div>
+								<h3 class="doctor-name">Dr. S. SANGEETHA, MBBS., DGO., FRM</h3>
+							</a>
+							<p class="doctor-spec">Obstetrics &amp; Gynecology - Laparoscopic Surgeon, Infertility Specialist.</p>
+							</article>
 						</div>
-						
-					</div>
-					
-					<div class="row">
-						
-						<div class="col-md-12 padding-bottom-60 clearfix">
-							
-							<div class="doctors-img"><img src="images/doctor-img5.jpg" width="234" alt="" title="">
-								<ul class="list-unstyled social2">
-									<li><a href="#." class="fb"><i class="fa fa-twitter"></i></a></li>
-									<li><a href="#." class="twitter"><i class="fa fa-facebook"></i></a></li>
-									<li><a href="#." class="g-plus"><i class="fa fa-google-plus"></i></a></li>
-								</ul>
-							</div>
-							
-							<div class="doctors-detail">
-								<h4>Dr.Mark Leon 4<span>senior doctor at medicom</span></h4>
-								<p><label class="heading">Speciality</label><label class="detail">Physiotherapist</label></p>
-								<p><label class="heading">Degrees</label><label class="detail">M.D. of Medicine</label></p>
-								<p><label class="heading">Experience</label><label class="detail">38 years of Experience</label></p>
-								<p><label class="heading">Training</label><label class="detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec eros eget nisl fringilla commodo
-	ornare, augue.</label></p>
-								<p><label class="heading">Work days</label><label class="detail">Monday, Friday</label></p>
-							</div>
-							
+
+						<!-- Doctor 5 -->
+						<div class="col-xs-6 col-sm-4 col-md-3">
+							<article class="doctor-card">
+							<a href="Dr Amrutha.html" class="doctor-link">
+								<div class="doctor-photo">
+								<img src="images/grey.jpg" alt="Dr. Arun Kumar - Cardiology" loading="lazy">
+								</div>
+								<h3 class="doctor-name">Dr. AMRUTHA Saathapan, MBBS., M.S., (ENT)</h3>
+							</a>
+							<p class="doctor-spec">Endoscopic ENT Surgeon.</p>
+							</article>
 						</div>
+
 						
-						<div class="col-md-12 padding-bottom-60 clearfix">
-							
-							<div class="doctors-img"><img src="images/doctor-img6.jpg" width="234" alt="" title="">
-								<ul class="list-unstyled social2">
-									<li><a href="#." class="fb"><i class="fa fa-twitter"></i></a></li>
-									<li><a href="#." class="twitter"><i class="fa fa-facebook"></i></a></li>
-									<li><a href="#." class="g-plus"><i class="fa fa-google-plus"></i></a></li>
-								</ul>
-							</div>
-							
-							<div class="doctors-detail">
-								<h4>Dr.Mark Leon 5<span>senior doctor at medicom</span></h4>
-								<p><label class="heading">Speciality</label><label class="detail">Physiotherapist</label></p>
-								<p><label class="heading">Degrees</label><label class="detail">M.D. of Medicine</label></p>
-								<p><label class="heading">Experience</label><label class="detail">38 years of Experience</label></p>
-								<p><label class="heading">Training</label><label class="detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec eros eget nisl fringilla commodo
-	ornare, augue.</label></p>
-								<p><label class="heading">Work days</label><label class="detail">Monday, Friday</label></p>
-							</div>
-							
 						</div>
-						
-					</div>
-					
-					<div class="row">
-						
-						<div class="col-md-12 clearfix">
-							
-							<div class="doctors-img"><img src="images/doctor-img7.jpg" width="234" alt="" title="">
-								<ul class="list-unstyled social2">
-									<li><a href="#." class="fb"><i class="fa fa-twitter"></i></a></li>
-									<li><a href="#." class="twitter"><i class="fa fa-facebook"></i></a></li>
-									<li><a href="#." class="g-plus"><i class="fa fa-google-plus"></i></a></li>
-								</ul>
-							</div>
-							
-							<div class="doctors-detail">
-								<h4>Dr.Mark Leon 6<span>senior doctor at medicom</span></h4>
-								<p><label class="heading">Speciality</label><label class="detail">Physiotherapist</label></p>
-								<p><label class="heading">Degrees</label><label class="detail">M.D. of Medicine</label></p>
-								<p><label class="heading">Experience</label><label class="detail">38 years of Experience</label></p>
-								<p><label class="heading">Training</label><label class="detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec eros eget nisl fringilla commodo
-	ornare, augue.</label></p>
-								<p><label class="heading">Work days</label><label class="detail">Monday, Friday</label></p>
-							</div>
-							
-						</div>
-						
-					</div>
-					
+				
 				</div>
     
     
@@ -362,5 +364,4 @@
 	
   </body>
 
-<!-- Mirrored from wahabali.com/work/medicom/meet-team.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Jun 2024 11:41:55 GMT -->
 </html>

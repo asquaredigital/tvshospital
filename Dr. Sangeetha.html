@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <base #href="" />
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <title>TVS Hospital</title>
+
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- Fonts & CSS -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet">
+  <link rel="stylesheet" id="color" href="css/blue.css">
+  <link rel="stylesheet" href="css/medicom.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link href="css/light.css" rel="stylesheet" id="choose-theme">
+
+  <script src="js/modernizr-2.6.2.min.js"></script>
+  <script src="js/jquery.js"></script>
+
+  <script>
+    // Load header/footer and highlight active nav
+    $(function () {
+      $("#header1").load("header.html", function() {
+        var url = window.location.pathname;
+        var navItems = document.querySelectorAll('#navbar-nav li a');
+        navItems.forEach(function(item) {
+          if (url.includes(item.getAttribute('href'))) {
+            item.parentElement.classList.add('active');
+          } else {
+            item.parentElement.classList.remove('active');
+          }
+        });
+      });
+      $("#footer").load("footer.html");
+    });
+  </script>
+
+  <style>
+    /***** SPECIALIST DETAIL PAGE *****/
+
+    /* Page spacing */
+    .team-description .container { padding-top: 10px; }
+    #meet-specialist-carousel { margin: 0; }
+
+    /* Image card */
+    .doctors-img {
+      background: #f6f9fc;
+      border: 1px solid #e6edf3;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .doctors-img img { display: block; width: 100%; height: auto; }
+
+    /* Right column: vertically center next to photo */
+    @media (min-width: 768px) {
+      .doctor-info-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* vertical center */
+        height: 100%;
+        padding-left: 20px;      /* spacing from image */
+      }
+    }
+
+    /* Name + designation */
+    .doctor-title {
+      margin: 0 0 8px;
+      font-weight: 800;
+      color: #1a237e;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      line-height: 1.2;
+    }
+    .doctor-title span {
+      display: block;
+      font-weight: 400;
+      font-size: 13px;
+      color: #5e7180;
+      margin-top: 3px;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    /* Contact list */
+    .doctor-info { margin: 8px 0 0; padding: 0; }
+    .doctor-info li {
+      display: inline-block;
+      margin-right: 22px;
+      color: #3b4a59;
+      font-size: 14px;
+    }
+    .doctor-info i { margin-right: 6px; }
+    .doctor-info a { color: inherit; text-decoration: none; }
+    .doctor-info a:hover { text-decoration: underline; }
+
+    /* Tabs row (full width below) */
+    .doctor-tabs.nav-tabs {
+      margin-top: 20px;
+      border-bottom: 1px solid #e6edf3;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .doctor-tabs > li { float: none !important; margin-bottom: -1px; }
+    .doctor-tabs > li > a {
+      padding: 10px 14px;
+      font-weight: 600;
+      color: #41566b;
+      border-radius: 6px 6px 0 0;
+      border: 1px solid transparent;
+      background: transparent;
+    }
+    .doctor-tabs > li > a:hover { background: #f5f9ff; color: #1a237e; }
+    .doctor-tabs > li.active > a,
+    .doctor-tabs > li.active > a:focus,
+    .doctor-tabs > li.active > a:hover {
+      color: #1a237e;
+      border: 1px solid #e6edf3;
+      border-bottom-color: #fff;
+      background: #fff;
+    }
+
+    /* Optional: make 4 tabs equal width on desktop */
+    @media (min-width: 768px) {
+      .doctor-tabs.nav-tabs { display: table; width: 100%; table-layout: fixed; }
+      .doctor-tabs > li { display: table-cell; text-align: center; }
+    }
+
+    /* Tab content box */
+    .doctor-tab-content {
+      border: 1px solid #e6edf3;
+      border-top: none;
+      padding: 16px;
+      border-radius: 0 8px 8px 8px;
+      background: #fff;
+    }
+
+    /* Helper bullets */
+    .bullets { padding-left: 0; margin: 0; }
+    .bullets li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 6px;
+      list-style: none;
+    }
+    .bullets li:before {
+      content: "";
+      position: absolute;
+      left: 0; top: 8px;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #1a237e;
+    }
+
+    /* Articles & videos list spacing */
+    .media-list .media { margin-top: 12px; }
+    .media-list .media:first-child { margin-top: 0; }
+
+    /* Mobile tweaks */
+    @media (max-width: 767px) {
+      .doctor-tabs.nav-tabs { display: block; border-bottom: none; }
+      .doctor-tabs > li { display: block; margin: 0 0 8px; }
+      .doctor-tabs > li > a {
+        display: block;
+        border: 1px solid #e6edf3;
+        border-radius: 8px;
+      }
+      .doctor-tabs > li.active > a { border-color: #0f62a5; }
+      .doctor-tab-content { border-top: 1px solid #e6edf3; border-radius: 8px; padding: 14px; }
+      .doctor-title { font-size: 20px; }
+    }
+  </style>
+</head>
+
+<body class="fixed-header">
+  <div id="wrapper" class="clearfix">
+
+    <!-- Header -->
+    <header id="header1"></header>
+
+    <!-- Banner -->
+    <section class="sub-page-banner text-center" data-stellar-background-ratio="0.3">
+      <div class="overlay"></div>
+      <div class="container">
+        <h1 class="entry-title">Member Detail</h1>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <div id="sub-page-content" class="clearfix">
+      <section class="team-description">
+        <div class="container">
+          <h2 class="light bordered">meet <span>specialist</span></h2>
+
+          <ul id="meet-specialist-carousel" class="list-unstyled row">
+            <li>
+              <!-- Row 1: Photo + Info -->
+              <div class="row">
+                <!-- Photo column -->
+                
+
+                <!-- Info column (vertically centered) -->
+                <div class="col-sm-8 doctor-info-block">
+                  <h4 class="doctor-title">
+                  Dr. S. SANGEETHA, MBBS., DGO., FRM
+                    <span>Obstetrics &amp; Gynecology - Laparoscopic Surgeon, Infertility Specialist. </span>
+                  </h4>
+                  
+                </div>
+              </div><!-- /row -->
+
+              <!-- Row 2: Tabs (full width) -->
+              <div class="row">
+                <div class="col-sm-9">
+                  <ul class="nav nav-tabs doctor-tabs" role="tablist">
+                    <li role="presentation" class="active">
+                      <a href="#tab-profile" aria-controls="tab-profile" role="tab" data-toggle="tab">Brief Profile</a>
+                    </li>
+                    <li role="presentation">
+                      <a href="#tab-expertise" aria-controls="tab-expertise" role="tab" data-toggle="tab">Area of Expertise</a>
+                    </li>
+                    <li role="presentation">
+                      <a href="#tab-memberships" aria-controls="tab-memberships" role="tab" data-toggle="tab">Memberships</a>
+                    </li>
+                    <li role="presentation">
+                      <a href="#tab-articles" aria-controls="tab-articles" role="tab" data-toggle="tab">Articles &amp; Videos</a>
+                    </li>
+                  </ul>
+
+                  <div class="tab-content doctor-tab-content">
+                    <!-- Brief Profile -->
+                    <div role="tabpanel" class="tab-pane fade in active" id="tab-profile">
+                    
+<p>
+Dr. Sangeetha Sathappan,
+Excellence in Medical Care and Compassion
+Dr. Sangeetha Sathappan is a dedicated and accomplished medical professional known for her expertise, empathy, and unwavering commitment to patient care. With a reputation for clinical excellence, she combines deep medical knowledge with an attentive, holistic approach to healing. Whether diagnosing complex conditions, guiding patients through treatment, or contributing to advancements in her field, Dr. Sangeetha is recognized for her meticulous attention to detail and her genuine concern for the well-being of those she serves. Her passion for medicine is matched by her ability to connect with patients, ensuring that each individual receives personalized and compassionate care. Dr. Sangeetha Sathappan stands as a testament to the profound impact that skilled, heartfelt medical practice can make in the lives of patients and their families.
+</p>
+                    </div>
+
+                    <!-- Area of Expertise -->
+                    <div role="tabpanel" class="tab-pane fade" id="tab-expertise">
+                      <div class="row">
+                        <div class="col-xs-6">
+                         <p>Her area of expertise is assisted reproduction and artificial reproduction techniques. She has excellent success with infertility treatment. Her other areas of expertise include laparoscopic surgeries for gynecological problems, antenatal and post-natal care and hysteroscopic surgeries for uterine and cervical ailments.</p>
+
+                        </div>
+                        
+                      </div>
+                    </div>
+
+                    <!-- Memberships -->
+                    <div role="tabpanel" class="tab-pane fade" id="tab-memberships">
+                      <p><strong>Professional Memberships</strong></p>
+
+
+                    </div>
+
+                    <!-- Articles & Videos -->
+                    <div role="tabpanel" class="tab-pane fade" id="tab-articles">
+                      
+                    </div>
+                  </div><!-- /.tab-content -->
+                </div>
+				<div class="col-sm-3">
+					<img src="images/doctor-img1.jpg" alt="Dr. Mark Leon - Senior Doctor at Medicom" class="img-responsive doctors-img">
+					</div>
+              </div><!-- /row -->
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div><!-- /#sub-page-content -->
+
+    <div class="colourfull-row"></div>
+
+    <!-- Footer -->
+    <footer id="footer"></footer>
+
+    <!-- back to top -->
+    <a href="#." class="back-to-top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+  </div><!-- /#wrapper -->
+
+  <!-- JS -->
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.stellar.js"></script>
+  <script src="js/jquery-ui-1.10.3.custom.js"></script>
+  <script src="js/owl.carousel.js"></script>
+  <script src="js/counter.js"></script>
+  <script src="js/waypoints.js"></script>
+  <script src="js/jquery.uniform.js"></script>
+  <script src="js/easyResponsiveTabs.js"></script>
+  <script src="js/jquery.fancybox.pack.js"></script>
+  <script src="js/jquery.fancybox-media.js"></script>
+  <script src="js/jquery.mixitup.js"></script>
+  <script src="js/forms-validation.js"></script>
+  <script src="js/jquery.jcarousel.min.js"></script>
+  <script src="js/jquery.easypiechart.min.js"></script>
+  <script src="js/scripts.js"></script>
+  <script src="js/color-switcher.js"></script>
+
+  <script>
+    // Activate tab from hash on load and when hash changes
+    (function() {
+      function activateFromHash() {
+        var hash = window.location.hash;
+        if (hash && $('a[href="' + hash + '"][data-toggle="tab"]').length) {
+          $('a[href="' + hash + '"][data-toggle="tab"]').tab('show');
+          var $tabs = $('.doctor-tabs');
+          if ($tabs.length) $('html, body').animate({scrollTop: $tabs.offset().top - 80}, 300);
+        }
+      }
+      $(activateFromHash);
+      $(window).on('hashchange', activateFromHash);
+
+      // Update hash when a tab is shown
+      $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        history.replaceState(null, null, e.target.hash);
+      });
+    })();
+  </script>
+</body>
+</html>
