@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-
 <head>
   <base #href="" />
   <!-- Basic Page Needs -->
@@ -40,12 +39,16 @@
 
   <script>
     $(function () {
+      // Load header/footer
       $("#header1").load("header.html", function () {
-        var url = window.location.pathname;
+        // Active nav item
+        var url = window.location.pathname.split("/").pop() || "index.html";
         var navItems = document.querySelectorAll('#navbar-nav li a');
-
         navItems.forEach(function (item) {
-          if (url.includes(item.getAttribute('href'))) {
+          var href = item.getAttribute('href');
+          if (!href) return;
+          // exact file match (handles / and index.html)
+          if (href === url || (url === "index.html" && href === "index.html")) {
             item.parentElement.classList.add('active');
           } else {
             item.parentElement.classList.remove('active');
@@ -57,251 +60,236 @@
   </script>
 
   <style>
-    .tp-banner-container {
-      width: 100% !important;
-    }
+    /* Keep your existing custom styles */
+    .tp-banner-container { width: 100% !important; }
 
-    @media (min-width: 1300px) {
-      .minn {
-        display: none;
-      }
-    }
+    @media (min-width: 1300px) { .minn { display: none; } }
 
     @media (max-width: 1300px) {
-      .caption strong {
-        font-weight: 700;
-        margin-left: 20px;
-        font-size: 25px;
-      }
+      .caption strong { font-weight: 700; margin-left: 20px; font-size: 25px; }
     }
 
     @media (max-width: 750px) {
-      .caption strong {
-        font-weight: 700;
-        margin-left: 20px;
-        font-size: 25px;
-      }
+      .caption strong { font-weight: 700; margin-left: 20px; font-size: 25px; }
     }
 
     @media (max-width: 500px) {
-      .caption strong {
-        font-weight: 700;
-        margin-left: 0px;
-        font-size: 12px;
-      }
-
-      .caption img {
-        margin-left: 30px;
-      }
-
-      .caption a {
-        margin-left: 2px;
-        margin-top: 0px;
-      }
-
-      .caption p {
-        font-size: 1.3rem !important;
-        margin-left: 20px;
-        line-height: 0;
-        display: none;
-      }
+      .caption strong { font-weight: 700; margin-left: 0px; font-size: 12px; }
+      .caption img { margin-left: 30px; }
+      .caption a { margin-left: 2px; margin-top: 0px; }
+      .caption p { font-size: 1.3rem !important; margin-left: 20px; line-height: 0; display: none; }
     }
 
     @media (min-width: 500px) and (max-width: 850px) {
-      .caption strong {
-        font-weight: 700;
-        margin-left: 0px;
-        font-size: 15px;
-      }
-
-      .caption img {
-        margin-left: 20px;
-      }
-
-      .caption a {
-        margin-left: 0px;
-        margin-top: 25px;
-      }
-
-      .caption p {
-        font-size: 10px !important;
-        margin-left: 0px;
-        line-height: 18px;
-      }
+      .caption strong { font-weight: 700; margin-left: 0px; font-size: 15px; }
+      .caption img { margin-left: 20px; }
+      .caption a { margin-left: 0px; margin-top: 25px; }
+      .caption p { font-size: 10px !important; margin-left: 0px; line-height: 18px; }
     }
 
     @media (min-width: 300px) and (max-width: 420px) {
-      .caption strong {
-        font-weight: 700;
-        margin-left: 0px;
-        font-size: 15px;
-      }
-
-      .caption img {
-        margin-left: 20px;
-      }
-
-      .caption a {
-        margin-left: 0px;
-        margin-top: 25px;
-      }
-
-      .caption p {
-        font-size: 9px !important;
-        margin-left: 0px;
-        line-height: 18px;
-        display: none;
-      }
+      .caption strong { font-weight: 700; margin-left: 0px; font-size: 15px; }
+      .caption img { margin-left: 20px; }
+      .caption a { margin-left: 0px; margin-top: 25px; }
+      .caption p { font-size: 9px !important; margin-left: 0px; line-height: 18px; display: none; }
     }
 
     @media (min-width: 850px) {
-      .caption strong {
-        font-weight: 700;
-        margin-left: 70px;
-        font-size: 22px;
-      }
-
-      .caption img {
-        margin-left: 70px;
-      }
-
-      .caption a {
-        margin-left: 70px;
-      }
-
-      .caption p {
-        font-size: 1.6rem !important;
-        margin-left: 70px;
-        line-height: 25px;
-      }
+      .caption strong { font-weight: 700; margin-left: 70px; font-size: 22px; }
+      .caption img { margin-left: 70px; }
+      .caption a { margin-left: 70px; }
+      .caption p { font-size: 1.6rem !important; margin-left: 70px; line-height: 25px; }
     }
-
-    .why-choose-us {
-      background-color: #ffffff;
-      padding: 60px 0;
-    }
-
-    .why-choose-us h1 {
-      text-align: center;
-      margin-bottom: 40px;
-      color: #00953f;
-    }
-
-    .feature-box {
-      text-align: center;
-      padding: 20px;
-      border: 1px solid #dee2e6;
-      border-radius: 10px;
-      background-color: #fff;
-      margin-bottom: 30px;
-    }
-
-    .feature-box h4 {
-      margin-bottom: 15px;
-    }
-
-    .insurance h5 {
-      font-size: 15px;
-    }
-
-    .testimonials-patient-detail p {
-      color: #00953f !important;
-    }
-
-	/* === Split Banner === */
-.banner-split{
-  background:#fff;
-}
-.banner-split .banner-inner{
-  max-width:1200px;           /* align with site width */
-  margin:0 auto;
-  padding:40px 15px;
-  display:flex;
-  align-items:center;
-  gap:32px;
-  flex-wrap:wrap;             /* stack on small screens */
-}
-.banner-split .banner-col{
-  flex:1 1 420px;             /* two cols on wide, stack on narrow */
-  min-width:280px;
-}
-.banner-split .banner-text{
-  color:#00953f;
-  line-height:1.35;
-}
-.banner-split .banner-text *{
-  text-transform:none !important;   /* prevent theme uppercase */
-  letter-spacing:normal !important;
-}
-.banner-split .banner-text h1{
-  margin:0 0 12px;
-  font-weight:700;
-  font-size:32px;
-  color: #302582;
-}
-.banner-split .banner-text p{
-  margin:0;
-  font-size:18px;
+/* Equal height for Why Choose Us boxes */
+/* Equal height for Why Choose Us boxes */
+.why-choose-us .row {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-/* Image */
-.banner-split .banner-visual img{
-  width:100%;
-  height:auto;
-  display:block;
-  border-radius:12px;          /* optional, remove if unwanted */
+.why-choose-us .col-md-4 {
+  display: flex;
 }
 
-/* Tablet */
-@media (max-width: 992px){
-  .banner-split .banner-text h1{ font-size:30px; }
-  .banner-split .banner-text p { font-size:16px; }
+.why-choose-us .feature-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  background-color: #fff;
+  margin-bottom: 30px;
 }
 
-/* Mobile */
-@media (max-width: 600px){
-  .banner-split .banner-inner{ padding:28px 15px; }
-  .banner-split .banner-text{ text-align:center; }
-  .banner-split .banner-text h1{ font-size:22px; }
-  .banner-split .banner-text p { font-size:14px; }
+/* Ensure heading block has fixed space */
+.why-choose-us .feature-box h4 {
+  min-height: 60px;   /* same heading height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+/* Mobile: make sure all boxes have the same width */
+@media (max-width: 767px) {
+  .why-choose-us .row {
+    display: block; /* stack vertically */
+  }
+
+  .why-choose-us .col-md-4 {
+    width: 100% !important;   /* full width on mobile */
+    max-width: 100% !important;
+    margin-bottom: 20px;
+  }
+
+  .why-choose-us .feature-box {
+    width: 100%;              /* force same width */
+  }
+}
+
+    /* ================= Full-Width Hero Banner ================= */
+/* ===== Full-Width Hero ===== */
+.hero-fw{
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+
+  background-image: url("images/tvs.jpg");
+  background-size: cover;
+  background-position: center;  /* desktop looks good */
+  background-repeat: no-repeat;
+
+  min-height: 680px; /* taller hero */
+  overflow: visible; /* allow mobile offset box to extend lower */
+}
+
+/* (Optional) overlay layer – left blank since box is enough */
+.hero-fw::before{
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none;
+}
+
+/* Content wrapper */
+.hero-inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+
+  min-height: inherit;
+  display: flex;
+  align-items: flex-end;   /* bottom align text on desktop */
+}
+
+.hero-copy {
+  color: #ffffff !important;     /* keep text white */
+  max-width: 800px;
+
+  /* brand green box background */
+  background: rgba(0,149,63,8);  /* #00953F with slight transparency */
+  padding: 20px 30px;
+  border-radius: 8px;
+}
+.hero-copy h1{
+  margin: 0 0 12px;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1.2;
+  color: #ffffff !important;
+}
+
+.hero-copy p{
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.5;
+  color: #ffffff !important;
+}
+
+/* ===== Tablet & desktop scaling (no position change) ===== */
+@media (max-width: 1199px){
+  .hero-fw{ min-height: 550px; }
+  .hero-copy h1{ font-size: 36px; }
+  .hero-copy p{ font-size: 18px; }
+}
+
+@media (max-width: 991px){
+  /* Keep tablet centered for readability, but do NOT push down */
+  .hero-inner{
+    align-items: center;
+    text-align: center;
+  }
+  .hero-fw{ min-height: 500px; }
+  .hero-copy{
+    padding: 16px 22px;
+    background: rgba(0,0,0,0.5);
+  }
+  .hero-copy h1{ font-size: 30px; }
+  .hero-copy p{ font-size: 16px; }
+}
+
+/* ===== Phones ONLY: move box DOWN so it doesn't cover the board ===== */
+@media (max-width: 767px){
+  .hero-inner{
+    align-items: flex-end;              /* push content to bottom */
+    text-align: center;
+    padding-bottom: 24px;               /* breathing room at bottom */
+  }
+  .hero-fw{
+    min-height: 420px;
+    background-position: center 30%;    /* show more top; lifts the sign */
+  }
+  .hero-copy{
+    padding: 12px 16px;
+  background: rgba(0,149,63,8);  /* #00953F with slight transparency */
+    transform: translateY(20px);        /* move box below the sign */
+  }
+  .hero-copy h1{ font-size: 22px; }
+  .hero-copy p{ font-size: 14px; }
+}
+
+/* Very small phones */
+@media (max-width: 480px){
+  .hero-fw{ min-height: 380px; }
+  .hero-copy{
+    transform: translateY(30px);        /* a bit more drop on very small screens */
+  }
+}
+
+/* ===== Desktop: shift text box slightly left ===== */
+@media (min-width: 992px){
+  .hero-copy{
+    margin-left: -50px;   /* adjust this value to move left or right */
+    text-align: left;    /* optional: align text left inside box */
+  }
 }
 
 
-	
   </style>
 </head>
 
 <body class="fixed-header">
-
   <div id="wrapper" class="clearfix">
 
-    <!-- Header -->
+    <!-- Header (loaded from header.html) -->
     <header id="header1"></header>
 
     <div id="content-index">
 
-      <!-- Main Banner -->
-   
-
-      <!-- Split Banner -->
-<section class="banner-split">
-  <div class="banner-inner">
-    <!-- LEFT: Text -->
-    <div class="banner-col banner-text">
-      <h1>Multispeciality High-Tech Hospital in the Delta Region</h1>
-      <p>Healthcare Services at the entry point of Thanjavur</p>
-    </div>
-
-    <!-- RIGHT: Image -->
-    <div class="banner-col banner-visual">
-      <img src="images/tvs.jpg" alt="Dr. TVS Multispeciality Hospital">
-    </div>
-  </div>
-</section>
-
-	
-
-
+      <!-- ===== Full-Width Hero Banner ===== -->
+      <section class="hero-fw" aria-label="Hospital hero">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <h1>High-Tech Multispeciality Hospital in the Delta Region</h1>
+            <p>Healthcare Services at the entry point of Thanjavur</p>
+          </div>
+        </div>
+      </section>
 
       <!-- Home Boxes -->
       <div class="row text-center no-margin">
@@ -333,8 +321,8 @@
         </div>
       </div>
 
-      <!-- Why Choose Us -->
-      <div class="container why-choose-us">
+	   <!-- Why Choose Us -->
+      <div class="container why-choose-us" style="margin-top: 50px;">
         <h1>Why Choose Us</h1>
         <div class="row">
           <div class="col-md-4">
@@ -367,7 +355,7 @@
           <div class="col-md-4">
             <div class="feature-box">
               <h4>Convenient Location</h4>
-              <p>Our clinic is easily accessible, which is on Thanjavur-Nagapattinam state highway making it convenient for you to visit us.</p>
+              <p>Strategically located at the entry point of Thanjavur</p>
             </div>
           </div>
         </div>
@@ -1161,9 +1149,7 @@
 				</div>
 
 			</section>
-
-
-      <!-- Footer -->
+      <!-- Footer (loaded from footer.html) -->
       <footer id="footer"></footer>
       <a href="#." class="back-to-top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
     </div>
@@ -1238,9 +1224,8 @@
         sendWhatsAppMessage();
       }
     }
-  </script>
 
-  <script>
+    // Optional: Revolution slider init (if used elsewhere)
     (function () {
       var revapi;
       revapi = jQuery('.tp-banner').revolution({

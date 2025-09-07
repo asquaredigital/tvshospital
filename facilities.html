@@ -1,218 +1,290 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
-    <base #href="" />
-    <!-- Basic Page Needs =============================================== -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-    <meta name="format-detection" content="telephone=no">
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <title>Dr. TVS Multispeciality Hospital</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet">
-    <!-- CSS ============================================================ -->
-    <link rel="stylesheet" id="color" href="css/blue.css">
-    <link rel="stylesheet" href="css/medicom.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link href="css/light.css" rel="stylesheet" id="choose-theme">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-    <!-- SCRIPTS ======================================================== -->
-    <script src="js/modernizr-2.6.2.min.js"></script>
-    <script src="js/jquery.js"></script>
-    <script>
-        $(function () {
-            $("#header1").load("header.html", function() {
-                var url = window.location.pathname;
-                var navItems = document.querySelectorAll('#navbar-nav li a');
-                navItems.forEach(function(item) {
-                    if (url.includes(item.getAttribute('href'))) {
-                        item.parentElement.classList.add('active');
-                    } else {
-                        item.parentElement.classList.remove('active');
-                    }
-                });
-            });
-            $("#footer").load("footer.html");
+  <base #href="" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <title>Dr. TVS Multispeciality Hospital — Services</title>
+
+  <!-- Fonts & CSS -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
+  <link rel="stylesheet" id="color" href="css/blue.css">
+  <link rel="stylesheet" href="css/medicom.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link href="css/light.css" rel="stylesheet" id="choose-theme">
+  <link rel="stylesheet" href="css/header.css">
+
+  <!-- Scripts -->
+  <script src="js/modernizr-2.6.2.min.js"></script>
+  <script src="js/jquery.js"></script>
+  <script>
+    $(function () {
+      $("#header1").load("header.html", function() {
+        var url = window.location.pathname;
+        var navItems = document.querySelectorAll('#navbar-nav li a');
+        navItems.forEach(function(item) {
+          if (url.includes(item.getAttribute('href'))) {
+            item.parentElement.classList.add('active');
+          } else {
+            item.parentElement.classList.remove('active');
+          }
         });
-    </script>
-    <style>
-        .services-container {
-            display: flex;
-            flex-direction: row;
-            padding-top: 20px;
-        }
-        .services-list {
-            width: 25%;
-            height: calc(100vh - 100px); /* Adjust the height to account for the header */
-            overflow-y: auto;
-        }
-        .services-list .list-group-item {
-            cursor: pointer; /* Add hand cursor on hover */
-        }
-        .service-description {
-            width: 75%;
-            padding: 20px;
-            overflow-y: auto;
-        }
-        .service-description h2 {
-            margin-top: 0;
-        }
-        .active-service {
-            font-weight: bold;
-        }
-        /* Media query for mobile devices */
-        @media (max-width: 767px) {
-            .services-container {
-                flex-direction: column; /* Stack the service list and descriptions vertically */
-            }
-            .services-list {
-                width: 100%;
-                height: auto; /* Adjust height for mobile */
-                max-height: 300px; /* Optional: Limit the height */
-                overflow-y: auto; /* Ensure the list can scroll if it's too tall */
-            }
-            .service-description {
-                width: 100%;
-                padding: 20px;
-                overflow-y: auto;
-            }
-        }
-    </style>
-    		<link rel="stylesheet" href="css/header.css">
+      });
+      $("#footer").load("footer.html");
+    });
+  </script>
 
+  <style>
+    :root{
+      --brand:#00953f;           /* primary green */
+      --brand-ink:#0f172a;       /* dark heading */
+      --muted:#f6f8f9;           /* light surface */
+      --card:#ffffff;            /* card bg */
+      --ink:#475569;             /* body text */
+    }
+
+    body{font-family:"Open Sans",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink)}
+
+    /* ---------- HERO: cleaner, more visual ---------- */
+    .sub-page-banner {
+      position: relative;
+      background: linear-gradient(135deg, rgba(0,149,63,.08), rgba(0,149,63,.24)), url('images/hospital-img.jpg') center/cover no-repeat;
+      padding: 72px 0 56px;
+      border-bottom: 1px solid #e8eef2;
+    }
+    .sub-page-banner .overlay{ display:none; }
+    .sub-page-banner .entry-title{
+      text-transform: uppercase;
+      letter-spacing:.06em;
+      font-weight:800;
+      color:#fff;
+      text-shadow: 0 2px 12px rgba(0,0,0,.35);
+    }
+    .sub-page-banner p{
+      color:#eef7f0;
+      margin-top:10px;
+      text-shadow: 0 1px 4px rgba(0,0,0,.35);
+    }
+
+    /* ---------- SECTION: Services Grid ---------- */
+    #sub-page-content{
+      padding: 36px 0 64px;
+    }
+
+    .services-head{
+      text-align:center;
+      margin-bottom: 22px;
+    }
+    .services-head h2{
+      font-weight:800;
+      color:var(--brand-ink);
+      margin:0 0 6px;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+    }
+    .services-head p{
+      margin:0;
+      color:#64748b;
+      font-size:15px;
+    }
+
+    .service-grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:20px;
+    }
+
+    /* Card */
+    .service-card{
+      background: var(--card);
+      border: 1px solid #e6edf1;
+      border-radius: 16px;
+      padding: 22px 18px;
+      box-shadow: 0 6px 18px rgba(16,24,40,.04);
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      display:flex;
+      align-items:flex-start;
+      gap:14px;
+      min-height: 120px;
+    }
+    .service-card:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 14px 28px rgba(16,24,40,.08);
+      border-color: rgba(0,149,63,.28);
+    }
+
+    /* Icon chip */
+    .service-icon{
+      flex:0 0 48px;
+      height:48px;
+      width:48px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      background: radial-gradient(120px 120px at 20% 0%, rgba(0,149,63,.18), rgba(0,149,63,.06));
+      color: var(--brand);
+      font-size:20px;
+    }
+
+    .service-body h4{
+      margin:0 0 6px;
+      font-weight:800;
+      color:#0b1220;
+      letter-spacing:.02em;
+      text-transform:none;
+      font-size:18px;
+    }
+    .service-body p{
+      margin:0;
+      font-size:14px;
+      color:#5b6b7a;
+      line-height:1.5;
+    }
+
+    /* Responsive grid */
+    @media (max-width: 1199px){
+      .service-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
+    @media (max-width: 640px){
+      .service-grid{ grid-template-columns: 1fr; }
+      .sub-page-banner{ padding:56px 0 44px; }
+      .sub-page-banner .entry-title{ font-size:28px; }
+    }
+  </style>
 </head>
+
 <body class="fixed-header">
-    <!-- Document Wrapper =============================================== -->
-    <div id="wrapper" class="clearfix">
-        <!-- Header ================================================== -->
-        <header id="header1"></header>
-        <!-- Sub Page Banner ========================================== -->
-        <section class="sub-page-banner text-center" data-stellar-background-ratio="0.3">
-            <div class="overlay"></div>
-            <div class="container">
-                <h1 class="entry-title">services</h1>
-                <!-- <p>Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.</p> -->
+  <div id="wrapper" class="clearfix">
+
+    <!-- Header -->
+    <header id="header1"></header>
+
+    <!-- Hero -->
+    <section class="sub-page-banner text-center" data-stellar-background-ratio="0.3">
+      <div class="container">
+        <h1 class="entry-title">Services</h1>
+        <p>Round-the-clock care backed by advanced diagnostics and experienced specialists</p>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <div id="sub-page-content" class="clearfix">
+      <div class="container">
+        <div class="services-head">
+          <h2>What We Offer</h2>
+          <p>Comprehensive, patient-centric services — available 24/7</p>
+        </div>
+
+        <div class="service-grid">
+          <!-- OP -->
+          <div class="service-card">
+            <div class="service-icon"><i class="fa fa-user-md"></i></div>
+            <div class="service-body">
+              <h4>Out-Patient Services</h4>
+              <p>Consultations across specialties with evidence-based protocols and streamlined flow.</p>
             </div>
-        </section>
-        <!-- Sub Page Content ========================================== -->
-        <div id="sub-page-content" class="clearfix">
-            <!-- Features ============================================== -->
-            <div class="container services-container">
-                <div id="sub-page-content" class="clearfix">
-    <!-- Features ============================================== -->
-        <div class="row">
+          </div>
 
-                        <div class="col-md-4 col-sm-6">
-                            <div class="service-box">
-                                <i class="fa fa-user-md"></i>
-                                <h4>Out Patient Services</h4>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-6">
-                            <div class="service-box">
-                                <i class="fa fa-bed"></i>
-                                <h4>In Patient Services</h4>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-6">
-                            <div class="service-box">
-                                <i class="fa fa-ambulance"></i>
-                                <h4>Emergency Services 24/7</h4>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-6">
-                            <div class="service-box">
-                                <i class="fa fa-stethoscope"></i>
-                                <h4>Day Care Services</h4>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-6">
-                            <div class="service-box">
-                                <i class="fa fa-flask"></i>
-                                <h4>24 Hours Lab</h4>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-6">
-                            <div class="service-box">
-                                <i class="fa fa-desktop"></i>
-                                <h4>24 Hours CT</h4>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-6">
-                            <div class="service-box">
-                                <i class="fa fa-picture-o"></i>
-                                <h4>24 Hours X RAY</h4>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-6">
-                            <div class="service-box">
-                                <i class="fa fa-tint"></i>
-                                <h4>24 Hours Dialysis</h4>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-6">
-                            <div class="service-box">
-                                <i class="fa fa-ambulance"></i>
-                                <h4>24 Hours Ambulance</h4>
-                            </div>
-                        </div>
-
-                    </div>
+          <!-- IP -->
+          <div class="service-card">
+            <div class="service-icon"><i class="fa fa-bed"></i></div>
+            <div class="service-body">
+              <h4>In-Patient Services</h4>
+              <p>Comfortable rooms (Standard, Deluxe, VIP), attentive nursing, and 24×7 medical oversight.</p>
             </div>
+          </div>
 
+          <!-- Emergency -->
+          <div class="service-card">
+            <div class="service-icon"><i class="fa fa-ambulance"></i></div>
+            <div class="service-body">
+              <h4>24×7 Emergency & Trauma</h4>
+              <p>Rapid triage, urgent interventions, and seamless escalation to ICU/OT when required.</p>
             </div>
-        </div><!-- end sub-page-content -->
-        <div class="colourfull-row"></div>
-        <!-- Footer ================================================== -->
-        <footer id="footer"></footer>
-        <!-- back to top -->
-        <a href="#." class="back-to-top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
-    </div><!-- end #wrapper -->
-    <!-- All Javascript ============================================== -->
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.stellar.js"></script>
-    <script src="js/jquery-ui-1.10.3.custom.js"></script>
-    <script src="js/owl.carousel.js"></script>
-    <script src="js/counter.js"></script>
-    <script src="js/waypoints.js"></script>
-    <script src="js/jquery.uniform.js"></script>
-    <script src="js/easyResponsiveTabs.js"></script>
-    <script src="js/jquery.fancybox.pack.js"></script>
-    <script src="js/jquery.fancybox-media.js"></script>
-    <script src="js/jquery.mixitup.js"></script>
-    <script src="js/forms-validation.js"></script>
-    <script src="js/jquery.jcarousel.min.js"></script>
-    <script src="js/jquery.easypiechart.min.js"></script>
-    <script src="js/scripts.js"></script>
-    <script src="js/color-switcher.js"></script>
-    <script>
-        function showDescription(event, service) {
-            event.preventDefault(); // Prevent default link behavior
-            var services = document.getElementsByClassName('service-description')[0].children;
-            for (var i = 0; i < services.length; i++) {
-                services[i].style.display = 'none';
-            }
-            document.getElementById(service).style.display = 'block';
-            var listItems = document.getElementsByClassName('list-group-item');
-            for (var i = 0; i < listItems.length; i++) {
-                listItems[i].classList.remove('active-service');
-            }
-            event.target.classList.add('active-service');
-            window.scrollTo(0, 0); // Scroll to top when a service is selected
-        }
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+          </div>
+
+          <!-- Day Care -->
+          <div class="service-card">
+            <div class="service-icon"><i class="fa fa-stethoscope"></i></div>
+            <div class="service-body">
+              <h4>Day-Care Procedures</h4>
+              <p>Short-stay surgeries and therapies designed for safe, same-day discharge.</p>
+            </div>
+          </div>
+
+          <!-- Lab -->
+          <div class="service-card">
+            <div class="service-icon"><i class="fa fa-flask"></i></div>
+            <div class="service-body">
+              <h4>24×7 Laboratory</h4>
+              <p>Comprehensive biochemistry, hematology, and microbiology with quick turnarounds.</p>
+            </div>
+          </div>
+
+          <!-- CT -->
+          <div class="service-card">
+            <div class="service-icon"><i class="fa fa-desktop"></i></div>
+            <div class="service-body">
+              <h4>24×7 CT Scan</h4>
+              <p>Advanced imaging (GE 32-slice) for timely diagnosis and treatment planning.</p>
+            </div>
+          </div>
+
+          <!-- X-Ray -->
+          <div class="service-card">
+            <div class="service-icon"><i class="fa fa-picture-o"></i></div>
+            <div class="service-body">
+              <h4>24×7 Digital X-ray</h4>
+              <p>High-quality imaging with lower exposure and instant digital reporting.</p>
+            </div>
+          </div>
+
+          <!-- Dialysis -->
+          <div class="service-card">
+            <div class="service-icon"><i class="fa fa-tint"></i></div>
+            <div class="service-body">
+              <h4>24×7 Dialysis</h4>
+              <p>Dedicated unit with isolation facility for special-category patients.</p>
+            </div>
+          </div>
+
+          <!-- Ambulance -->
+          <div class="service-card">
+            <div class="service-icon"><i class="fa fa-ambulance"></i></div>
+            <div class="service-body">
+              <h4>24×7 Ambulance</h4>
+              <p>On-call ambulances equipped for safe transfers and inter-facility transport.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /#sub-page-content -->
+
+    <div class="colourfull-row"></div>
+
+    <!-- Footer -->
+    <footer id="footer"></footer>
+    <a href="#." class="back-to-top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+  </div>
+
+  <!-- JS -->
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.stellar.js"></script>
+  <script src="js/jquery-ui-1.10.3.custom.js"></script>
+  <script src="js/owl.carousel.js"></script>
+  <script src="js/counter.js"></script>
+  <script src="js/waypoints.js"></script>
+  <script src="js/jquery.uniform.js"></script>
+  <script src="js/easyResponsiveTabs.js"></script>
+  <script src="js/jquery.fancybox.pack.js"></script>
+  <script src="js/jquery.fancybox-media.js"></script>
+  <script src="js/jquery.mixitup.js"></script>
+  <script src="js/forms-validation.js"></script>
+  <script src="js/jquery.jcarousel.min.js"></script>
+  <script src="js/jquery.easypiechart.min.js"></script>
+  <script src="js/scripts.js"></script>
+  <script src="js/color-switcher.js"></script>
 </body>
 </html>

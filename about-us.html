@@ -1,100 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-
-<!-- Mirrored from wahabali.com/work/medicom/about-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Jun 2024 11:38:46 GMT -->
-
 <head>
-	<base #href="" />
-	<!-- Basic Page Needs
-
-     ================================================== -->
-
 	<meta charset="utf-8">
-
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
 	<link rel="icon" type="image/png" href="images/favicon.png">
-
-	<title>TVS Hosptial</title>
-
-	<meta name="description" content="">
-
-	<meta name="keywords" content="">
-
-	<meta name="author" content="">
-
-
-	<!-- Mobile Specific Metas
-    
-     ================================================== -->
-
-	<meta name="viewport"
-		content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-
+	<title>About Us - Dr. TVS Multispeciality Hospital</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 	<meta name="format-detection" content="telephone=no">
-
-
-	<!-- Web Font
-	 ============================================= -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet">
-
-
-	<!-- CSS
-    
-     ================================================== -->
-
-
-	<!-- Theme Color
-	============================================= -->
 	<link rel="stylesheet" id="color" href="css/blue.css">
-
-
-	<!-- Medicom Style
-	============================================= -->
 	<link rel="stylesheet" href="css/medicom.css">
-
-
-
-
-	<!-- Bootstrap
-	============================================= -->
 	<link rel="stylesheet" href="css/bootstrap.css">
-
-
-	<!-- Theme Color
-	============================================= -->
 	<link href="css/light.css" rel="stylesheet" id="choose-theme">
-
-
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-
-
-
-	<!-- Header Scripts
-    
-    ================================================== -->
+	<link rel="stylesheet" href="css/header.css">
 
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<script src="js/jquery.js"></script>
-
 	<script>
 		$(function () {
 			$("#header1").load("header.html", function () {
 				var url = window.location.pathname;
-				console.log("Current URL Pathname:", url);
 				var navItems = document.querySelectorAll('#navbar-nav li a');
-
-				console.log("Number of nav items found:", navItems.length);
-
 				navItems.forEach(function (item) {
-					console.log("Checking URL:", item.getAttribute('href'));
 					if (url.includes(item.getAttribute('href'))) {
-						console.log("Match found:", item.getAttribute('href'));
 						item.parentElement.classList.add('active');
 					} else {
 						item.parentElement.classList.remove('active');
@@ -102,580 +30,219 @@
 				});
 			});
 			$("#footer").load("footer.html");
-
-
 		});
 	</script>
-		<link rel="stylesheet" href="css/header.css">
+	<style>
+		/* About Us page text */
+		#sub-page-content p,
+		#sub-page-content li {
+		font-size: 16px;   /* default 14px → increase */
+		line-height: 1.6;  /* better readability */
+		}
 
+		/* Section titles */
+		#sub-page-content h2 {
+		font-size: 26px;
+		font-weight: 700;
+		}
 
+		/* Subtitles (like OUR SPECIALTIES, ADVANCED TECH) */
+		#sub-page-content h2.light.bordered {
+		font-size: 28px;
+		text-transform: uppercase;
+		}
+
+		/* If you want bigger lists specifically */
+		#sub-page-content ul.list-unstyled li {
+		font-size: 17px;
+		}
+
+	</style>
 </head>
 
 <body class="fixed-header">
-
-
-
-	<!-- Document Wrapper
-		============================================= -->
 	<div id="wrapper" class="clearfix">
 
-
-		<!-- Header
-			============================================= -->
+		<!-- Header -->
 		<header id="header1"></header>
 
-
-		<!-- Sub Page Banner
-			============================================= -->
+		<!-- Sub Page Banner -->
 		<section class="sub-page-banner text-center" data-stellar-background-ratio="0.3">
-
 			<div class="overlay"></div>
-
 			<div class="container">
-				<h1 class="entry-title">about us</h1>
-				<!-- <p>Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips
-					amets.</p> -->
+				<h1 class="entry-title">About Us</h1>
 			</div>
-
 		</section>
 
-
-
-		<!-- Sub Page Content
-			============================================= -->
+		<!-- Sub Page Content -->
 		<div id="sub-page-content">
-
 
 			<div class="container big-font">
 				<h2 class="light bordered main-title">who <span>we are</span></h2>
-				<div class="media pull-right"><a href="http://vimeo.com/36031564" class="fancybox-media"><img
-							src="images/video-icon.png" class="img-rounded" alt="" title=""></a></div>
-				<p>Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips
-					amets. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-					laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore.</p>
-				<p>veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
-					voluptas sit aspernatur aut odit aut fugit, sedgnciunt. Sed ut perspiciatis unde omnis accusantium
-					doloremque laudantium ab illo inventore.</p>
-				<a href="#." class="btn btn-default btn-rounded">read more</a>
-			</div>
+				<p style="font-size: 18px;">
+					Dr. TVS Multispeciality Hospital is a 50-bedded, state-of-the-art healthcare destination in the heart of Thanjavur, just 2.6 km from the railway station and 3.5 km from the old bus stand. Strategically located at the entry point of Thanjavur, the hospital is easily accessible from Nagapattinam, Thiruvarur, Kumbakonam, Mayiladuthurai, Pattukottai, Pudukottai, and Trichy — making it a vital healthcare hub for the entire Delta region.
+					We combine compassionate care with advanced facilities and a strong specialist team to deliver world-class healthcare for our community.
+				</p>
 
+				<p style="font-size: 18px;">
+			“Our vision is to make world-class healthcare affordable and accessible to every individual, while our mission is to stand as the region’s trusted center for life-saving emergency and trauma care — 24/7, with compassion and excellence.”
+				</p>
+			</div>
 
 			<div class="height20"></div>
 
-
-			<!-- Meet the Doctor
-				============================================= -->
-			<section class="meet-the-doctors text-center">
-
-				<div class="container">
-
-					<h1 class="light">Know about <span>TVS Multispeciality Hospital</span> </h1>
-					<p class="lead">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-						euismod tincidunt ut laoreet dolore magna aliquam erat volutpat nibh euismod tincidunt ut
-						laoreet dolore magna.</p>
-
-					<div class="team-member-description one">
-						<div class="team-member-desc-inner team-desc">
-							<h5>Dr.Kylee Leewan<span>Physical Therapist</span></h5>
-							<p>It has survived not only five centuries, but also the leap into electronic typesetting,
-								remaining popularised...<a href="member-detail.html">Read more</a></p>
-							<ul class="list-unstyled social2 white">
-								<li><a href="#." class="fb"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#." class="twitter"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#." class="g-plus"><i class="fa fa-google-plus"></i></a></li>
-							</ul>
-							<span class="pointing-arrow"></span>
-						</div>
-						<a href="#." class="team-des-btn"><i class="fa fa-plus"></i></a>
-					</div>
-
-					<div class="team-member-description two">
-						<div class="team-member-desc-inner team-desc">
-							<h5>Dr.Kylee Leewan<span>Physical Therapist</span></h5>
-							<p>It has survived not only five centuries, but also the leap into electronic typesetting,
-								remaining popularised...<a href="member-detail.html">Read more</a></p>
-							<ul class="list-unstyled social2 white">
-								<li><a href="#." class="fb"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#." class="twitter"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#." class="g-plus"><i class="fa fa-google-plus"></i></a></li>
-							</ul>
-							<span class="pointing-arrow"></span>
-						</div>
-						<a href="#." class="team-des-btn"><i class="fa fa-plus"></i></a>
-					</div>
-
-					<div class="team-member-description three">
-						<div class="team-member-desc-inner team-desc">
-							<h5>Dr.Kylee Leewan<span>Physical Therapist</span></h5>
-							<p>It has survived not only five centuries, but also the leap into electronic typesetting,
-								remaining popularised...<a href="member-detail.html">Read more</a></p>
-							<ul class="list-unstyled social2 white">
-								<li><a href="#." class="fb"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#." class="twitter"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#." class="g-plus"><i class="fa fa-google-plus"></i></a></li>
-							</ul>
-							<span class="pointing-arrow"></span>
-						</div>
-						<a href="#." class="team-des-btn"><i class="fa fa-plus"></i></a>
-					</div>
-
-					<div class="team-member-description four">
-						<div class="team-member-desc-inner team-desc">
-							<h5>Dr.Kylee Leewan<span>Physical Therapist</span></h5>
-							<p>It has survived not only five centuries, but also the leap into electronic typesetting,
-								remaining popularised...<a href="member-detail.html">Read more</a></p>
-							<ul class="list-unstyled social2 white">
-								<li><a href="#." class="fb"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#." class="twitter"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#." class="g-plus"><i class="fa fa-google-plus"></i></a></li>
-							</ul>
-							<span class="pointing-arrow"></span>
-						</div>
-						<a href="#." class="team-des-btn"><i class="fa fa-plus"></i></a>
-					</div>
-
-					<div class="team-member-description five">
-						<div class="team-member-desc-inner team-desc">
-							<h5>Dr.Kylee Leewan<span>Physical Therapist</span></h5>
-							<p>It has survived not only five centuries, but also the leap into electronic typesetting,
-								remaining popularised...<a href="member-detail.html">Read more</a></p>
-							<ul class="list-unstyled social2 white">
-								<li><a href="#." class="fb"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#." class="twitter"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#." class="g-plus"><i class="fa fa-google-plus"></i></a></li>
-							</ul>
-							<span class="pointing-arrow"></span>
-						</div>
-						<a href="#." class="team-des-btn"><i class="fa fa-plus"></i></a>
-					</div>
-
-					<div id="team-carousel" class="owl-carousel two">
-
-						<div class="team-member">
-							<div class="team-thumb">
-								<img src="images/team-member-img1.jpg" class="img-rounded" alt="">
-								<div class="links"><a href="#."><i class="fa fa-facebook"></i></a>
-									<a href="#."><i class="fa fa-twitter"></i></a>
-									<a href="#."><i class="fa fa-google-plus"></i></a>
-								</div>
-							</div>
-							<h5><a href="#.">J. Vicente Gaby</a><br><span>senior doctor at medicom</span></h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec eros eget nisl
-								fringilla commodo. Maecenas ornare, augue ut ultricies tristique, enim lectus pretium
-								quam, quis bibendum metus tellus sed magna. Donec eu dolor.</p>
-							<a href="member-detail.html"><em>- View Profile</em></a>
-						</div>
-
-						<div class="team-member">
-							<div class="team-thumb">
-								<img src="images/team-member-img2.jpg" class="img-rounded" alt="">
-								<div class="links"><a href="#."><i class="fa fa-facebook"></i></a>
-									<a href="#."><i class="fa fa-twitter"></i></a>
-									<a href="#."><i class="fa fa-google-plus"></i></a>
-								</div>
-							</div>
-							<h5><a href="#.">J. Vicente Gaby</a><br><span>senior doctor at medicom</span></h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec eros eget nisl
-								fringilla commodo. Maecenas ornare, augue ut ultricies tristique, enim lectus pretium
-								quam, quis bibendum metus tellus sed magna. Donec eu dolor.</p>
-							<a href="member-detail.html"><em>- View Profile</em></a>
-						</div>
-
-						<div class="team-member">
-							<div class="team-thumb">
-								<img src="images/team-member-img3.jpg" class="img-rounded" alt="">
-								<div class="links"><a href="#."><i class="fa fa-facebook"></i></a>
-									<a href="#."><i class="fa fa-twitter"></i></a>
-									<a href="#."><i class="fa fa-google-plus"></i></a>
-								</div>
-							</div>
-							<h5><a href="#.">J. Vicente Gaby</a><br><span>senior doctor at medicom</span></h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec eros eget nisl
-								fringilla commodo. Maecenas ornare, augue ut ultricies tristique, enim lectus pretium
-								quam, quis bibendum metus tellus sed magna. Donec eu dolor.</p>
-							<a href="member-detail.html"><em>- View Profile</em></a>
-						</div>
-
-						<div class="team-member">
-							<div class="team-thumb">
-								<img src="images/team-member-img1.jpg" class="img-rounded" alt="">
-								<div class="links"><a href="#."><i class="fa fa-facebook"></i></a>
-									<a href="#."><i class="fa fa-twitter"></i></a>
-									<a href="#."><i class="fa fa-google-plus"></i></a>
-								</div>
-							</div>
-							<h5><a href="#.">J. Vicente Gaby</a><br><span>senior doctor at medicom</span></h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec eros eget nisl
-								fringilla commodo. Maecenas ornare, augue ut ultricies tristique, enim lectus pretium
-								quam, quis bibendum metus tellus sed magna. Donec eu dolor.</p>
-							<a href="member-detail.html"><em>- View Profile</em></a>
-						</div>
-
-						<div class="team-member">
-							<div class="team-thumb">
-								<img src="images/team-member-img2.jpg" class="img-rounded" alt="">
-								<div class="links"><a href="#."><i class="fa fa-facebook"></i></a>
-									<a href="#."><i class="fa fa-twitter"></i></a>
-
-									<a href="#."><i class="fa fa-google-plus"></i></a>
-								</div>
-							</div>
-							<h5><a href="#.">J. Vicente Gaby</a><br><span>senior doctor at medicom</span></h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec eros eget nisl
-								fringilla commodo. Maecenas ornare, augue ut ultricies tristique, enim lectus pretium
-								quam, quis bibendum metus tellus sed magna. Donec eu dolor.</p>
-							<a href="member-detail.html"><em>- View Profile</em></a>
-						</div>
-
-						<div class="team-member">
-							<div class="team-thumb">
-								<img src="images/team-member-img3.jpg" class="img-rounded" alt="">
-								<div class="links"><a href="#."><i class="fa fa-facebook"></i></a>
-									<a href="#."><i class="fa fa-twitter"></i></a>
-									<a href="#."><i class="fa fa-google-plus"></i></a>
-								</div>
-							</div>
-							<h5><a href="#.">J. Vicente Gaby</a><br><span>senior doctor at medicom</span></h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec eros eget nisl
-								fringilla commodo. Maecenas ornare, augue ut ultricies tristique, enim lectus pretium
-								quam, quis bibendum metus tellus sed magna. Donec eu dolor.</p>
-							<a href="member-detail.html"><em>- View Profile</em></a>
-						</div>
-
-						<div class="team-member">
-							<div class="team-thumb">
-								<img src="images/team-member-img1.jpg" class="img-rounded" alt="">
-								<div class="links"><a href="#."><i class="fa fa-facebook"></i></a>
-									<a href="#."><i class="fa fa-twitter"></i></a>
-									<a href="#."><i class="fa fa-google-plus"></i></a>
-								</div>
-							</div>
-							<h5><a href="#.">J. Vicente Gaby</a><br><span>senior doctor at medicom</span></h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec eros eget nisl
-								fringilla commodo. Maecenas ornare, augue ut ultricies tristique, enim lectus pretium
-								quam, quis bibendum metus tellus sed magna. Donec eu dolor.</p>
-							<a href="member-detail.html"><em>- View Profile</em></a>
-						</div>
-
-						<div class="team-member">
-							<div class="team-thumb">
-								<img src="images/team-member-img2.jpg" class="img-rounded" alt="">
-								<div class="links"><a href="#."><i class="fa fa-facebook"></i></a>
-									<a href="#."><i class="fa fa-twitter"></i></a>
-									<a href="#."><i class="fa fa-google-plus"></i></a>
-								</div>
-							</div>
-							<h5><a href="#.">J. Vicente Gaby</a><br><span>senior doctor at medicom</span></h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec eros eget nisl
-								fringilla commodo. Maecenas ornare, augue ut ultricies tristique, enim lectus pretium
-								quam, quis bibendum metus tellus sed magna. Donec eu dolor.</p>
-							<a href="member-detail.html"><em>- View Profile</em></a>
-						</div>
-
-					</div>
-
-				</div>
-			</section>
-
-
-
-			<!-- Features
-				============================================= -->
-			<!-- <section class="features">
-					
-					<div class="container">
-					
-						<div class="row">
-							
-							<div class="col-md-6">
-								
-								<div class="feature">
-									<i class="pull-left feature-icon fa fa-user-md"></i>
-									<div class="feature-content">
-										<h5><a href="#.">Creative doctors</a></h5>
-										<p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining popularised only five Power of centuries.</p>
-										<a href="#."><dfn>- Learn more</dfn></a>
-									</div>
-								</div>
-								
-							</div>
-							
-							<div class="col-md-6">
-							
-								<div class="feature">
-									<i class="pull-left feature-icon fa fa-clock-o"></i>
-									<div class="feature-content">
-										<h5><a href="#.">24/7 Live Support</a></h5>
-										<p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining popularised only five Power of centuries.</p>
-										<a href="#."><dfn>- Learn more</dfn></a>
-									</div>
-								</div>
-								
-							</div>
-							
-						</div>
-						
-						<div class="row">
-							<div class="col-md-6">
-							
-								<div class="feature">
-									<i class="pull-left feature-icon fa fa-tint"></i>
-									<div class="feature-content">
-										<h5><a href="#.">cancer care</a></h5>
-										<p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining popularised only five Power of centuries.</p>
-										<a href="#."><dfn>- Learn more</dfn></a>
-									</div>
-								</div>
-							
-							</div>
-							
-							<div class="col-md-6">
-							
-								<div class="feature">
-									<i class="pull-left feature-icon fa fa-phone-square"></i>
-									<div class="feature-content">
-										<h5><a href="#.">emergency services</a></h5>
-										<p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining popularised only five Power of centuries.</p>
-										<a href="#."><dfn>- Learn more</dfn></a>
-									</div>
-								</div>
-							
-							</div>
-						
-						</div>
-						
-					</div>
-					
-				</section> -->
-
-
-
-
-			<!-- Our Hospitals and Why Choose Medicom
-				============================================= -->
-			<div class="container padding-top-35 clearfix">
-
-				<div class="row">
-
-					<div class="col-md-6">
-
-						<h2 class="light bordered">our <span>hospital</span></h2>
-
-						<div class="slider-mini no-margin-bottom">
-
-							<div id="our-hospital" class="owl-carousel text-center">
-
-								<div class="item">
-									<img src="images/hospital-img.jpg" alt="" title="">
-								</div>
-
-								<div class="item">
-									<img src="images/hospital-img2.jpg" alt="" title="">
-								</div>
-
-							</div>
-
-						</div>
-
-					</div>
-
-					<div class="col-md-6">
-
-						<h2 class="light bordered">why <span>choose us</span></h2>
-
-						<!-- <div class="panel-group accordian-style2" id="accordion2">
-							  
-							  <div class="panel panel-default">
-								
-								<div class="panel-heading">
-								  <h4 class="panel-title">
-									<a data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-									  <i class="fa fa-medkit"></i>our responsibility<i class="fa fa-angle-down pull-right"></i>
-									</a>
-								  </h4>
-								</div>
-								
-								<div id="collapseOne" class="panel-collapse collapse in">
-								  <div class="panel-body">
-									Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.<br /><br />veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit nemo minima rerums unsers sadips amets.  Sed ut perspiciatis unde 
-									sed quia consequuntur.
-									Page Maker including versions.
-								  </div>
-								</div>
-							  </div>
-							  
-							  <div class="panel panel-default">
-								
-								<div class="panel-heading">
-								  <h4 class="panel-title">
-									<a data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-									  <i class="fa fa-heart"></i>heart specialist<i class="fa fa-angle-down pull-right"></i>
-									</a>
-								  </h4>
-								</div>
-								
-								<div id="collapseTwo" class="panel-collapse collapse">
-								  <div class="panel-body">
-								   Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.<br /><br />veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit nemo minima rerums unsers sadips amets.  Sed ut perspiciatis unde 
-									sed quia consequuntur.
-									Page Maker including versions.
-								  </div>
-								</div>
-								
-							  </div>
-							  
-							  <div class="panel panel-default">
-								
-								<div class="panel-heading">
-								  <h4 class="panel-title">
-									<a data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
-									  <i class="fa fa-eye"></i>eye specialist<i class="fa fa-angle-down pull-right"></i>
-									</a>
-								  </h4>
-								</div>
-								
-								<div id="collapseThree" class="panel-collapse collapse">
-								  <div class="panel-body">
-									Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.<br /><br />veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit nemo minima rerums unsers sadips amets.  Sed ut perspiciatis unde 
-									sed quia consequuntur.
-									Page Maker including versions.
-								  </div>
-								</div>
-								
-							  </div>
-							  
-							  <div class="panel panel-default">
-								
-								<div class="panel-heading">
-								  <h4 class="panel-title">
-									<a data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
-									  <i class="fa fa-mobile"></i>responsive design<i class="fa fa-angle-down pull-right"></i>
-									</a>
-								  </h4>
-								</div>
-								
-								<div id="collapseFour" class="panel-collapse collapse">
-								  <div class="panel-body">
-									Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.<br /><br />veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit nemo minima rerums unsers sadips amets.  Sed ut perspiciatis unde 
-									sed quia consequuntur.
-									Page Maker including versions.
-								  </div>
-								</div>
-								
-							  </div>
-							  
-							</div> -->
-
- 
-								<!-- <h1>Why Choose Us</h1> -->
-								<div class="row">
-									<div class="col-md-12">
-										<div class="feature-box">
-											<h4>Experienced Doctors</h4>
-											<p>Our team consists of Pediatric Surgeon, ENT, Obstetrics,
-												Gynecologist, Fertility Specialist, Hip and Knee Replacement Surgeon, Neuro
-												Surgeon, Physicians, Physiotherapists, Maxillo Dental Surgeon.</p>
-										 </div>
-									</div>
-									<div class="col-md-12">
-										<div class="feature-box">
-											<h4>Advanced Technology</h4>
-											<p>We use the latest technology for accurate diagnosis and effective treatment.</p>
-										</div>
-									</div>
-									<div class="col-md-12">
-										<div class="feature-box">
-											<h4>All Services under One Roof</h4>
-											<p>We are providing all kind of treatments under one roof</p>
-										</div>
-									</div> 
-
-									<div class="col-md-12">
-										<div class="feature-box">
-											<h4>Patient-Friendly</h4>
-											<p>We prioritize our patients' needs and ensure their comfort throughout the treatment
-												process.</p>
-										</div>
-									</div>
-									<div class="col-md-12">
-										<div class="feature-box">
-											<h4>Holistic Treatments</h4>
-											<p>We offer holistic treatments that address the root cause of ENT issues.</p>
-										</div>
-									</div>
-									<div class="col-md-12">
-										<div class="feature-box">
-											<h4>Convenient Location</h4>
-											<p>Our clinic is easily accessible, which is on Thanjavur-Nagapattinam state highway making it convenient for you to visit us.
-											</p>
-										</div>
-									</div>
-								</div>
-								
-					</div>
-
-				</div>
-
+			<!-- Promoter & Medical Team -->
+			<div class="container">
+				<h2 class="light bordered">our <span>medical team</span></h2>
+				<ul class="list-unstyled">
+					<li><i class="fa fa-check text-success"></i> Pediatric & General Laparoscopic Surgeon</li>
+					<li><i class="fa fa-check text-success"></i> Neurosurgeon (24×7 in-house coverage)</li>
+					<li><i class="fa fa-check text-success"></i> Gynecologist & Obstetrician</li>
+					<li><i class="fa fa-check text-success"></i> ENT Surgeon</li>
+					<li><i class="fa fa-check text-success"></i> Orthopedic Surgeon</li>
+					<li><i class="fa fa-check text-success"></i> Physicians & Emergency Care Doctors</li>
+					<li><i class="fa fa-check text-success"></i> 24-hour Intensive Care Specialists</li>
+					<li><i class="fa fa-check text-success"></i> Urologist & Pediatrician</li>
+				</ul>
 			</div>
 
+			<!-- Infrastructure -->
+			<div class="container padding-top-35 clearfix">
+				<h2 class="light bordered">infrastructure & <span>facilities</span></h2>
+				<div class="row">
+					<div class="col-md-6">
+						<ul class="list-unstyled">
+							<li><i class="fa fa-check text-success"></i> 8-feet wide passages and spacious rooms (Standard, Deluxe, VIP)</li>
+							<li><i class="fa fa-check text-success"></i> Rooms with LED TV, patient cots, attendant couches, separate bathrooms</li>
+							<li><i class="fa fa-check text-success"></i> Deluxe rooms are air-conditioned; VIP rooms include a kitchenette</li>
+							<li><i class="fa fa-check text-success"></i> 8-feet wide ramp & stretcher lift for transfers</li>
+							<li><i class="fa fa-check text-success"></i> 24-feet wide driveway, parking for 30 cars</li>
+							<li><i class="fa fa-check text-success"></i> Power backup: 200 kVA & 35 kVA DGs, 150 kVA stabilizer, UPS</li>
+						</ul>
+					</div>
+					<div class="col-md-6">
+						<ul class="list-unstyled">
+							<li><i class="fa fa-check text-success"></i> Central oxygen, nitrous oxide & vacuum</li>
+							<li><i class="fa fa-check text-success"></i> Two laminar flow operating suites + emergency OT</li>
+							<li><i class="fa fa-check text-success"></i> 6-bedded NICU separate from ICU</li>
+							<li><i class="fa fa-check text-success"></i> Dedicated dialysis unit with HIV/HCV isolation</li>
+							<li><i class="fa fa-check text-success"></i> HIS (HIPAA compliant) & CCTV coverage</li>
+						</ul>
+					</div>
+				</div>
+			</div>
 
+			<!-- Technology -->
+			<div class="container padding-top-35 clearfix">
+				<h2 class="light bordered">advanced technology & <span>diagnostics</span></h2>
+				<div class="row">
+					<div class="col-md-6">
+						<ul class="list-unstyled">
+							<li><i class="fa fa-check text-success"></i> 15-bedded ICU with ventilators & dialysis machines</li>
+							<li><i class="fa fa-check text-success"></i> 6-bedded HDU with ventilator provision</li>
+							<li><i class="fa fa-check text-success"></i> 24-hour casualty & modular OTs with HEPA filters</li>
+							<li><i class="fa fa-check text-success"></i> Siemens High-Frequency C-arm, Karl Storz laparoscopy</li>
+							<li><i class="fa fa-check text-success"></i> Carl Zeiss operating microscope</li>
+						</ul>
+					</div>
+					<div class="col-md-6">
+						<ul class="list-unstyled">
+							<li><i class="fa fa-check text-success"></i> STRYKER CUSA, KLS Martin vessel sealer</li>
+							<li><i class="fa fa-check text-success"></i> STRYKER HD arthroscopy & shaver system</li>
+							<li><i class="fa fa-check text-success"></i> 32-slice GE CT scanner, GE Ultrasound with Doppler</li>
+							<li><i class="fa fa-check text-success"></i> 24-hour Clinical Lab with ECG, EMG, EEG</li>
+							<li><i class="fa fa-check text-success"></i> Digital X-ray & OPG</li>
+						</ul>
+					</div>
+				</div>
+			</div>
 
+			<!-- Specialties -->
+			<div class="container padding-top-35 clearfix">
+				<h2 class="light bordered">our <span>specialties</span></h2>
+				<div class="row">
+					<div class="col-md-6">
+						<ul class="list-unstyled">
+							<li><i class="fa fa-check text-success"></i> General & Advanced Laparoscopic Surgery</li>
+							<li><i class="fa fa-check text-success"></i> Pediatric Surgery & Pediatric Urology</li>
+							<li><i class="fa fa-check text-success"></i> Neurosurgery (24×7 in-house coverage)</li>
+							<li><i class="fa fa-check text-success"></i> Orthopedics: trauma, joint replacement, spine & arthroscopy</li>
+							<li><i class="fa fa-check text-success"></i> Obstetrics & Gynecology: antenatal care, fetal monitoring, laparoscopic hysterectomy</li>
+						</ul>
+					</div>
+					<div class="col-md-6">
+						<ul class="list-unstyled">
+							<li><i class="fa fa-check text-success"></i> Infertility & Assisted Reproduction</li>
+							<li><i class="fa fa-check text-success"></i> ENT services with advanced surgery</li>
+							<li><i class="fa fa-check text-success"></i> Dentistry: prosthodontics & implant dentistry</li>
+							<li><i class="fa fa-check text-success"></i> Urology services; renal transplant approval in pipeline</li>
+							<li><i class="fa fa-check text-success"></i> Physiotherapy: TENS, IFT, ultrasound therapy, kinetic therapy</li>
+						</ul>
+					</div>
+				</div>
+			</div>
 
-		</div><!--end sub-page-content-->
+			<!-- Why Choose Us -->
+			<div class="container padding-top-35 clearfix">
+				<div class="row">
+					<div class="col-md-6">
+						<h2 class="light bordered">our <span>hospital</span></h2>
+						<img src="images/tvs.jpg" class="img-responsive" alt="Dr. TVS Multispeciality Hospital">
+					</div>
+					<div class="col-md-6">
+						<h2 class="light bordered">why <span>choose us</span></h2>
+						<div class="feature-box">
+							<h4>Experienced Doctors</h4>
+							<p>Multispeciality team with expertise across Pediatrics, ENT, OBG, Fertility, Orthopedics, Neurosurgery, Medicine, Dentistry, and Physiotherapy.</p>
+						</div>
+						<div class="feature-box">
+							<h4>Advanced Technology</h4>
+							<p>From laminar flow OTs and 32-slice CT to Karl Storz laparoscopy and STRYKER CUSA, we invest in outcomes-driven technology.</p>
+						</div>
+						<div class="feature-box">
+							<h4>Comprehensive Care</h4>
+							<p>Diagnostics, ICU/HDU, NICU, dialysis, and surgeries under one roof.</p>
+						</div>
+						<div class="feature-box">
+							<h4>Patient Comfort</h4>
+							<p>Comfortable rooms, wide passages, ramp & stretcher lift, and attentive nursing care.</p>
+						</div>
+						<div class="feature-box">
+							<h4>Quality & Safety</h4>
+							<p>Entry-level NABH certified; HIS & CCTV enabled; working towards Level-2 accreditation.</p>
+						</div>
+						<div class="feature-box">
+							<h4>Convenient Location</h4>
+							<p>Strategically located at the entry point of Thanjavur</p>
+						</div>
+					</div>
+				</div>
+			</div>
 
+			<!-- Quality -->
+			<div class="container padding-top-35 clearfix">
+				<h2 class="light bordered">commitment to <span>quality</span></h2>
+				<p>
+					We are proud to be <strong>Entry-Level NABH certified</strong> for quality and patient safety, and are working towards Level-2 accreditation.
+					Our goal is to provide world-class outcomes with compassion and integrity.
+				</p>
+				<img src="images/nabh.jpg" style="max-width: 200px;" class="img-responsive" alt="NABH Certified Hospital">
+			</div>
 
+		</div><!-- end sub-page-content -->
 
 		<div class="colourfull-row"></div>
 
-
-
-		<!-- Footer
-		============================================= -->
+		<!-- Footer -->
 		<footer id="footer"></footer>
-
-		<!-- back to top -->
 		<a href="#." class="back-to-top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+	</div><!-- end wrapper -->
 
-	</div><!--end #wrapper-->
-
-
-
-
-	<!-- All Javascript 
-	============================================= -->
+	<!-- Scripts -->
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.stellar.js"></script>
-	<script src="js/jquery-ui-1.10.3.custom.js"></script>
 	<script src="js/owl.carousel.js"></script>
-	<script src="js/counter.js"></script>
-	<script src="js/waypoints.js"></script>
-	<script src="js/jquery.uniform.js"></script>
-	<script src="js/easyResponsiveTabs.js"></script>
-	<script src="js/jquery.fancybox.pack.js"></script>
-	<script src="js/jquery.fancybox-media.js"></script>
-	<script src="js/jquery.mixitup.js"></script>
-	<script src="js/forms-validation.js"></script>
-	<script src="js/jquery.jcarousel.min.js"></script>
-	<script src="js/jquery.easypiechart.min.js"></script>
 	<script src="js/scripts.js"></script>
-
-	<script src="js/color-switcher.js"></script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function () {
-			var url = window.location.pathname;
-			var navItems = document.querySelectorAll('#navbar-nav li a');
-
-			navItems.forEach(function (item) {
-				if (item.getAttribute('href') === url) {
-					item.parentElement.classList.add('active');
-				} else {
-					item.parentElement.classList.remove('active');
-				}
-			});
-		});
-	</script>
-
 </body>
-
 </html>

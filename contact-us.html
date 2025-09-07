@@ -170,11 +170,22 @@
 							============================================= -->
 							<div class="contact-form clearfix">
 								<div id="message-contact" class="success" style="display:none;">Thank you! we'll contact you shortly.</div>
-								<form name="contact_form" id="contact_form" action=" " method="post" onSubmit="validateContact1();">
-									<input type="text" name="fname" id="fname" placeholder="First Name" onKeyPress="removeChecks();">
-									<input type="text" name="email_address" id="email_address" placeholder="Email Address" onKeyPress="removeChecks();">
-									<input type="text" name="subject" id="subject" placeholder="Subject">
-									<textarea placeholder="Message" name="msg" id="msg"></textarea>
+								<form name="contact_form" id="contact_form" action="contact.php" method="post" onSubmit="validateContact1();">
+									<input type="text" name="u_name" id="u_name" placeholder="Name" >
+									<input type="text" name="u_email" id="u_email" placeholder="Email Address" >
+								<div class="form-group">
+								<label for="doctorSelect"><strong>Select a Doctor</strong></label>
+								<select id="doctorSelect" name="doctor" class="form-control" required>
+									<option value="">-- Choose a Doctor --</option>
+									<option value="Dr. T.V. Sathappan">Dr. T.V. Sathappan, M.S., M.Ch., FACS., FICS</option>
+									<option value="Dr. Rajarajan Jayachandran">Dr. Rajarajan Jayachandran, MBBS, MS, MCh</option>
+									<option value="Dr. T. Rajendran">Dr. T. Rajendran, MBBS., DNB</option>
+									<option value="Dr. S. Sangeetha">Dr. S. Sangeetha, MBBS., DGO., FRM</option>
+									<option value="Dr. Amrutha Sathappan">Dr. Amrutha Sathappan, MBBS., M.S., (ENT)</option>
+									<option value="Others">Others</option>
+								</select>
+								</div>
+									<textarea placeholder="Message" name="message" id="message"></textarea>
 									<input type="submit" class="btn btn-default" value="Submit" >
 								</form>
 							</div>
@@ -322,5 +333,4 @@
 	
   </body>
 
-<!-- Mirrored from wahabali.com/work/medicom/contact-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Jun 2024 11:48:54 GMT -->
 </html>

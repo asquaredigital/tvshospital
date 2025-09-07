@@ -270,21 +270,31 @@
     <script src="js/scripts.js"></script>
     <script src="js/color-switcher.js"></script>
     <script>
-        function showDescription(event, service) {
-            event.preventDefault(); // Prevent default link behavior
-            var services = document.getElementsByClassName('service-description')[0].children;
-            for (var i = 0; i < services.length; i++) {
-                services[i].style.display = 'none';
-            }
-            document.getElementById(service).style.display = 'block';
-            var listItems = document.getElementsByClassName('list-group-item');
-            for (var i = 0; i < listItems.length; i++) {
-                listItems[i].classList.remove('active-service');
-            }
-            event.target.classList.add('active-service');
-            window.scrollTo(0, 0); // Scroll to top when a service is selected
-        }
-    </script>
+  function showDescription(event, serviceId) {
+    event.preventDefault(); // keep the page from jumping
+
+    // 1) Swap visible description
+    const descWrap = document.querySelector('.service-description');
+    Array.from(descWrap.children).forEach(el => el.style.display = 'none');
+    document.getElementById(serviceId).style.display = 'block';
+
+    // 2) Update active state in left list
+    document.querySelectorAll('.services-list .list-group-item')
+      .forEach(li => li.classList.remove('active-service'));
+    (event.currentTarget || event.target).classList.add('active-service');
+
+    // 3) Keep page position:
+    //    - Desktop/tablet: just reset the right pane's own scroll
+    //    - Mobile: smoothly scroll the page to the description block
+    if (window.matchMedia('(max-width: 767px)').matches) {
+      const y = descWrap.getBoundingClientRect().top + window.pageYOffset - 80; // adjust -80 for your header
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    } else {
+      descWrap.scrollTop = 0; // only scroll the right pane, not the whole page
+    }
+  }
+</script>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 </body>
 </html>

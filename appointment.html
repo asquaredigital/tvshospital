@@ -1,243 +1,282 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-  
-<!-- Mirrored from wahabali.com/work/medicom/appointment.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Jun 2024 11:42:59 GMT -->
 <head>
-    <base #href="" />
-	<!-- Basic Page Needs
+  <meta charset="utf-8">
+  <title>Make an Appointment | Dr. TVS Multispeciality Hospital</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="images/favicon.png">
 
-     ================================================== -->
-	 
-	 <meta charset="utf-8">
-	 
-	 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    
-	 <link rel="icon" type="image/png" href="images/favicon.png">
-	
-     <title>TVS Hosptial</title>
-    
-     <meta name="description" content="">
-    
-     <meta name="keywords" content="">
-    
-     <meta name="author" content="">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
 
-	 
-	 <!-- Mobile Specific Metas
-    
-     ================================================== -->
-    
-     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-    
-     <meta name="format-detection" content="telephone=no">
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/medicom.css">
+  <link rel="stylesheet" href="css/light.css" id="choose-theme">
+  <link rel="stylesheet" href="css/header.css">
 
-	 
-	 <!-- Web Font
-	 ============================================= -->
-	 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet">
-	 
-	
-	<!-- CSS
-    
-     ================================================== -->
-	 
-	 
-	<!-- Theme Color
-	============================================= -->
-	<link rel="stylesheet" id="color" href="css/blue.css">
-    
-	
-	<!-- Medicom Style
-	============================================= -->
-    <link rel="stylesheet" href="css/medicom.css">
+  <style>
+    /* ===== Appointment Form Refresh ===== */
+    .appointment-sec {
+      padding: 60px 0;
+      background: #f7faf9;
+    }
 
-	
-	<!-- Bootstrap
-	============================================= -->
-    <link rel="stylesheet" href="css/bootstrap.css">
+    .appt-card {
+      max-width: 760px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid #e6edf1;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(16,24,40,.06);
+      padding: 32px;
+    }
 
+    .appointment-sec h1 {
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      color: #00953F;
+      margin-bottom: 8px;
+      text-align: center;
+    }
 
-	<!-- Theme Color
-	============================================= -->
-	<link href="css/light.css" rel="stylesheet" id="choose-theme">	
+    .appointment-sec .lead {
+      color: #6b7a89;
+      margin-bottom: 28px;
+      font-size: 15px;
+      text-align: center;
+    }
 
-    
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
+    /* Grid for inputs */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
 
-			<link rel="stylesheet" href="css/header.css">
+    .form-grid .full {
+      grid-column: 1 / -1;
+    }
 
-	
-	<!-- SCRIPTS
-    
-     ================================================== -->
-	
-	<script src="js/modernizr-2.6.2.min.js"></script>
-	<script src="js/jquery.js"></script>
+    /* Inputs / Select / Textarea */
+    .appt-card input[type="text"],
+    .appt-card input[type="email"],
+    .appt-card select,
+    .appt-card textarea {
+      width: 100%;
+      height: 46px;
+      border: 1px solid #d7e0e6;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 15px;
+      color: #0f172a;
+      background: #fff;
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
 
-	<script>
-		$(function () {
-			$("#header1").load("header.html", function() {
-				var url = window.location.pathname;
-				console.log("Current URL Pathname:", url);
-				var navItems = document.querySelectorAll('#navbar-nav li a');
-	
-				console.log("Number of nav items found:", navItems.length);
-	
-				navItems.forEach(function(item) {
-					console.log("Checking URL:", item.getAttribute('href'));
-					if (url.includes(item.getAttribute('href'))) {
-						console.log("Match found:", item.getAttribute('href'));
-						item.parentElement.classList.add('active');
-					} else {
-						item.parentElement.classList.remove('active');
-					}
-				});
-			});
-			$("#footer").load("footer.html");
+    .appt-card textarea {
+      min-height: 200px;
+      resize: vertical;
+      line-height: 1.5;
+    }
 
-	
-		});
-	</script>
+    .appt-card input::placeholder,
+    .appt-card textarea::placeholder {
+      color: #9aa7b2;
+    }
 
-	</head>
-    <body class="fixed-header">
-		
-		
-		
-		
-    
-		<!-- Document Wrapper
-		============================================= -->
-		<div id="wrapper" class="clearfix">
-    
-    
-			<!-- Header
-			============================================= -->
-			<header id="header1"></header>
+    .appt-card input:focus,
+    .appt-card select:focus,
+    .appt-card textarea:focus {
+      outline: none;
+      border-color: #00953F;
+      box-shadow: 0 0 0 3px rgba(0,149,63,.15);
+    }
 
-			
-			
-			
-			<!-- Sub Page Banner
-			============================================= -->
-			<section class="sub-page-banner text-center" data-stellar-background-ratio="0.3">
-				
-				<div class="overlay"></div>
-				
-				<div class="container">
-					<h1 class="entry-title">Make an appointment</h1>
-				</div>
-				
-			</section>
-    
-    
-			
-			<!-- Sub Page Content
-			============================================= -->
-			<div id="sub-page-content" class="clearfix no-padding">
-    
-    
-				<!-- Appointment
-				============================================= -->
-				<section class="appointment-sec text-center">
-					
-					<div class="container">
-						
-						<h1>Make an appointment</h1>
-						<p class="lead">Hi fill in the details and submit the form. We will contact you via phone or email and fix a time schedule. 
-						
-						<div class="row">
-							
-							<div class="col-md-3">
-							</div>
-							
-							<div class="col-md-6">
-								<div class="appointment-form clearfix">
-								   <div class="success" id="message-app" style="display:none;"></div>
-									<form name="appoint_form" id="appoint_form" method="post" action="http://wahabali.com/work/medicom/submit.php" onSubmit="return false">
-										<input type="text" name="app_fname" id="app_fname" placeholder="First Name" onKeyPress="removeChecks();">
-										<input type="text" name="app_lname" id="app_lname" placeholder="Last Name" onKeyPress="removeChecks();">
-										<input type="email" name="app_email_address" id="app_email_address" placeholder="Email Address" onKeyPress="removeChecks();">
-										<input type="text" name="app_phone" id="app_phone" placeholder="Phone No">
-										<input type="text" name="datepicker" id="datepicker" placeholder="Appointment Date" onClick="removeChecks();">
-										<select name="gender" id="gender">
-											<option>Male</option>
-											<option>Female</option>
-											<option>Child</option>
-										</select>
-										<textarea placeholder="Message" name="app_msg" id="app_msg"></textarea>
-										<input type="submit" value="submit" class="btn btn-default btn-rounded" onClick="validateAppoint();">
-									</form>
-								</div>
-							</div>
-							<div class="col-md-3">
-							</div>
-						</div>
-						
-					</div>
-					
-				</section>
-    
-    
-				
-				<!-- After Booking
-				============================================= -->
-				<section class="after-booking-sec text-center">
-					
-					<div class="container">
-						
-						
-					</div>
-					
-				</section>
-    
-    
-    
-		<div class="colourfull-row"></div>
-	
-	
-	
-		<!-- Footer
-		============================================= -->
-		<footer id="footer"></footer>
+    /* Labels */
+    .appt-label {
+      display: block;
+      font-weight: 700;
+      font-size: 13px;
+      color: #334155;
+      margin: 6px 0 6px;
+    }
 
-	
-	
-		<!-- back to top -->
-		<a href="#." class="back-to-top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
-		
-    </div><!--end #wrapper-->
-	
-		
-		
-		
-    <!-- All Javascript 
-	============================================= -->
-	<script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.stellar.js"></script>
-	<script src="js/jquery-ui-1.10.3.custom.js"></script>
-    <script src="js/owl.carousel.js"></script>
-    <script src="js/counter.js"></script>
-    <script src="js/waypoints.js"></script>
-	<script src="js/jquery.uniform.js"></script>
-    <script src="js/easyResponsiveTabs.js"></script>
-	<script src="js/jquery.fancybox.pack.js"></script>
-	<script src="js/jquery.fancybox-media.js"></script>
-	<script src="js/jquery.mixitup.js"></script>
-	<script src="js/forms-validation.js"></script>
-	<script src="js/jquery.jcarousel.min.js"></script>
-	<script src="js/jquery.easypiechart.min.js"></script>
-	<script src="js/scripts.js"></script>
-	
-	<script src="js/color-switcher.js"></script>
-	
-  </body>
+    /* Button */
+    .appt-submit {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 12px;
+      background: #302582;   /* violet accent */
+      color: #fff;
+      font-weight: 700;
+      border: none;
+      transition: transform .1s ease, box-shadow .2s ease, background .2s ease;
+    }
 
-<!-- Mirrored from wahabali.com/work/medicom/appointment.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Jun 2024 11:42:59 GMT -->
+    .appt-submit:hover { background: #251c68; }
+    .appt-submit:active { transform: translateY(1px); }
+
+    /* Responsive */
+    @media (max-width: 767px){
+      .form-grid { grid-template-columns: 1fr; }
+      .appt-card { padding: 22px; }
+    }
+  </style>
+
+  <!-- JS -->
+  <script src="js/modernizr-2.6.2.min.js"></script>
+  <script src="js/jquery.js"></script>
+  <script>
+    $(function () {
+      $("#header1").load("header.html");
+      $("#footer").load("footer.html");
+    });
+  </script>
+</head>
+<body class="fixed-header">
+
+  <!-- Wrapper -->
+  <div id="wrapper" class="clearfix">
+
+    <!-- Header -->
+    <header id="header1"></header>
+
+    <!-- Banner -->
+    <section class="sub-page-banner text-center" data-stellar-background-ratio="0.3">
+      <div class="overlay"></div>
+      <div class="container">
+        <h1 class="entry-title">Make an Appointment</h1>
+      </div>
+    </section>
+
+    <!-- Appointment Section -->
+    <section class="appointment-sec">
+      <div class="container">
+        <h1>Make an Appointment</h1>
+        <p class="lead">Fill in the details below and submit the form. We will contact you via phone or email to confirm your schedule.</p>
+
+        <div class="appt-card">
+          <div id="message-contact" class="success" style="display:none;">Thank you! We'll contact you shortly.</div>
+
+          <form id="appointment_form" action="" method="post">
+            <div class="form-grid">
+              <!-- Name -->
+              <div>
+                <label for="u_name" class="appt-label">Name</label>
+                <input type="text" name="u_name" id="u_name" placeholder="Your full name" required>
+              </div>
+
+              <!-- Email -->
+              <div>
+                <label for="u_email" class="appt-label">Email Address</label>
+                <input type="email" name="u_email" id="u_email" placeholder="name@example.com" required>
+              </div>
+
+              <!-- Email -->
+              <div>
+                <label for="u_email" class="appt-label">Email Address</label>
+                <input type="text" name="phone" id="phone" placeholder="Phone Number">
+              </div>
+
+              <!-- Doctor -->
+              <div class="full">
+                <label for="doctorSelect" class="appt-label">Select a Doctor</label>
+                <select id="doctorSelect" name="doctor" required>
+                  <option value="">-- Choose a Doctor --</option>
+                  <option value="Dr. T.V. Sathappan">Dr. T.V. Sathappan, M.S., M.Ch., FACS., FICS</option>
+                  <option value="Dr. Rajarajan Jayachandran">Dr. Rajarajan Jayachandran, MBBS, MS, MCh</option>
+                  <option value="Dr. T. Rajendran">Dr. T. Rajendran, MBBS., DNB</option>
+                  <option value="Dr. S. Sangeetha">Dr. S. Sangeetha, MBBS., DGO., FRM</option>
+                  <option value="Dr. Amrutha Sathappan">Dr. Amrutha Sathappan, MBBS., M.S., (ENT)</option>
+                  <option value="Others">Others</option>
+                </select>
+              </div>
+
+              <!-- Message -->
+              <div class="full">
+                <label for="message" class="appt-label">Message</label>
+                <textarea name="message" id="message" placeholder="Share your symptoms or preferred date/time"></textarea>
+              </div>
+            </div>
+
+            <div style="margin-top:18px;">
+              <input type="submit" class="appt-submit" value="Submit Appointment Request">
+            </div>
+            <div id="response-message" style="text-align: right; color:white">
+           </div>
+          </form>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer"></footer>
+    <a href="#." class="back-to-top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+  </div>
+
+  <!-- JS -->
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/scripts.js"></script>
+  <script>
+  $(function () {
+    $('#appointment_form').on('submit', function (event) {
+      event.preventDefault(); // prevent full page reload
+
+      const $form = $(this);
+      const $btn  = $form.find('.appt-submit');
+      const $msg  = $('#response-message');
+
+      // Collect form data
+      const data = {
+        u_name: $('#u_name').val().trim(),
+        u_email: $('#u_email').val().trim(),
+        phone: $('#phone').val().trim(),
+        doctor: $('#doctorSelect').val(),
+        message: $('#message').val().trim()
+      };
+
+      // Basic front-end validation
+      if (!data.u_name || !data.u_email || !data.doctor) {
+        $msg.text('Please fill in your name, email, and select a doctor.');
+        return;
+      }
+
+      // Button loading state
+      const originalText = $btn.val();
+      $btn.prop('disabled', true).val('Submitting...');
+
+      // AJAX request
+      $.ajax({
+        type: 'POST',
+        url: $form.attr('action') || 'contact.php',
+        data: data,
+        dataType: 'json'
+      })
+      .done(function (response) {
+        // Expecting JSON { success: true/false, message: "..." }
+        const text = (response && response.message)
+          ? response.message
+          : 'Your appointment request has been submitted.';
+        $msg.text(text);
+        $form.trigger('reset');
+        $('#doctorSelect').val('');
+      })
+      .fail(function (xhr) {
+        let text = 'Error occurred while processing the request.';
+        if (xhr.responseJSON && xhr.responseJSON.message) {
+          text = xhr.responseJSON.message;
+        }
+        $msg.text(text);
+      })
+      .always(function () {
+        $btn.prop('disabled', false).val(originalText);
+      });
+    });
+  });
+</script>
+
+</body>
 </html>
