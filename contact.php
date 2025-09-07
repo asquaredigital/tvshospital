@@ -3,22 +3,26 @@ declare(strict_types=1);
 
 header('Content-Type: application/json; charset=UTF-8');
 
-require __DIR__ . '/../vendor/vendor/autoload.php';
-
 use Aws\Ses\SesClient;
 use Aws\Exception\AwsException;
 
+// ---- Adjust these paths to your server layout ----
+require __DIR__ . '/../vendor/vendor/autoload.php';  // Composer autoload
+$config = require __DIR__ . '/../vendor/config.php'; // returns ['aws' => ['key'=>..., 'secret'=>..., 'region'=>...]]
+
+// Reject non-POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
     echo json_encode(['success' => false, 'message' => 'Invalid request.']);
     exit;
 }
 
-$config = require __DIR__ . '/../vendor/config.php';
+// Read config
+$awsKey    = $config['aws']['key']    ?? '';
+$awsSecret = $config['aws']['secret'] ?? '';
+$awsRegion = $config['aws']['region'] ?? '';
 
-$awsKey    = $config['aws']['key']   ?? '';
-$awsSecret = $config['aws']['secret']?? '';
-$awsRegion = $config['aws']['region']?? '';
-
+// Create SES client
 $sesClient = new SesClient([
     'version'     => 'latest',
     'region'      => $awsRegion,
@@ -28,14 +32,14 @@ $sesClient = new SesClient([
     ],
 ]);
 
-// Read expected fields from the form (match your HTML/JS)
+// Read form fields (must match front-end)
 $u_name  = trim($_POST['u_name']  ?? '');
 $u_email = trim($_POST['u_email'] ?? '');
 $phone   = trim($_POST['phone']   ?? '');
 $doctor  = trim($_POST['doctor']  ?? '');
 $msg     = trim($_POST['message'] ?? '');
 
-// Basic validation
+// Validate
 if ($u_name === '' || $u_email === '' || $doctor === '') {
     echo json_encode(['success' => false, 'message' => 'Please provide your name, email, and select a doctor.']);
     exit;
@@ -45,7 +49,7 @@ if (!filter_var($u_email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
-// Email content
+// Compose email
 $subject = 'New Appointment Request - ' . ($doctor !== '' ? $doctor : 'Doctor not specified');
 $body = "New appointment request from the website:\n\n"
       . "Name: {$u_name}\n"
@@ -54,9 +58,9 @@ $body = "New appointment request from the website:\n\n"
       . "Doctor: " . ($doctor !== '' ? $doctor : 'N/A') . "\n"
       . "Message:\n{$msg}\n";
 
-// IMPORTANT: These must be verified in SES (or you must be out of sandbox)
-$senderEmail    = 'asquaremailer@gmail.com';     // FROM (verified)
-$recipientEmail = 'elavarasan5193@gmail.com';   // TO   (verified if SES sandbox)
+// ---- Replace with your verified identities in SES ----
+$senderEmail    = 'asquaremailer@gmail.com';     // FROM (must be verified in SES, or domain identity)
+$recipientEmail = 'elavarasan5193@gmail.com';   // TO (must be verified if SES account is in sandbox)
 
 try {
     $result = $sesClient->sendEmail([
@@ -76,7 +80,7 @@ try {
             ],
         ],
         'Source'           => $senderEmail,
-        'ReplyToAddresses' => [$u_email], // Reply to the user
+        'ReplyToAddresses' => [$u_email], // replies go to the requester
     ]);
 
     echo json_encode([

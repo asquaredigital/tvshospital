@@ -220,27 +220,33 @@
   <!-- JS -->
   <script src="js/bootstrap.min.js"></script>
   <script src="js/scripts.js"></script>
-  <script>
+ <script>
+  // Assumes jQuery is loaded
   $(function () {
     $('#appointment_form').on('submit', function (event) {
-      event.preventDefault(); // prevent full page reload
+      event.preventDefault(); // stop full page reload
 
       const $form = $(this);
       const $btn  = $form.find('.appt-submit');
       const $msg  = $('#response-message');
 
-      // Collect form data
+      // Collect form data (must match your input IDs/names)
       const data = {
-        u_name: $('#u_name').val().trim(),
+        u_name:  $('#u_name').val().trim(),
         u_email: $('#u_email').val().trim(),
-        phone: $('#phone').val().trim(),
-        doctor: $('#doctorSelect').val(),
+        phone:   $('#phone').val().trim(),
+        doctor:  $('#doctorSelect').val(),
         message: $('#message').val().trim()
       };
 
-      // Basic front-end validation
-      if (!data.u_name || !data.u_email || !data.doctor) {
-        $msg.text('Please fill in your name, email, and select a doctor.');
+      // Basic validation
+      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.u_email);
+      if (!data.u_name || !emailOk || !data.doctor) {
+        $msg.text('Please enter your name, a valid email, and select a doctor.').css({ color: '#b42318' });
+        return;
+      }
+      if (data.phone && !/^[0-9+\-\s()]{6,}$/.test(data.phone)) {
+        $msg.text('Please enter a valid phone number.').css({ color: '#b42318' });
         return;
       }
 
@@ -248,28 +254,32 @@
       const originalText = $btn.val();
       $btn.prop('disabled', true).val('Submitting...');
 
-      // AJAX request
+      // AJAX to your PHP endpoint
       $.ajax({
         type: 'POST',
-        url: $form.attr('action') || 'contact.php',
+        url: $form.attr('action') || 'appointment.php',  // keep in sync with your form action
         data: data,
         dataType: 'json'
       })
       .done(function (response) {
-        // Expecting JSON { success: true/false, message: "..." }
-        const text = (response && response.message)
-          ? response.message
-          : 'Your appointment request has been submitted.';
-        $msg.text(text);
-        $form.trigger('reset');
-        $('#doctorSelect').val('');
+        // Expecting: { success: true/false, message: "..." }
+        const ok   = !!(response && response.success);
+        const text = (response && response.message) ? response.message : (ok
+          ? 'Your appointment request has been submitted.'
+          : 'We could not submit your request.');
+
+        $msg.text(text).css({ color: ok ? '#067647' : '#b42318' }); // green/red
+
+        if (ok) {
+          $form.trigger('reset');
+          $('#doctorSelect').val('');
+        }
       })
       .fail(function (xhr) {
         let text = 'Error occurred while processing the request.';
-        if (xhr.responseJSON && xhr.responseJSON.message) {
-          text = xhr.responseJSON.message;
-        }
-        $msg.text(text);
+        if (xhr.responseJSON && xhr.responseJSON.message) text = xhr.responseJSON.message;
+        else if (xhr.responseText) text = xhr.responseText;
+        $msg.text(text).css({ color: '#b42318' });
       })
       .always(function () {
         $btn.prop('disabled', false).val(originalText);
@@ -277,6 +287,7 @@
     });
   });
 </script>
+
 
 </body>
 </html>
