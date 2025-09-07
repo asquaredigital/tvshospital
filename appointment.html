@@ -220,17 +220,15 @@
   <!-- JS -->
   <script src="js/bootstrap.min.js"></script>
   <script src="js/scripts.js"></script>
- <script>
-  // Assumes jQuery is loaded
+<script>
   $(function () {
     $('#appointment_form').on('submit', function (event) {
-      event.preventDefault(); // stop full page reload
+      event.preventDefault();
 
       const $form = $(this);
       const $btn  = $form.find('.appt-submit');
       const $msg  = $('#response-message');
 
-      // Collect form data (must match your input IDs/names)
       const data = {
         u_name:  $('#u_name').val().trim(),
         u_email: $('#u_email').val().trim(),
@@ -239,7 +237,6 @@
         message: $('#message').val().trim()
       };
 
-      // Basic validation
       const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.u_email);
       if (!data.u_name || !emailOk || !data.doctor) {
         $msg.text('Please enter your name, a valid email, and select a doctor.').css({ color: '#b42318' });
@@ -250,29 +247,40 @@
         return;
       }
 
-      // Button loading state
       const originalText = $btn.val();
       $btn.prop('disabled', true).val('Submitting...');
 
-      // AJAX to your PHP endpoint
       $.ajax({
         type: 'POST',
-        url: $form.attr('action') || 'contact.php',  // keep in sync with your form action
+        url: $form.attr('action') || 'contact.php',
         data: data,
         dataType: 'json'
       })
       .done(function (response) {
-        // Expecting: { success: true/false, message: "..." }
         const ok   = !!(response && response.success);
-        const text = (response && response.message) ? response.message : (ok
-          ? 'Your appointment request has been submitted.'
-          : 'We could not submit your request.');
+        const text = (response && response.message) ? response.message
+                  : (ok ? 'Your appointment request has been submitted.' : 'We could not submit your request.');
 
-        $msg.text(text).css({ color: ok ? '#067647' : '#b42318' }); // green/red
+        $msg.text(text).css({ color: ok ? '#067647' : '#b42318' });
 
         if (ok) {
+          // Reset the form
           $form.trigger('reset');
           $('#doctorSelect').val('');
+
+          // ===== Open WhatsApp with same details =====
+          const toNumber = '919962112230'; // country code + number (India = 91)
+          const waMessage =
+            'New appointment request:%0A%0A' +
+            'Name: '   + encodeURIComponent(data.u_name)  + '%0A' +
+            'Email: '  + encodeURIComponent(data.u_email) + '%0A' +
+            'Phone: '  + encodeURIComponent(data.phone || 'N/A') + '%0A' +
+            'Doctor: ' + encodeURIComponent(data.doctor)  + '%0A' +
+            'Message:%0A' + encodeURIComponent(data.message || '');
+
+          // Open WhatsApp Web / App
+          const waURL = 'https://api.whatsapp.com/send?phone=' + toNumber + '&text=' + waMessage;
+          window.open(waURL, '_blank');
         }
       })
       .fail(function (xhr) {
@@ -287,6 +295,7 @@
     });
   });
 </script>
+
 
 
 </body>
