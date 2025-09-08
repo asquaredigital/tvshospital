@@ -16,11 +16,12 @@
   <link rel="stylesheet" href="css/header.css">
 
   <style>
-    /* ===== Appointment Form Refresh ===== */
+    /* ===== Appointment Form ===== */
     .appointment-sec {
       padding: 60px 0;
       background: #f7faf9;
     }
+
     .appt-card {
       max-width: 760px;
       margin: 0 auto;
@@ -30,6 +31,7 @@
       box-shadow: 0 10px 30px rgba(16,24,40,.06);
       padding: 32px;
     }
+
     .appointment-sec h1 {
       font-weight: 800;
       text-transform: uppercase;
@@ -38,18 +40,26 @@
       margin-bottom: 8px;
       text-align: center;
     }
+
     .appointment-sec .lead {
       color: #6b7a89;
       margin-bottom: 28px;
       font-size: 15px;
       text-align: center;
     }
+
+    /* Grid for inputs */
     .form-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
     }
-    .form-grid .full { grid-column: 1 / -1; }
+
+    .form-grid .full {
+      grid-column: 1 / -1;
+    }
+
+    /* Inputs / Select / Textarea */
     .appt-card input[type="text"],
     .appt-card input[type="email"],
     .appt-card select,
@@ -64,13 +74,18 @@
       background: #fff;
       transition: border-color .2s ease, box-shadow .2s ease;
     }
+
     .appt-card textarea {
       min-height: 200px;
       resize: vertical;
       line-height: 1.5;
     }
+
     .appt-card input::placeholder,
-    .appt-card textarea::placeholder { color: #9aa7b2; }
+    .appt-card textarea::placeholder {
+      color: #9aa7b2;
+    }
+
     .appt-card input:focus,
     .appt-card select:focus,
     .appt-card textarea:focus {
@@ -78,6 +93,8 @@
       border-color: #00953F;
       box-shadow: 0 0 0 3px rgba(0,149,63,.15);
     }
+
+    /* Labels */
     .appt-label {
       display: block;
       font-weight: 700;
@@ -85,18 +102,38 @@
       color: #334155;
       margin: 6px 0 6px;
     }
+
+    /* Button Row */
+    .submit-row {
+      display: flex;
+      justify-content: center;
+      margin-top: 18px;
+    }
+
+    /* Submit Button */
     .appt-submit {
       display: inline-block;
       padding: 12px 22px;
       border-radius: 12px;
-      background: #302582;
+      background: #302582;   /* violet accent */
       color: #fff;
       font-weight: 700;
       border: none;
       transition: transform .1s ease, box-shadow .2s ease, background .2s ease;
     }
+
     .appt-submit:hover { background: #251c68; }
     .appt-submit:active { transform: translateY(1px); }
+
+    /* Response Message */
+    #response-message {
+      text-align: center;
+      margin-top: 12px;
+      font-weight: 600;
+      color: #d22c2c; /* red for error, can be changed dynamically */
+    }
+
+    /* Responsive */
     @media (max-width: 767px){
       .form-grid { grid-template-columns: 1fr; }
       .appt-card { padding: 22px; }
@@ -114,9 +151,14 @@
   </script>
 </head>
 <body class="fixed-header">
+
+  <!-- Wrapper -->
   <div id="wrapper" class="clearfix">
+
+    <!-- Header -->
     <header id="header1"></header>
 
+    <!-- Banner -->
     <section class="sub-page-banner text-center" data-stellar-background-ratio="0.3">
       <div class="overlay"></div>
       <div class="container">
@@ -124,27 +166,35 @@
       </div>
     </section>
 
+    <!-- Appointment Section -->
     <section class="appointment-sec">
       <div class="container">
         <h1>Make an Appointment</h1>
         <p class="lead">Fill in the details below and submit the form. We will contact you via phone or email to confirm your schedule.</p>
 
         <div class="appt-card">
-          <!-- NOTE: absolute path so it always hits the correct script -->
-          <form id="appointment_form" action="" method="post">
+
+          <form id="appointment_form" action="/appointment.php" method="post">
             <div class="form-grid">
+              <!-- Name -->
               <div>
                 <label for="u_name" class="appt-label">Name</label>
                 <input type="text" name="u_name" id="u_name" placeholder="Your full name" required>
               </div>
+
+              <!-- Email -->
               <div>
                 <label for="u_email" class="appt-label">Email Address</label>
                 <input type="email" name="u_email" id="u_email" placeholder="name@example.com" required>
               </div>
+
+              <!-- Phone -->
               <div>
                 <label for="phone" class="appt-label">Phone</label>
                 <input type="text" name="phone" id="phone" placeholder="Phone Number">
               </div>
+
+              <!-- Doctor -->
               <div class="full">
                 <label for="doctorSelect" class="appt-label">Select a Doctor</label>
                 <select id="doctorSelect" name="doctor" required>
@@ -157,21 +207,25 @@
                   <option value="Others">Others</option>
                 </select>
               </div>
+
+              <!-- Message -->
               <div class="full">
                 <label for="message" class="appt-label">Message</label>
                 <textarea name="message" id="message" placeholder="Share your symptoms or preferred date/time"></textarea>
               </div>
             </div>
 
-            <div style="margin-top:18px;">
+            <div class="submit-row">
               <input type="submit" class="appt-submit" value="Submit">
             </div>
-            <div id="response-message" style="text-align: right; color:#067647; margin-top:10px;"></div>
+            <div id="response-message"></div>
           </form>
+          
         </div>
       </div>
     </section>
 
+    <!-- Footer -->
     <footer id="footer"></footer>
     <a href="#." class="back-to-top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
   </div>
@@ -179,43 +233,38 @@
   <!-- JS -->
   <script src="js/bootstrap.min.js"></script>
   <script src="js/scripts.js"></script>
-
   <script>
-    $(document).ready(function() {
+   $(document).ready(function() {
       $('#appointment_form').submit(function(event) {
-        event.preventDefault(); // Prevent full page navigation
-
+        event.preventDefault(); // Prevent form submission
+    
+        // Get form data
         var formData = {
-          u_name:  $('#u_name').val(),
+          u_name: $('#u_name').val(),
           u_email: $('#u_email').val(),
-          phone:   $('#phone').val(),
-          doctor:  $('#doctorSelect').val(),
+          phone: $('#phone').val(),
+          doctor: $('#doctorSelect').val(),
           message: $('#message').val()
         };
-
+    
+        // Send AJAX request
         $.ajax({
           type: 'POST',
-          url: 'appointment.php',        // absolute path
+          url: '/appointment.php',
           data: formData,
           dataType: 'json',
-          headers: { 'Accept': 'application/json' },
-          encode: true,
-          timeout: 15000
+          encode: true
         })
         .done(function(response) {
-          $('#response-message').text(response && response.message ? response.message : 'Submitted.');
+          $('#response-message').css("color", "green").text(response.message);
           $("#appointment_form").trigger("reset");
-          $('#doctorSelect').val('');
         })
-        .fail(function(xhr) {
-          // Helpful console for debugging (path/WAF/PHP issue)
-          console.log('AJAX FAIL:', xhr.status, xhr.statusText, xhr.responseText);
-          $('#response-message').css('color', '#b42318')
-                                .text('Error occurred while processing the request.');
-          // $("#appointment_form").trigger("reset"); // keep data if error
+        .fail(function(response) {
+          $('#response-message').css("color", "red").text('Error occurred while processing the request.');
         });
       });
     });
   </script>
+
 </body>
 </html>
