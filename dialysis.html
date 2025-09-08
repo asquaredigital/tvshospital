@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
   
-<!-- Mirrored from wahabali.com/work/medicom/contact-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Jun 2024 11:48:54 GMT -->
 <head>
     <base #href="" />
 	<!-- Basic Page Needs
@@ -339,65 +338,10 @@
 	<script src="js/scripts.js"></script>
 	
 	<script src="js/color-switcher.js"></script>
-	<script>
-  $(document).ready(function () {
-    $('#contact_form').submit(function (event) {
-      event.preventDefault();
 
-      var formData = {
-        u_name:  $('#u_name').val(),
-        u_email: $('#u_email').val(),
-        phone:   $('#phone').val(),
-        message: $('#message').val()
-      };
-
-      $.ajax({
-        type: 'POST',
-        url: 'sendmessage.php',   // change if needed
-        data: formData,
-        dataType: 'json',
-        encode: true
-      })
-      .done(function (response) {
-        // Show mail status
-        $('#response-message')
-          .css('color', response && response.success ? 'green' : 'red')
-          .text(response && response.message ? response.message : 'Submitted.');
-
-        if (response && response.success) {
-          // Build WhatsApp message text
-          var waText = 
-            'New Appointment Request%0A' +
-            'Name: '   + (formData.u_name  || '-') + '%0A' +
-            'Email: '  + (formData.u_email || '-') + '%0A' +
-            'Phone: '  + (formData.phone   || '-') + '%0A' +
-            'Message:%0A' + (formData.message || '-');
-
-          var waUrl = 'https://wa.me/919962112230?text=' + waText;
-
-          // Try opening WhatsApp
-          var win = window.open(waUrl, '_blank');
-          if (!win) {
-            $('#response-message').append(
-              ' • <a href="' + waUrl + '" target="_blank" rel="noopener">Tap to send on WhatsApp</a>'
-            );
-          }
-
-          // Reset form
-          $('#contact_form').trigger('reset');
-        }
-      })
-      .fail(function () {
-        $('#response-message')
-          .css('color', 'red')
-          .text('Error occurred while processing the request.');
-      });
-    });
-  });
-</script>
 
 	
-	<a href="https://wa.me/919962112230?text=Hi,%20I%20have%20a%20enquiry"
+	<a href="https://wa.me/919994716276?text=Hi,%20I%20have%20a%20enquiry"
    class="whatsapp-float"
    target="_blank" 
    rel="noopener">

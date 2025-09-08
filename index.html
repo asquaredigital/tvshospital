@@ -1156,71 +1156,9 @@
   <script src="js/jquery.themepunch.revolution.min.js"></script>
   <script src="js/color-switcher.js"></script>
 
-  <script>
-    function checkcontact(email) {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return emailRegex.test(email);
-    }
-
-    function sendWhatsAppMessage() {
-      const fname = document.getElementById('app_fname').value;
-      const lname = document.getElementById('app_lname').value;
-      const email = document.getElementById('app_email_address').value;
-      const phone = document.getElementById('app_phone').value;
-      const date = document.getElementById('datepicker').value;
-      const gender = document.getElementById('gender').value;
-      const msg = document.getElementById('app_msg').value;
-
-      const message = `First Name: ${fname}\nLast Name: ${lname}\nEmail: ${email}\nPhone: ${phone}\nAppointment Date: ${date}\nGender: ${gender}\nMessage: ${msg}`;
-      const whatsappUrl = `https://api.whatsapp.com/send?phone=+917010497996&text=${encodeURIComponent(message)}`;
-      window.open(whatsappUrl, '_blank');
-    }
-
-    function validateAppoint1(event) {
-      event.preventDefault();
-      var app_fname = document.getElementById("app_fname");
-      var app_lname = document.getElementById("app_lname");
-      var app_email_address = document.getElementById("app_email_address");
-      var app_date = document.getElementById("datepicker");
-
-      var flag = 0;
-      if (app_fname.value == "") {
-        app_fname.style.borderColor = "#FE847B";
-        flag = 1;
-      } else if (app_lname.value == "") {
-        app_lname.style.borderColor = "#FE847B";
-        flag = 1;
-      } else if (app_email_address.value == "") {
-        app_email_address.style.borderColor = "#FE847B";
-        flag = 1;
-      } else if (checkcontact(app_email_address.value) == false) {
-        app_email_address.style.borderColor = "#FE847B";
-        flag = 1;
-      } else if (app_date.value == "") {
-        app_date.style.borderColor = "#FE847B";
-        flag = 1;
-      }
-
-      if (flag == 0) {
-        sendWhatsAppMessage();
-      }
-    }
-
-    // Optional: Revolution slider init (if used elsewhere)
-    (function () {
-      var revapi;
-      revapi = jQuery('.tp-banner').revolution({
-        delay: 9000,
-        startwidth: 1170,
-        startheight: 682,
-        hideThumbs: 200,
-        fullWidth: "on",
-        forceFullWidth: "on"
-      });
-    })();
-  </script>
+  
   <!-- WhatsApp Floating Button -->
-<a href="https://wa.me/919095171747?text=Hi,%20I%20have%20a%20enquiry"
+<a href="https://wa.me/919994716276?text=Hi,%20I%20have%20a%20enquiry"
    class="whatsapp-float"
    target="_blank" 
    rel="noopener">
