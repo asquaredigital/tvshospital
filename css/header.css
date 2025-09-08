@@ -190,8 +190,21 @@
   #header .navbar-toggle { margin-top:10px; margin-bottom:10px; }
 
   /* Top CTA stack vertically */
-  .top-cta { text-align:center; }
-  .top-cta .btn { margin:6px 0; display:block; width:100%; }
+  .top-cta {
+    width:100%;
+    text-align:center;
+  }
+
+  .top-cta a.btn {
+    display:block;
+    width:90%;              /* make them wider but not touching edges */
+    max-width:320px;        /* optional, keeps nice size */
+    margin:8px auto;        /* centers them */
+    text-align:center;
+    font-size:16px;         /* slightly bigger text */
+    padding:12px 20px;      /* taller buttons */
+    box-sizing:border-box;  /* includes padding in width */
+  }
 
   /* Make logo full width & centered */
   .top-logo {
