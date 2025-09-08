@@ -221,80 +221,43 @@
   <script src="js/bootstrap.min.js"></script>
   <script src="js/scripts.js"></script>
 <script>
-  $(function () {
-    $('#appointment_form').on('submit', function (event) {
-      event.preventDefault();
+   $(document).ready(function() {
+            $('#appointment_form').submit(function(event) {
+                event.preventDefault(); // Prevent form submission
+        
+                // Get form data
+                var formData = {
+                    u_name: $('#u_name').val(),
+                    u_email: $('#u_email').val(),
+                    phone: $('#phone').val(),
+                    doctor: $('#doctorSelect').val(),
+                    message: $('#message').val()
+                };
+        
+                // Send AJAX request
+                $.ajax({
+                    type: 'POST',
+                    url: 'appointment.php',
+                    data: formData,
+                    dataType: 'json',
+                    encode: true
+                })
+                .done(function(response) {
+                    // Display response message
+                    $('#response-message').text(response.message);
+                    $("#appointment_form").trigger("reset");
 
-      const $form = $(this);
-      const $btn  = $form.find('.appt-submit');
-      const $msg  = $('#response-message');
+                })
+                .fail(function(response) {
+                    // Display error message
+                    $('#response-message').text('Error occurred while processing the request.');
+                    $("#appointment_form").trigger("reset");
 
-      const data = {
-        u_name:  $('#u_name').val().trim(),
-        u_email: $('#u_email').val().trim(),
-        phone:   $('#phone').val().trim(),
-        doctor:  $('#doctorSelect').val(),
-        message: $('#message').val().trim()
-      };
-
-      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.u_email);
-      if (!data.u_name || !emailOk || !data.doctor) {
-        $msg.text('Please enter your name, a valid email, and select a doctor.').css({ color: '#b42318' });
-        return;
-      }
-      if (data.phone && !/^[0-9+\-\s()]{6,}$/.test(data.phone)) {
-        $msg.text('Please enter a valid phone number.').css({ color: '#b42318' });
-        return;
-      }
-
-      const originalText = $btn.val();
-      $btn.prop('disabled', true).val('Submitting...');
-
-      $.ajax({
-        type: 'POST',
-        url: $form.attr('action') || 'contact.php',
-        data: data,
-        dataType: 'json'
-      })
-      .done(function (response) {
-        const ok   = !!(response && response.success);
-        const text = (response && response.message) ? response.message
-                  : (ok ? 'Your appointment request has been submitted.' : 'We could not submit your request.');
-
-        $msg.text(text).css({ color: ok ? '#067647' : '#b42318' });
-
-        if (ok) {
-          // Reset the form
-          $form.trigger('reset');
-          $('#doctorSelect').val('');
-
-          // ===== Open WhatsApp with same details =====
-          const toNumber = '919962112230'; // country code + number (India = 91)
-          const waMessage =
-            'New appointment request:%0A%0A' +
-            'Name: '   + encodeURIComponent(data.u_name)  + '%0A' +
-            'Email: '  + encodeURIComponent(data.u_email) + '%0A' +
-            'Phone: '  + encodeURIComponent(data.phone || 'N/A') + '%0A' +
-            'Doctor: ' + encodeURIComponent(data.doctor)  + '%0A' +
-            'Message:%0A' + encodeURIComponent(data.message || '');
-
-          // Open WhatsApp Web / App
-          const waURL = 'https://api.whatsapp.com/send?phone=' + toNumber + '&text=' + waMessage;
-          window.open(waURL, '_blank');
-        }
-      })
-      .fail(function (xhr) {
-        let text = 'Error occurred while processing the request.';
-        if (xhr.responseJSON && xhr.responseJSON.message) text = xhr.responseJSON.message;
-        else if (xhr.responseText) text = xhr.responseText;
-        $msg.text(text).css({ color: '#b42318' });
-      })
-      .always(function () {
-        $btn.prop('disabled', false).val(originalText);
-      });
-    });
-  });
+                });
+            });
+        });
 </script>
+
 
 
 
