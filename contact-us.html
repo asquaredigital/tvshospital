@@ -170,23 +170,16 @@
 							============================================= -->
 							<div class="contact-form clearfix">
 								<div id="message-contact" class="success" style="display:none;">Thank you! we'll contact you shortly.</div>
-								<form name="contact_form" id="contact_form" action="contact.php" method="post" onSubmit="validateContact1();">
-									<input type="text" name="u_name" id="u_name" placeholder="Name" >
-									<input type="text" name="u_email" id="u_email" placeholder="Email Address" >
-								<div class="form-group">
-								<label for="doctorSelect"><strong>Select a Doctor</strong></label>
-								<select id="doctorSelect" name="doctor" class="form-control" required>
-									<option value="">-- Choose a Doctor --</option>
-									<option value="Dr. T.V. Sathappan">Dr. T.V. Sathappan, M.S., M.Ch., FACS., FICS</option>
-									<option value="Dr. Rajarajan Jayachandran">Dr. Rajarajan Jayachandran, MBBS, MS, MCh</option>
-									<option value="Dr. T. Rajendran">Dr. T. Rajendran, MBBS., DNB</option>
-									<option value="Dr. S. Sangeetha">Dr. S. Sangeetha, MBBS., DGO., FRM</option>
-									<option value="Dr. Amrutha Sathappan">Dr. Amrutha Sathappan, MBBS., M.S., (ENT)</option>
-									<option value="Others">Others</option>
-								</select>
-								</div>
+								<form name="contact_form" id="contact_form" action="" method="post">
+									<input type="text" name="u_name" id="u_name" placeholder="Name" required>
+									<input type="text" name="u_email" id="u_email" placeholder="Email Address" required >
+									<input type="text" name="phone" id="phone" placeholder="Phone Number" >
+
+								
 									<textarea placeholder="Message" name="message" id="message"></textarea>
 									<input type="submit" class="btn btn-default" value="Submit" >
+									            <div id="response-message"></div>
+
 								</form>
 							</div>
 							
@@ -204,8 +197,8 @@
 								<ul class="list-unstyled">
 									<li><i class="fa fa-phone"></i>04362 - 451900, 230055 / Mobile : 99947 16276, 93635 14411</li>
 									<li><i class="fa fa-envelope"></i><a href="#.">tvshospital@gmail.com</a></li>
-									<li><i class="fa fa-globe"></i><a href="#.">www.tvshospital.in</a></li>
-									<li><i class="fa fa-clock-o"></i>Mon - Sat 9:00am - 6:00 pm</li>
+									<li><i class="fa fa-globe"></i><a href="#.">www.drtvshospital.com</a></li>
+									<li><i class="fa fa-clock-o"></i>24/7 Open</li>
 									<li><i class="fa fa-map-marker"></i>No.1 Nagai Road,(Near Tholkappiar Square, On The Way To Mariyaman Koil),
 										Thanjavur - 613 001.</li>
 								</ul>
@@ -278,58 +271,65 @@
 	<script src="js/scripts.js"></script>
 	
 	<script src="js/color-switcher.js"></script>
-
-	
 	<script>
+  $(document).ready(function () {
+    $('#contact_form').submit(function (event) {
+      event.preventDefault();
 
-		function checkcontact(email) {
-			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-			return emailRegex.test(email);
-		}
-		
-		
-		function sendWhatsAppMessage() {
-			const fname = document.getElementById('fname').value; 
-			const email = document.getElementById('email_address').value; 
-			const subject = document.getElementById('subject').value;
-			const msg = document.getElementById('msg').value;
-		
-			const message = `First Name: ${fname}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${msg}`;
-			
-			const whatsappUrl = `https://api.whatsapp.com/send?phone=+917010497996&text=${encodeURIComponent(message)}`;
-		
-			window.open(whatsappUrl, '_blank');
-		}
-		
-		function validateContact1(){
-		var fname = document.getElementById("fname");
-		var email_address = document.getElementById("email_address");
+      var formData = {
+        u_name:  $('#u_name').val(),
+        u_email: $('#u_email').val(),
+        phone:   $('#phone').val(),
+        message: $('#message').val()
+      };
+
+      $.ajax({
+        type: 'POST',
+        url: 'contact.php',   // change if needed
+        data: formData,
+        dataType: 'json',
+        encode: true
+      })
+      .done(function (response) {
+        // Show mail status
+        $('#response-message')
+          .css('color', response && response.success ? 'green' : 'red')
+          .text(response && response.message ? response.message : 'Submitted.');
+
+        if (response && response.success) {
+          // Build WhatsApp message text
+          var waText = 
+            'New Appointment Request%0A' +
+            'Name: '   + (formData.u_name  || '-') + '%0A' +
+            'Email: '  + (formData.u_email || '-') + '%0A' +
+            'Phone: '  + (formData.phone   || '-') + '%0A' +
+            'Message:%0A' + (formData.message || '-');
+
+          var waUrl = 'https://wa.me/919962112230?text=' + waText;
+
+          // Try opening WhatsApp
+          var win = window.open(waUrl, '_blank');
+          if (!win) {
+            $('#response-message').append(
+              ' • <a href="' + waUrl + '" target="_blank" rel="noopener">Tap to send on WhatsApp</a>'
+            );
+          }
+
+          // Reset form
+          $('#contact_form').trigger('reset');
+        }
+      })
+      .fail(function () {
+        $('#response-message')
+          .css('color', 'red')
+          .text('Error occurred while processing the request.');
+      });
+    });
+  });
+</script>
+
 	
-		var flag = 0;
-		
-		if(fname.value == "" )
-		{
-			fname.style.borderColor = "#FE847B";
-			flag = 1;
-		}
-		else if(email_address.value=="")
-		{
-			email_address.style.borderColor = "#FE847B";
-			flag = 1;
-		}
-		else if(checkcontact(email_address.value)==false)
-		{
-			email_address.style.borderColor = "#FE847B";
-			flag = 1;
-		}	
-		
-		if(flag == 0)
-		
-		{
-			sendWhatsAppMessage()
-		}
-	}
-			</script>
+	
 	
   </body>
 
