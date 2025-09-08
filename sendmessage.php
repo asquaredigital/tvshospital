@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 header('Content-Type: application/json; charset=UTF-8');
 
-require __DIR__ . '/../vendor/vendor/autoload.php';
+require __DIR__ . '/../../vendor/vendor/autoload.php';
 
 use Aws\Ses\SesClient;
 use Aws\Exception\AwsException;
