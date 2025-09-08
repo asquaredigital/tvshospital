@@ -99,6 +99,30 @@
 	
 		});
 	</script>
+     <style>
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  border-radius: 50%;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  transition: transform 0.2s ease-in-out;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+.whatsapp-float img {
+  width: 35px;
+  height: 35px;
+}
+    </style>	
 	</head>
     <body class="fixed-header">
 		
@@ -254,7 +278,13 @@
 	<script src="js/scripts.js"></script>
 	
 	<script src="js/color-switcher.js"></script>
-	
+	<a href="https://wa.me/919962112230?text=Hi,%20I%20have%20a%20enquiry"
+   class="whatsapp-float"
+   target="_blank" 
+   rel="noopener">
+   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+        alt="WhatsApp" />
+</a>
   </body>
 
 <!-- Mirrored from wahabali.com/work/medicom/gallery1.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Jun 2024 11:43:31 GMT -->

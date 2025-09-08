@@ -248,7 +248,28 @@
   font-weight: bold;
 }
 
-
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  border-radius: 50%;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  transition: transform 0.2s ease-in-out;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+.whatsapp-float img {
+  width: 35px;
+  height: 35px;
+}
   </style>
 </head>
 
@@ -398,5 +419,12 @@
       });
     })();
   </script>
+  <a href="https://wa.me/919962112230?text=Hi,%20I%20have%20a%20enquiry"
+   class="whatsapp-float"
+   target="_blank" 
+   rel="noopener">
+   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+        alt="WhatsApp" />
+</a>
 </body>
 </html>
