@@ -40,139 +40,218 @@
   </script>
 
   <style>
+
+    p{
+    font-size: 14px;
+  }
     /***** SPECIALIST DETAIL PAGE *****/
 
-    /* Page spacing */
-    .team-description .container { padding-top: 10px; }
-    #meet-specialist-carousel { margin: 0; }
+/***** SPECIALIST DETAIL PAGE *****/
 
-    /* Image card */
-    .doctors-img {
-      background: #f6f9fc;
-      border: 1px solid #e6edf3;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    .doctors-img img { display: block; width: 100%; height: auto; }
+/* Page spacing */
+.team-description .container { padding-top: 10px; }
+#meet-specialist-carousel { margin: 0; }
 
-    /* Right column: vertically center next to photo */
-    @media (min-width: 768px) {
-      .doctor-info-block {
-        display: flex;
-        flex-direction: column;
-        justify-content: center; /* vertical center */
-        height: 100%;
-        padding-left: 20px;      /* spacing from image */
-      }
-    }
+/* Image card */
+.doctors-img {
+  background: #f6f9fc;
+  border: 1px solid #e6edf3;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.doctors-img img { display: block; width: 100%; height: auto; }
 
-    /* Name + designation */
-    .doctor-title {
-      margin: 0 0 8px;
-      font-weight: 800;
-      color: #1a237e;
-      text-transform: uppercase;
-      letter-spacing: .5px;
-      line-height: 1.2;
-    }
-    .doctor-title span {
-      display: block;
-      font-weight: 400;
-      font-size: 13px;
-      color: #5e7180;
-      margin-top: 3px;
-      text-transform: none;
-      letter-spacing: 0;
-    }
+/* Right column: vertically center next to photo (desktop) */
+@media (min-width: 768px) {
+  .doctor-info-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding-left: 20px;
+  }
+}
 
-    /* Contact list */
-    .doctor-info { margin: 8px 0 0; padding: 0; }
-    .doctor-info li {
-      display: inline-block;
-      margin-right: 22px;
-      color: #3b4a59;
-      font-size: 14px;
-    }
-    .doctor-info i { margin-right: 6px; }
-    .doctor-info a { color: inherit; text-decoration: none; }
-    .doctor-info a:hover { text-decoration: underline; }
 
-    /* Tabs row (full width below) */
-    .doctor-tabs.nav-tabs {
-      margin-top: 20px;
-      border-bottom: 1px solid #e6edf3;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .doctor-tabs > li { float: none !important; margin-bottom: -1px; }
-    .doctor-tabs > li > a {
-      padding: 10px 14px;
-      font-weight: 600;
-      color: #41566b;
-      border-radius: 6px 6px 0 0;
-      border: 1px solid transparent;
-      background: transparent;
-    }
-    .doctor-tabs > li > a:hover { background: #f5f9ff; color: #1a237e; }
-    .doctor-tabs > li.active > a,
-    .doctor-tabs > li.active > a:focus,
-    .doctor-tabs > li.active > a:hover {
-      color: #1a237e;
-      border: 1px solid #e6edf3;
-      border-bottom-color: #fff;
-      background: #fff;
-    }
 
-    /* Optional: make 4 tabs equal width on desktop */
-    @media (min-width: 768px) {
-      .doctor-tabs.nav-tabs { display: table; width: 100%; table-layout: fixed; }
-      .doctor-tabs > li { display: table-cell; text-align: center; }
-    }
+/* ===== Doctor title ===== */
+.doctor-title {
+  margin: 0 0 8px;
+  font-weight: 800;
+  color: #1a237e;
+  letter-spacing: .5px;
+  line-height: 1.2;
+}
+.doctor-title span { display: inline; margin: 0; }
 
-    /* Tab content box */
-    .doctor-tab-content {
-      border: 1px solid #e6edf3;
-      border-top: none;
-      padding: 16px;
-      border-radius: 0 8px 8px 8px;
-      background: #fff;
-    }
+/* Desktop: name + degree inline */
+@media (min-width: 768px) {
+  .doctor-title .name,
+  .doctor-title .degree {
+    display: inline;
+    font-weight: 800;
+    color: #1a237e;
+    font-size: 20px;
+    letter-spacing: .3px;
+  }
+  .doctor-title .name { margin-right: 6px; }
+  .doctor-title > span:last-child {
+    display: block;
+    margin-top: 4px;
+    font-weight: 400;
+    font-size: 13px;
+    color: #5e7180;
+    letter-spacing: 0;
+  }
+}
 
-    /* Helper bullets */
-    .bullets { padding-left: 0; margin: 0; }
-    .bullets li {
-      position: relative;
-      padding-left: 18px;
-      margin-bottom: 6px;
-      list-style: none;
-    }
-    .bullets li:before {
-      content: "";
-      position: absolute;
-      left: 0; top: 8px;
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: #1a237e;
-    }
+/* Mobile: name → line 1, degree → line 2 */
+@media (max-width: 767.98px) {
+  .doctor-title { text-transform: none; }
+  .doctor-title .name {
+    display: block;
+    font-weight: 800;
+    font-size: 18px;
+    color: #1a237e;
+    margin-bottom: 4px;
+  }
+  .doctor-title .degree {
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    color: #41566b;
+    margin-bottom: 2px;
+  }
+  .doctor-title > span:last-child {
+    display: block;
+    font-size: 13px;
+    color: #5e7180;
+  }
+  
+}
 
-    /* Articles & videos list spacing */
-    .media-list .media { margin-top: 12px; }
-    .media-list .media:first-child { margin-top: 0; }
+/* ===== Vertical Tabs (Desktop) ===== */
+.vtabs { background: transparent; }
+@media (min-width: 768px) {
+  .vtabs {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+}
+.vtabs-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #e6edf3;
+  border-radius: 10px;
+  background: #fff;
+}
+@media (min-width: 768px) {
+  .vtabs-nav li + li { border-top: 1px solid #eef3f7; }
+  .vtabs-nav a {
+    display: block;
+    padding: 12px 14px;
+    color: #41566b;
+    text-decoration: none;
+    position: relative;
+    font-weight: 600;
+  }
+  .vtabs-nav a:hover { background: #f7faff; color: #1a237e; }
+  .vtabs-nav li.active > a {
+    background: #f0f6ff;
+    color: #1a237e;
+  }
+  .vtabs-nav li.active > a::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: #1a73e8;
+    border-radius: 3px 0 0 3px;
+  }
+}
 
-    /* Mobile tweaks */
-    @media (max-width: 767px) {
-      .doctor-tabs.nav-tabs { display: block; border-bottom: none; }
-      .doctor-tabs > li { display: block; margin: 0 0 8px; }
-      .doctor-tabs > li > a {
-        display: block;
-        border: 1px solid #e6edf3;
-        border-radius: 8px;
-      }
-      .doctor-tabs > li.active > a { border-color: #0f62a5; }
-      .doctor-tab-content { border-top: 1px solid #e6edf3; border-radius: 8px; padding: 14px; }
-      .doctor-title { font-size: 20px; }
-    }
+/* Tab content */
+.vtabs-content {
+  border: 1px solid #e6edf3;
+  border-radius: 10px;
+  background: #fff;
+  padding: 16px;
+}
+
+/* ===== Mobile: stack tabs vertically (no horizontal scroll) ===== */
+@media (max-width: 767.98px) {
+  .vtabs-nav {
+    display: block;
+    border: 1px solid #e6edf3;
+    border-radius: 8px;
+    padding: 0;
+    margin-bottom: 12px;
+    overflow-x: hidden;
+    background: #fff;
+  }
+  .vtabs-nav li {
+    display: block;
+    margin: 0;
+    border-bottom: 1px solid #eef3f7;
+  }
+  .vtabs-nav li:last-child { border-bottom: 0; }
+  .vtabs-nav a {
+    display: block;
+    padding: 12px;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    color: #41566b;
+    font-weight: 600;
+  }
+  .vtabs-nav a:hover { background: #f7faff; }
+  .vtabs-nav li.active > a {
+    background: #eef5ff;
+    color: #1a237e;
+    border-left: 3px solid #1a237e;
+  }
+
+  .vtabs-content {
+    border-radius: 10px;
+    padding: 14px;
+  }
+}
+
+/* Accessibility focus */
+.vtabs-nav a:focus {
+  outline: 2px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+/* ===== Readable Lists ===== */
+.vtabs-content ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.vtabs-content ul li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #2c3e50;
+}
+.vtabs-content ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #1a237e;
+  font-weight: bold;
+}
+
+
   </style>
 </head>
 
@@ -200,43 +279,44 @@
             <li>
               <!-- Row 1: Photo + Info -->
               <div class="row">
-                <!-- Photo column -->
-                
-
-                <!-- Info column (vertically centered) -->
                 <div class="col-sm-8 doctor-info-block">
-                  <h4 class="doctor-title">
-                   Dr. Rajarajan Jayachandran, MBBS, MS, MCh 
-                    <span>Brain & Spine Surgeon, Neuro Endoscopist. </span>
+                 <h4 class="doctor-title">
+                    <span class="name">Dr. J. RAJARAJAN,</span>
+                    <span class="degree" style="text-transform: none;">M.S., M.Ch., (Neuro)</span>
+                    <span>Brain & Spine Surgeon, Neuro Endoscopist.</span>
                   </h4>
-                  
+
+
                 </div>
               </div><!-- /row -->
 
-              <!-- Row 2: Tabs (full width) -->
+              <!-- Row 2: Tabs -->
               <div class="row">
                 <div class="col-sm-9">
-                  <ul class="nav nav-tabs doctor-tabs" role="tablist">
-                    <li role="presentation" class="active">
-                      <a href="#tab-profile" aria-controls="tab-profile" role="tab" data-toggle="tab">Brief Profile</a>
-                    </li>
-                    <li role="presentation">
-                      <a href="#tab-expertise" aria-controls="tab-expertise" role="tab" data-toggle="tab">Area of Expertise</a>
-                    </li>
-                    <li role="presentation">
-                      <a href="#tab-memberships" aria-controls="tab-memberships" role="tab" data-toggle="tab">Memberships</a>
-                    </li>
-                    <li role="presentation">
-                      <a href="#tab-articles" aria-controls="tab-articles" role="tab" data-toggle="tab">Articles &amp; Videos</a>
-                    </li>
-                  </ul>
+                  <div class="vtabs">
+                    <!-- Nav -->
+                    <ul class="vtabs-nav" role="tablist">
+                      <li class="active">
+                        <a href="#tab-profile" aria-controls="tab-profile" role="tab" data-toggle="tab">Brief Profile</a>
+                      </li>
+                      <li>
+                        <a href="#tab-expertise" aria-controls="tab-expertise" role="tab" data-toggle="tab">Area of Expertise</a>
+                      </li>
+                      <li>
+                        <a href="#tab-memberships" aria-controls="tab-memberships" role="tab" data-toggle="tab">Memberships</a>
+                      </li>
+                      <li>
+                        <a href="#tab-articles" aria-controls="tab-articles" role="tab" data-toggle="tab">Articles &amp; Videos</a>
+                      </li>
+                    </ul>
 
-                  <div class="tab-content doctor-tab-content">
-                    <!-- Brief Profile -->
-                    <div role="tabpanel" class="tab-pane fade in active" id="tab-profile">
-                      <p><strong>Dr. Rajarajan Jayachandran, MBBS, MS, MCh (Neurosurgery)</strong></p>
+                    <!-- Content -->
+                    <div class="vtabs-content tab-content">
+                      <!-- Brief Profile -->
+                      <div role="tabpanel" class="tab-pane fade in active" id="tab-profile">
+                       <p><strong>Dr. Rajarajan Jayachandran, MBBS, MS, MCh (Neurosurgery)</strong></p>
 
-<p>Assistant Professor, Department of Neurosurgery — Thanjavur Medical College<br>
+<p>Senior Assistant Professor, Department of Neurosurgery — Thanjavur Medical College<br>
 Tamil Nadu Medical Council Reg. No.: 81573<br>
 Languages: Tamil, English, Hindi</p>
 
@@ -244,13 +324,21 @@ Languages: Tamil, English, Hindi</p>
 <ul>
   <li>Neuro-oncology & skull base surgery</li>
   <li>Complex spine surgery</li>
+    <li>Pediatric Neurosurgery</li>
+
+      <li>Endoscopic Cranial and Spine Surgeries</li>
+
+
+
+
 </ul>
 
 <p><strong>Education</strong></p>
 <ul>
-  <li>MCh, Neurosurgery — Coimbatore Medical College, 2018</li>
+    <li>MBBS — Thanjavur Medical College, 2007</li>
   <li>MS, General Surgery — Thanjavur Medical College, 2015 (College Gold Medal)</li>
-  <li>MBBS — Thanjavur Medical College, 2007</li>
+
+  <li>MCh, Neurosurgery — Coimbatore Medical College, 2018</li>
 </ul>
 
 <p><strong>Certifications</strong></p>
@@ -261,13 +349,11 @@ Languages: Tamil, English, Hindi</p>
 
 <p><strong>Academic & Professional Experience</strong></p>
 <ul>
-  <li>Assistant Professor, Neurosurgery — Thanjavur Medical College</li>
+  <li>Senior Assistant Professor, Neurosurgery — Thanjavur Medical College</li>
   <li>Clinical care in cranial, skull base, and spine; resident teaching and supervision</li>
   <li>Multidisciplinary case management and perioperative protocols</li>
-  <li>International Clinical Exposure (Internship Rotations) — St. Catherine Community Hospital, East Chicago, USA</li>
-  <ul>
-    <li>Internal Medicine & Cardiology (4 months)</li>
-  </ul>
+  <li>International Clinical Exposure (Internship Rotations) — St. Catherine Community Hospital, East Chicago, USA(6 Months)</li>
+ 
 </ul>
 
 <p><strong>Awards & Distinctions</strong></p>
@@ -293,13 +379,11 @@ Languages: Tamil, English, Hindi</p>
   <li>Smartphone-based retinal imaging — NSI, Nagpur (2017)</li>
 </ul>
 
-                    </div>
+                      </div>
 
-                    <!-- Area of Expertise -->
-                    <div role="tabpanel" class="tab-pane fade" id="tab-expertise">
-                      <div class="row">
-                        <div class="col-xs-6">
-                         <p>
+                      <!-- Area of Expertise -->
+                      <div role="tabpanel" class="tab-pane fade" id="tab-expertise">
+                        <p>
 Grateful for the opportunity to perform 25 major neurosurgical cases last month — spanning the entire spectrum of our field.
 </p>
 
@@ -319,14 +403,11 @@ Each case was a reminder of the breadth and responsibility of neurosurgery — f
 Here’s to continuing to serve with skill, compassion, and perseverance.
 </p>
 
-                        </div>
-                        
                       </div>
-                    </div>
 
-                    <!-- Memberships -->
-                    <div role="tabpanel" class="tab-pane fade" id="tab-memberships">
-                      <p><strong>Professional Memberships</strong></p>
+                      <!-- Memberships -->
+                      <div role="tabpanel" class="tab-pane fade" id="tab-memberships">
+                        <p><strong>Professional Memberships</strong></p>
 <ul>
   <li>Indian Medical Association (IMA) — Life Member (TN/27835/44/614/246501)</li>
   <li>Association of Surgeons of India (ASI) — Life Member (AL 23009)</li>
@@ -334,17 +415,20 @@ Here’s to continuing to serve with skill, compassion, and perseverance.
   <li>Tamil Nadu Association of Neurological Surgeons (TANS) — Life Member</li>
 </ul>
 
-                    </div>
+                      </div>
 
-                    <!-- Articles & Videos -->
-                    <div role="tabpanel" class="tab-pane fade" id="tab-articles">
-                      
-                    </div>
-                  </div><!-- /.tab-content -->
+                      <!-- Articles & Videos -->
+                      <div role="tabpanel" class="tab-pane fade" id="tab-articles">
+                        <p></p>
+                      </div>
+                    </div><!-- /.vtabs-content -->
+                  </div><!-- /.vtabs -->
                 </div>
-				<div class="col-sm-3">
-					<img src="images/grey.jpg" alt="Dr. Mark Leon - Senior Doctor at Medicom" class="img-responsive doctors-img">
-					</div>
+
+                <!-- Doctor Photo -->
+                <div class="col-sm-3">
+                  <img src="images/doctors/Dr. Rajarajan.jpg" alt="Dr. Rajarajan" class="img-responsive doctors-img">
+                </div>
               </div><!-- /row -->
             </li>
           </ul>
@@ -387,7 +471,7 @@ Here’s to continuing to serve with skill, compassion, and perseverance.
         var hash = window.location.hash;
         if (hash && $('a[href="' + hash + '"][data-toggle="tab"]').length) {
           $('a[href="' + hash + '"][data-toggle="tab"]').tab('show');
-          var $tabs = $('.doctor-tabs');
+          var $tabs = $('.vtabs-nav');
           if ($tabs.length) $('html, body').animate({scrollTop: $tabs.offset().top - 80}, 300);
         }
       }
