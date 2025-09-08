@@ -1,77 +1,78 @@
 <?php
-require '../vendor/vendor/autoload.php';
+declare(strict_types=1);
+header('Content-Type: application/json; charset=UTF-8');
 
-use Aws\Ses\SesClient;
-use Aws\Exception\AwsException;
+// IMPORTANT: On Bluehost, if mobile still fails with a tiny script in response,
+// ask support to whitelist POST to /appointment.php (ModSecurity/Imunify360).
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    // Script accessed directly without form submission
-    $response = array('message' => 'Invalid request.');
-    echo json_encode($response);
-    exit;
+  echo json_encode(['success' => false, 'message' => 'Invalid request.']);
+  exit;
 }
 
-$config = require '../vendor/config.php';
+// Read POSTed fields (match your form)
+$u_name  = trim($_POST['u_name']  ?? '');
+$u_email = trim($_POST['u_email'] ?? '');
+$phone   = trim($_POST['phone']   ?? '');
+$doctor  = trim($_POST['doctor']  ?? '');
+$msg     = trim($_POST['message'] ?? '');
 
-$awsKey = $config['aws']['key'];
-$awsSecret = $config['aws']['secret'];
-$awsRegion = $config['aws']['region'];
-
-$sesClient = new SesClient([
-    'version' => 'latest',
-    'region' => $awsRegion,
-    'credentials' => [
-        'key' => $awsKey,
-        'secret' => $awsSecret,
-    ],
-]);
-// Get form data
-$u_name = $_POST['u_name'];
-$u_email = $_POST['u_email'];
-$phone = $_POST['phone'];
-$doctor = $_POST['doctor'];
-$msg = $_POST['message'];
-
-// Set up email headers
-$headers = "From: www.drtvshospital.com" . "\r\n" .
-           "Reply-To: $u_email" . "\r\n" ;
-
-// Set up email content
-$subject = 'Enquiry Form the Website';
-$message = "Name: $u_name\nEmail: $u_email\nDoctor: $doctor\nPhone Number: $phone\nMessage: $msg";
-
-$senderEmail = 'asqauremailer@gmail.com';
-$recipientEmail = 'elavarasan5193@gmail.com';
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-try {
-    $result = $sesClient->sendEmail(['Destination' => [
-        'ToAddresses' => [$recipientEmail],
-    ],
-    'Message' => [
-        'Body' => [
-            'Text' => [
-                'Charset' => 'UTF-8',
-                'Data' => $message,
-            ],
-        ],
-        'Subject' => [
-            'Charset' => 'UTF-8',
-            'Data' => $subject,
-        ],
-    ],
-    'Source' => $senderEmail,
-    'ReplyToAddresses' => [$u_email], // Specify Reply-To header
-
-]);
-
-// Prepare JSON response
-$response = ['message' => 'Email sent successfully!', 'messageId' => $result['MessageId']];
-echo json_encode($response);
-} catch (AwsException $e) {
-// Prepare JSON error response
-$response = ['message' => 'Failed to send email.', 'error' => $e->getAwsErrorMessage()];
-echo json_encode($response);
+if ($u_name === '' || $u_email === '' || $doctor === '') {
+  echo json_encode(['success' => false, 'message' => 'Please provide your name, email, and select a doctor.']);
+  exit;
 }
-?>
+if (!filter_var($u_email, FILTER_VALIDATE_EMAIL)) {
+  echo json_encode(['success' => false, 'message' => 'Please enter a valid email address.']);
+  exit;
+}
+
+/*
+ * If you want to send via AWS SES, uncomment and set the correct paths:
+ *
+ * require __DIR__ . '/vendor/vendor/autoload.php';
+ * $config = require __DIR__ . '/vendor/config.php';
+ * use Aws\Ses\SesClient;
+ * use Aws\Exception\AwsException;
+ *
+ * $ses = new SesClient([
+ *   'version' => 'latest',
+ *   'region'  => $config['aws']['region'],
+ *   'credentials' => [
+ *     'key'    => $config['aws']['key'],
+ *     'secret' => $config['aws']['secret'],
+ *   ],
+ * ]);
+ *
+ * $subject = 'New Appointment Request - ' . $doctor;
+ * $body    = "New appointment request:\n\n"
+ *          . "Name: {$u_name}\n"
+ *          . "Email: {$u_email}\n"
+ *          . "Phone: " . ($phone ?: 'N/A') . "\n"
+ *          . "Doctor: {$doctor}\n"
+ *          . "Message:\n{$msg}\n";
+ *
+ * $from = 'asquaremailer@gmail.com';     // verified in SES
+ * $to   = 'elavarasan5193@gmail.com';   // verified if SES sandbox
+ *
+ * try {
+ *   $result = $ses->sendEmail([
+ *     'Destination' => ['ToAddresses' => [$to]],
+ *     'Message' => [
+ *       'Body' => ['Text' => ['Charset' => 'UTF-8', 'Data' => $body]],
+ *       'Subject' => ['Charset' => 'UTF-8', 'Data' => $subject],
+ *     ],
+ *     'Source' => $from,
+ *     'ReplyToAddresses' => [$u_email],
+ *   ]);
+ *   echo json_encode(['success' => true, 'message' => 'Your appointment request has been sent successfully.']);
+ * } catch (AwsException $e) {
+ *   echo json_encode(['success' => false, 'message' => 'Failed to send email.', 'error' => $e->getAwsErrorMessage()]);
+ * }
+ * exit;
+ */
+
+// Minimal success response (no email) — use this to verify the path works.
+echo json_encode([
+  'success' => true,
+  'message' => 'Your appointment request has been received. We will get back to you shortly.'
+]);
