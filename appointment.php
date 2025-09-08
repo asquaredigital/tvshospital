@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 header('Content-Type: application/json; charset=UTF-8');
 
-require __DIR__ . '/../../vendor/vendor/autoload.php';
+require __DIR__ . '../../vendor/vendor/autoload.php';
 
 use Aws\Ses\SesClient;
 use Aws\Exception\AwsException;
@@ -56,7 +56,7 @@ $body = "New appointment request from the website:\n\n"
 
 // IMPORTANT: These must be verified in SES (or you must be out of sandbox)
 $senderEmail    = 'asquaremailer@gmail.com';     // FROM (verified)
-$recipientEmail = 'suganthmaddy35@gmail.com';   // TO   (verified if SES sandbox)
+$recipientEmail = 'elavarasan5193@gmail.com';   // TO   (verified if SES sandbox)
 
 try {
     $result = $sesClient->sendEmail([
