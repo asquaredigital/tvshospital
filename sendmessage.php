@@ -54,7 +54,7 @@ $body = "New appointment request from the website:\n\n"
 
 // Verified SES emails
 $senderEmail    = 'asquaremailer@gmail.com';
-$recipientEmail = 'elavarasan5193@gmail.com';
+$recipientEmail = 'suganthmaddy35@gmail.com';
 
 try {
     $result = $sesClient->sendEmail([
