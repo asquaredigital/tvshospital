@@ -239,5 +239,17 @@
     margin: 6px 0;
     text-align: center;
   }
+  .btn-red,
+.btn-red:hover,
+.btn-red:focus,
+.btn-red:active,
+.btn-red.active {
+  margin-top: 10px;
+  background:#d32f2f !important;
+  border:2px solid #d32f2f !important;
+  color:#fff !important;
+  outline:none !important;
+  box-shadow:none !important;
+}
 }
 
