@@ -211,16 +211,33 @@
   width: auto;
 }
 
+
+
+/* Mobile-specific styles */
 @media (max-width: 767px) {
-  .topbar .top-logo {
-    text-align: left;
+
+  /* Make logo full width */
+  .top-logo {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
   }
-  .topbar .top-cta {
-    text-align: right;
-    margin-top: 0;
+  .top-logo img {
+    max-width: 100%;
+    height: auto;
   }
-  .topbar .top-cta a {
-    display: inline-block;
-    margin-bottom: 5px;
+
+  /* Stack buttons vertically */
+  .top-cta {
+    width: 100%;
+    text-align: center;
+    margin-top: 0 !important;
+  }
+  .top-cta a {
+    display: block;
+    width: 100%;
+    margin: 6px 0;
+    text-align: center;
   }
 }
+
