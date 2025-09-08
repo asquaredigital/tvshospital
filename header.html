@@ -1,159 +1,100 @@
-/* ===============================
-   HEADER STYLES
-   =============================== */
-.medicom-header {
-  background: #fff;
-  border-bottom: 1px solid #e6edf3;
-  position: relative;
-  z-index: 1000;
-}
+<header id="header" class="medicom-header medical-nav">
+  <!-- Top Row with Logo + Buttons -->
+  <div class="topbar">
+    <div class="container">
+      <div class="row align-items-center">
+        
+        <!-- Logo Left -->
+        <div class="col-xs-6 col-sm-4 top-logo">
+          <a class="navbar-brand" href="index.html">
+            <img src="images/logo.jpg" alt="Dr. TVS Multispeciality Hospital Thanjavur">
+          </a>
+        </div>
+        
+        <!-- Buttons Right -->
+        <div class="col-xs-6 col-sm-8 text-right top-cta" style="margin-top: 10px;">
+          <a href="specialists.html" class="btn btn-outline-blue btn-rounded">Our Doctors</a>
+          <a href="appointment.html" class="btn btn-outline-green btn-rounded">Book Appointment</a>
+          <a href="tel:9994716276" class="btn btn-red btn-rounded">
+            <i class="fa fa-phone"></i> Emergency
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-/* Topbar */
-.topbar {
-  background: #fff;
-  padding: 10px 0;
-}
+  <!-- Navigation -->
+  <div class="container">
+    <nav class="navbar navbar-default" role="navigation" style="margin:0;">
+      <div class="container-fluid">
 
-/* Logo */
-.top-logo img {
-  max-height: 70px;
-  width: auto;
-}
+        <!-- Mobile Toggle -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#primary-nav">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
 
-/* Top CTA Buttons */
-.top-cta a {
-  margin-left: 10px;
-  padding: 8px 18px;
-  font-weight: 600;
-  border-radius: 30px;
-  font-size: 14px;
-  text-decoration: none;
-  display: inline-block;
-}
+        <!-- Menu -->
+        <div class="collapse navbar-collapse" id="primary-nav">
+          <ul class="nav navbar-nav navbar-right" id="navbar-nav">
+            <li><a href="index.html"><i class="fa fa-plus"></i> HOME</a></li>
+            
+            <!-- About Us -->
+            <li class="dropdown mega-dept aboutus-menu">
+              <a href="about-us.html" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-plus"></i> ABOUT US <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu mega-menu">
+                <li>
+                  <ul class="list-unstyled mega-col">
+                    <li><a href="about-us.html">Who we are</a></li>
+                    <li><a href="facilities.html">Facilities</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            
+             <!-- Departments -->
+            <li class="dropdown mega-dept">
+              <a href="departments.html" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-plus"></i> DEPARTMENTS <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu mega-menu">
+                <li>
+                  <ul class="list-unstyled mega-col">
+                    <li><a href="departments.html#neurology">Neurology and Neuro Surgery</a></li>
+                    <li><a href="departments.html#orthopedic">Orthopedic Surgery</a></li>
+                    <li><a href="departments.html#obstetrics">Obstetrics & Gynaecology</a></li>
+                    <li><a href="departments.html#infertility">Infertility</a></li>
+                    <li><a href="departments.html#ent-surgery">ENT Surgery</a></li>
+                    <li><a href="departments.html#pediatric-surgery">Pediatric Surgery</a></li>
+                    <li><a href="departments.html">Dentistry</a></li>
+                    <li><a href="departments.html">Physiotherapy</a></li>
+                    <li><a href="departments.html">Dermatology</a></li>
+                    <li><a href="departments.html">General Medicine</a></li>
+                    <li><a href="departments.html">General Surgery</a></li>
+                    <li><a href="departments.html">Rehabilitation</a></li>
+                    <li><a href="departments.html">Pain Management</a></li>
+                    <li><a href="departments.html">Respiratory Medicine</a></li>
+                    <li><a href="departments.html">Urology</a></li>
+                    <li><a href="departments.html">Nephrology</a></li>
+                    <li><a href="departments.html">Dermatology & Cosmetic</a></li>
+                    <li><a href="departments.html">Oncology & Oncosurgery</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
 
-/* Button styles */
-.btn-outline-blue {
-  border: 2px solid #1a237e;
-  color: #1a237e;
-  background: transparent;
-}
-.btn-outline-blue:hover {
-  background: #1a237e;
-  color: #fff;
-}
-
-.btn-outline-green {
-  border: 2px solid #2e7d32;
-  color: #2e7d32;
-  background: transparent;
-}
-.btn-outline-green:hover {
-  background: #2e7d32;
-  color: #fff;
-}
-
-.btn-red {
-  border: 2px solid #c62828;
-  background: #c62828;
-  color: #fff;
-}
-.btn-red:hover {
-  background: #a51e1e;
-  color: #fff;
-  border-color: #a51e1e;
-}
-
-/* ===============================
-   NAVBAR
-   =============================== */
-.navbar {
-  margin: 0;
-  border: none;
-  background: #fff;
-}
-.navbar-nav > li > a {
-  font-weight: 600;
-  color: #333;
-  padding: 15px 20px;
-}
-.navbar-nav > li > a:hover,
-.navbar-nav > li.active > a {
-  color: #1a237e;
-  background: transparent;
-}
-
-/* ===============================
-   DROPDOWN - ONE LINE FIX
-   =============================== */
-.dropdown-menu.mega-menu {
-  display: flex !important;
-  flex-wrap: nowrap;
-  width: auto !important;
-  min-width: 100%;
-  padding: 10px 15px;
-  border-radius: 8px;
-  border: 1px solid #e6edf3;
-}
-
-.mega-col {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 20px;
-}
-
-.mega-col li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-.mega-col li a {
-  white-space: nowrap;
-  color: #333;
-  font-size: 14px;
-}
-.mega-col li a:hover {
-  color: #1a237e;
-}
-
-/* ===============================
-   MOBILE RESPONSIVE
-   =============================== */
-@media (max-width: 767px) {
-  /* Logo full width */
-  .top-logo {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 10px;
-  }
-  .top-logo img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  /* Buttons stacked */
-  .top-cta {
-    width: 100%;
-    text-align: center;
-    margin-top: 0 !important;
-  }
-  .top-cta a {
-    display: block;
-    width: 100%;
-    margin: 6px 0;
-    text-align: center;
-  }
-
-  /* Navbar collapse */
-  .navbar-nav > li > a {
-    padding: 12px 15px;
-    border-bottom: 1px solid #f0f0f0;
-  }
-  .dropdown-menu.mega-menu {
-    width: 100% !important;
-    flex-wrap: wrap; /* allow wrap on small screens */
-  }
-  .mega-col {
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-}
+            <li><a href="gallery.html"><i class="fa fa-plus"></i> GALLERY</a></li>
+            <li><a href="events.html"><i class="fa fa-plus"></i> EVENTS</a></li>
+            <li><a href="contact-us.html"><i class="fa fa-plus"></i> CONTACT US</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
