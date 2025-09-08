@@ -29,11 +29,12 @@ $sesClient = new SesClient([
 ]);
 
 // Read expected fields from the form (match your HTML/JS)
-$u_name  = trim($_POST['u_name']  ?? '');
-$u_email = trim($_POST['u_email'] ?? '');
-$phone   = trim($_POST['phone']   ?? '');
-$doctor  = trim($_POST['doctor']  ?? '');
-$msg     = trim($_POST['message'] ?? '');
+$u_name = $_POST['name'];
+$u_email = $_POST['email'];
+$doctor = $_POST['doctor'];
+$phone = $_POST['phone'];
+$msg = $_POST['message'];
+
 
 // Basic validation
 if ($u_name === '' || $u_email === '' || $doctor === '') {

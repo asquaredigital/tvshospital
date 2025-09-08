@@ -29,10 +29,10 @@ $sesClient = new SesClient([
 ]);
 
 // Read form fields
-$u_name  = trim($_POST['u_name']  ?? '');
-$u_email = trim($_POST['u_email'] ?? '');
-$phone   = trim($_POST['phone']   ?? '');
-$msg     = trim($_POST['message'] ?? '');
+$u_name = $_POST['name'];
+$u_email = $_POST['email'];
+$phone = $_POST['phone'];
+$msg = $_POST['message'];
 
 // Validation
 if ($u_name === '' || $u_email === '') {
