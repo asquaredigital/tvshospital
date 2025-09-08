@@ -1,29 +1,27 @@
 <?php
-declare(strict_types=1);
-
-header('Content-Type: application/json; charset=UTF-8');
-
-require __DIR__ . '../vendor/vendor/autoload.php';
+require '../vendor/vendor/autoload.php';
 
 use Aws\Ses\SesClient;
 use Aws\Exception\AwsException;
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    echo json_encode(['success' => false, 'message' => 'Invalid request.']);
+    // Script accessed directly without form submission
+    $response = array('message' => 'Invalid request.');
+    echo json_encode($response);
     exit;
 }
 
-$config = require __DIR__ . '../vendor/config.php';
+$config = require '../vendor/config.php';
 
-$awsKey    = $config['aws']['key']   ?? '';
-$awsSecret = $config['aws']['secret']?? '';
-$awsRegion = $config['aws']['region']?? '';
+$awsKey = $config['aws']['key'];
+$awsSecret = $config['aws']['secret'];
+$awsRegion = $config['aws']['region'];
 
 $sesClient = new SesClient([
-    'version'     => 'latest',
-    'region'      => $awsRegion,
+    'version' => 'latest',
+    'region' => $awsRegion,
     'credentials' => [
-        'key'    => $awsKey,
+        'key' => $awsKey,
         'secret' => $awsSecret,
     ],
 ]);
@@ -36,59 +34,46 @@ $phone = $_POST['phone'];
 $msg = $_POST['message'];
 
 
-// Basic validation
-if ($u_name === '' || $u_email === '' || $doctor === '') {
-    echo json_encode(['success' => false, 'message' => 'Please provide your name, email, and select a doctor.']);
-    exit;
-}
-if (!filter_var($u_email, FILTER_VALIDATE_EMAIL)) {
-    echo json_encode(['success' => false, 'message' => 'Please enter a valid email address.']);
-    exit;
-}
+// Set up email headers
+$headers = "From: www.drtvshospital.com" . "\r\n" .
+           "Reply-To: $u_email" . "\r\n" ;
 
-// Email content
-$subject = 'New Appointment Request - ' . ($doctor !== '' ? $doctor : 'Doctor not specified');
-$body = "New appointment request from the website:\n\n"
-      . "Name: {$u_name}\n"
-      . "Email: {$u_email}\n"
-      . "Phone: " . ($phone !== '' ? $phone : 'N/A') . "\n"
-      . "Doctor: " . ($doctor !== '' ? $doctor : 'N/A') . "\n"
-      . "Message:\n{$msg}\n";
+// Set up email content
+$subject = 'Appointment Form the Website';
+$message = "Name: $u_name\nEmail: $u_email\nDoctor: $doctor\nPhone Number: $phone\nMessage: $msg";
 
-// IMPORTANT: These must be verified in SES (or you must be out of sandbox)
-$senderEmail    = 'asquaremailer@gmail.com';     // FROM (verified)
-$recipientEmail = 'elavarasan5193@gmail.com';   // TO   (verified if SES sandbox)
+$senderEmail = 'asquaremailer@gmail.com';
+$recipientEmail = 'elavarasan5193@gmail.com';
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 try {
-    $result = $sesClient->sendEmail([
-        'Destination' => [
-            'ToAddresses' => [$recipientEmail],
-        ],
-        'Message' => [
-            'Body' => [
-                'Text' => [
-                    'Charset' => 'UTF-8',
-                    'Data'    => $body,
-                ],
-            ],
-            'Subject' => [
+    $result = $sesClient->sendEmail(['Destination' => [
+        'ToAddresses' => [$recipientEmail],
+    ],
+    'Message' => [
+        'Body' => [
+            'Text' => [
                 'Charset' => 'UTF-8',
-                'Data'    => $subject,
+                'Data' => $message,
             ],
         ],
-        'Source'           => $senderEmail,
-        'ReplyToAddresses' => [$u_email], // Reply to the user
-    ]);
+        'Subject' => [
+            'Charset' => 'UTF-8',
+            'Data' => $subject,
+        ],
+    ],
+    'Source' => $senderEmail,
+    'ReplyToAddresses' => [$u_email], // Specify Reply-To header
 
-    echo json_encode([
-        'success'   => true,
-        'message'   => 'Your appointment request has been sent successfully.',
-        'messageId' => $result->get('MessageId') ?? null
-    ]);
+]);
+
+// Prepare JSON response
+$response = ['message' => 'Email sent successfully!', 'messageId' => $result['MessageId']];
+echo json_encode($response);
 } catch (AwsException $e) {
-    echo json_encode([
-        'success' => false,
-        'message' => 'Failed to send email.',
-        'error'   => $e->getAwsErrorMessage()
-    ]);
+// Prepare JSON error response
+$response = ['message' => 'Failed to send email.', 'error' => $e->getAwsErrorMessage()];
+echo json_encode($response);
 }
+?>
