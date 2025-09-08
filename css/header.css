@@ -188,7 +188,7 @@
 
   #header .navbar { min-height:54px; }
   #header .navbar-brand { height:48px; padding:6px 10px; }
-  #header .navbar-brand img { max-height:36px; height:auto; width:auto; }
+  #header .navbar-brand img { max-height:46px; height:auto; width:auto; }
   #header .navbar-toggle { margin-top:10px; margin-bottom:10px; }
 
   .navbar-nav > li.mega-dept { position:relative; }
