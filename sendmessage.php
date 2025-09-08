@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-$config = require __DIR__ . '/../vendor/config.php';
+$config = require __DIR__ . '../vendor/config.php';
 
 $awsKey    = $config['aws']['key']   ?? '';
 $awsSecret = $config['aws']['secret']?? '';
