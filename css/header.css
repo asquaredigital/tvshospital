@@ -217,15 +217,27 @@
 @media (max-width: 767px) {
 
   /* Make logo full width */
+  /* Make logo full width only on mobile */
+@media (max-width: 767px) {
   .top-logo {
-    width: 100%;
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
     text-align: center;
-    margin-bottom: 10px;
   }
+
+  .top-logo a.navbar-brand {
+    display: inline-block;
+    float: none;
+    padding: 0;
+  }
+
   .top-logo img {
     max-width: 100%;
     height: auto;
   }
+}
+
 
   /* Stack buttons vertically */
   .top-cta {
@@ -239,17 +251,6 @@
     margin: 6px 0;
     text-align: center;
   }
-  .btn-red,
-.btn-red:hover,
-.btn-red:focus,
-.btn-red:active,
-.btn-red.active {
-  margin-top: 10px;
-  background:#d32f2f !important;
-  border:2px solid #d32f2f !important;
-  color:#fff !important;
-  outline:none !important;
-  box-shadow:none !important;
-}
+  
 }
 
