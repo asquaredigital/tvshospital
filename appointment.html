@@ -218,39 +218,40 @@
               </div>
 
               <!-- Doctor -->
-             <div class="full">
+            <div class="full">
   <label for="doctorSelect" class="appt-label">Select a Doctor</label>
   <select id="doctorSelect" name="doctor" required>
     <option value="">-- Choose a Doctor --</option>
 
-    <option value="Dr. T.V. Sathappan">Dr. T.V. Sathappan – Paediatric Surgeon</option>
-    <option value="Dr. Rajarajan Jayachandran">Dr. Rajarajan Jayachandran – Neuro Surgeon</option>
-    <option value="Dr. T. Rajendran">Dr. T. Rajendran – Orthopedic Surgeon</option>
-    <option value="Dr. S. Sangeetha">Dr. S. Sangeetha – Obstetrics & Gynecology, Infertility</option>
-    <option value="Dr. Amrutha Sathappan">Dr. Amrutha Sathappan – Endoscopic ENT Surgeon</option>
-    <option value="Dr. Anu Reka">Dr. Anu Reka – General Medicine</option>
-    <option value="Dr. Haameem Subaitha">Dr. Haameem Subaitha – Dermatologist</option>
-    <option value="Dr. Vijayanadh">Dr. Vijayanadh – Cardiologist</option>
-    <option value="Dr. Punithakumar">Dr. Punithakumar – Cardiothoracic Surgeon</option>
-    <option value="Dr. Gowtham">Dr. Gowtham – Nephrologist</option>
-    <option value="Dr. Rakesh Xeviyar">Dr. Rakesh Xeviyar – Nephrologist</option>
-    <option value="Dr. Murugavel">Dr. Murugavel – Oncologist</option>
-    <option value="Dr. Bharathiraja">Dr. Bharathiraja – Oncologist</option>
-    <option value="Dr. Geetha">Dr. Geetha – Respiratory Medicine / Pulmonology</option>
-    <option value="Dr. Natesh">Dr. Natesh – Respiratory Medicine / Pulmonology</option>
-    <option value="Dr. Sasikumar">Dr. Sasikumar – Respiratory Medicine / Pulmonology</option>
-    <option value="Dr. Vivek Manoharan">Dr. Vivek Manoharan – Surgical Gastroenterology</option>
-    <option value="Dr. Kathirvel">Dr. Kathirvel – Dental Surgery</option>
-    <option value="Dr. R. R. Rajendran">Dr. R. R. Rajendran – Consultant Paediatrician</option>
-    <option value="Dr. Ajay">Dr. Ajay – Paediatric Medicine</option>
-    <option value="Dr. Prasanna Venkatesh">Dr. Prasanna Venkatesh – Plastic Surgeon</option>
-    <option value="Dr. Evaline Maria Jose">Dr. Evaline Maria Jose – Neurologist</option>
-    <option value="Dr. Kurinchi">Dr. Kurinchi – Ophthalmology</option>
-    <option value="Dr. Karpagam">Dr. Karpagam – Physiotherapist</option>
+    <option value="Dr. T.V. Sathappan – Paediatric Surgeon">Dr. T.V. Sathappan – Paediatric Surgeon</option>
+    <option value="Dr. Rajarajan Jayachandran – Neuro Surgeon">Dr. Rajarajan Jayachandran – Neuro Surgeon</option>
+    <option value="Dr. T. Rajendran – Orthopedic Surgeon">Dr. T. Rajendran – Orthopedic Surgeon</option>
+    <option value="Dr. S. Sangeetha – Obstetrics & Gynecology, Infertility">Dr. S. Sangeetha – Obstetrics & Gynecology, Infertility</option>
+    <option value="Dr. Amrutha Sathappan – Endoscopic ENT Surgeon">Dr. Amrutha Sathappan – Endoscopic ENT Surgeon</option>
+    <option value="Dr. Anu Reka – General Medicine">Dr. Anu Reka – General Medicine</option>
+    <option value="Dr. Haameem Subaitha – Dermatologist">Dr. Haameem Subaitha – Dermatologist</option>
+    <option value="Dr. Vijayanadh – Cardiologist">Dr. Vijayanadh – Cardiologist</option>
+    <option value="Dr. Punithakumar – Cardiothoracic Surgeon">Dr. Punithakumar – Cardiothoracic Surgeon</option>
+    <option value="Dr. Gowtham – Nephrologist">Dr. Gowtham – Nephrologist</option>
+    <option value="Dr. Rakesh Xeviyar – Nephrologist">Dr. Rakesh Xeviyar – Nephrologist</option>
+    <option value="Dr. Murugavel – Oncologist">Dr. Murugavel – Oncologist</option>
+    <option value="Dr. Bharathiraja – Oncologist">Dr. Bharathiraja – Oncologist</option>
+    <option value="Dr. Geetha – Respiratory Medicine / Pulmonology">Dr. Geetha – Respiratory Medicine / Pulmonology</option>
+    <option value="Dr. Natesh – Respiratory Medicine / Pulmonology">Dr. Natesh – Respiratory Medicine / Pulmonology</option>
+    <option value="Dr. Sasikumar – Respiratory Medicine / Pulmonology">Dr. Sasikumar – Respiratory Medicine / Pulmonology</option>
+    <option value="Dr. Vivek Manoharan – Surgical Gastroenterology">Dr. Vivek Manoharan – Surgical Gastroenterology</option>
+    <option value="Dr. Kathirvel – Dental Surgery">Dr. Kathirvel – Dental Surgery</option>
+    <option value="Dr. R. R. Rajendran – Consultant Paediatrician">Dr. R. R. Rajendran – Consultant Paediatrician</option>
+    <option value="Dr. Ajay – Paediatric Medicine">Dr. Ajay – Paediatric Medicine</option>
+    <option value="Dr. Prasanna Venkatesh – Plastic Surgeon">Dr. Prasanna Venkatesh – Plastic Surgeon</option>
+    <option value="Dr. Evaline Maria Jose – Neurologist">Dr. Evaline Maria Jose – Neurologist</option>
+    <option value="Dr. Kurinchi – Ophthalmology">Dr. Kurinchi – Ophthalmology</option>
+    <option value="Dr. Karpagam – Physiotherapist">Dr. Karpagam – Physiotherapist</option>
 
     <option value="Others">Others</option>
   </select>
 </div>
+
 
 
               <!-- Message -->
@@ -314,7 +315,8 @@
             'Doctor: ' + (formData.doctor  || '-') + '%0A' +
             'Message:%0A' + (formData.message || '-');
 
-          var waUrl = 'https://wa.me/919994716276?text=' + waText;
+         // var waUrl = 'https://wa.me/919994716276?text=' + waText;
+         var waUrl = 'https://wa.me/919962112230?text=' + waText;
 
           // Try opening in a new tab (fallback: show a link if blocked)
           var win = window.open(waUrl, '_blank');
