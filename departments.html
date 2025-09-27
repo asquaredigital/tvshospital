@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/medicom.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link href="css/light.css" rel="stylesheet" id="choose-theme">
-    		<link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/header.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -41,172 +41,233 @@
         });
     </script>
     <style>
+        /* ===== Two-pane Departments layout ===== */
         .services-container {
             display: flex;
             flex-direction: row;
+            gap: 20px;
             padding-top: 20px;
         }
         .services-list {
             width: 25%;
-            height: calc(100vh - 100px); /* Adjust the height to account for the header */
+            height: calc(100vh - 140px); /* left pane has its own scroll */
             overflow-y: auto;
+            border: 1px solid #e6edf3;
+            border-radius: 8px;
+            background: #fff;
+        }
+        .services-list .list-group {
+            margin: 0;
         }
         .services-list .list-group-item {
-            cursor: pointer; /* Add hand cursor on hover */
+            cursor: pointer;
+            border: 0;
+            border-bottom: 1px solid #eef2f6;
+            padding: 12px 14px;
+            background: #fff;
+            transition: background .15s ease;
         }
+        .services-list .list-group-item:hover { background:#f6fbf8; }
+        .active-service {
+            font-weight: 600;
+            background: #e8f5ee !important;
+            border-left: 4px solid #1b8f3b;
+            padding-left: 10px;
+            color: #136d2c;
+        }
+
         .service-description {
             width: 75%;
             padding: 20px;
+            height: calc(100vh - 140px); /* right pane gets its own scroll */
             overflow-y: auto;
+            border: 1px solid #e6edf3;
+            border-radius: 8px;
+            background: #fff;
         }
-        .service-description h2 {
-            margin-top: 0;
-        }
-        .active-service {
-            font-weight: bold;
-        }
-        /* Media query for mobile devices */
+        .service-description h2 { margin-top: 0; }
+        .service-description > div { display: none; }
+        .service-description > div:first-child { display:block; } /* show first by default */
+
+        /* Mobile */
         @media (max-width: 767px) {
-            .services-container {
-                flex-direction: column; /* Stack the service list and descriptions vertically */
-            }
+            .services-container { flex-direction: column; }
             .services-list {
                 width: 100%;
-                height: auto; /* Adjust height for mobile */
-                max-height: 300px; /* Optional: Limit the height */
-                overflow-y: auto; /* Ensure the list can scroll if it's too tall */
+                height: auto;
+                max-height: 300px; /* independent scroll on mobile if long */
             }
             .service-description {
                 width: 100%;
-                padding: 20px;
-                overflow-y: auto;
+                height: auto;
+                overflow: visible;
             }
         }
+
+        /* WhatsApp floating button (preserved) */
         .whatsapp-float {
-  position: fixed;
-  width: 60px;
-  height: 60px;
-  bottom: 90px;
-  right: 20px;
-  background-color: #25d366;
-  border-radius: 50%;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-  transition: transform 0.2s ease-in-out;
-}
-.whatsapp-float:hover {
-  transform: scale(1.1);
-}
-.whatsapp-float img {
-  width: 35px;
-  height: 35px;
-}
+          position: fixed;
+          width: 60px;
+          height: 60px;
+          bottom: 90px;
+          right: 20px;
+          background-color: #25d366;
+          border-radius: 50%;
+          box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 999;
+          transition: transform 0.2s ease-in-out;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+        .whatsapp-float img { width: 35px; height: 35px; }
     </style>
+
+<style>
+  /* Independent scroll fix */
+  .services-list, .service-description {
+    overflow-y: auto !important;
+  }
+</style>
+
 </head>
 <body class="fixed-header">
     <!-- Document Wrapper =============================================== -->
     <div id="wrapper" class="clearfix">
         <!-- Header ================================================== -->
         <header id="header1"></header>
+
         <!-- Sub Page Banner ========================================== -->
         <section class="sub-page-banner text-center" data-stellar-background-ratio="0.3">
             <div class="overlay"></div>
             <div class="container">
-                <h1 class="entry-title">services</h1>
-                <!-- <p>Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.</p> -->
+                <h1 class="entry-title">Departments</h1>
             </div>
         </section>
+
         <!-- Sub Page Content ========================================== -->
         <div id="sub-page-content" class="clearfix">
-            <!-- Features ============================================== -->
             <div class="container services-container">
+
+                <!-- LEFT: Departments (order matches menu) -->
                 <div class="services-list">
                     <ul class="list-group">
-                        <li class="list-group-item active-service" onclick="showDescription(event, 'pediatric-surgery')">Pediatric Surgery</li>
-                        <li class="list-group-item " onclick="showDescription(event, 'pediatrics')">Pediatric Medicine</li>
-                        <li class="list-group-item" onclick="showDescription(event, 'obstetrics')">Obstetrics & Gynecology</li>
-                        <li class="list-group-item" onclick="showDescription(event, 'neurology')">Neurology and Neuro Surgery</li>
-                        <li class="list-group-item" onclick="showDescription(event, 'ent-surgery')">ENT Surgery</li>
+                        <!-- Centre of Excellence -->
+                        <li class="list-group-item active-service" onclick="showDescription(event, 'neurology')">Neurology and Neuro Surgery</li>
                         <li class="list-group-item" onclick="showDescription(event, 'orthopedic')">Orthopedic Surgery</li>
+                        <li class="list-group-item" onclick="showDescription(event, 'obstetrics')">Obstetrics &amp; Gynaecology</li>
+                        <li class="list-group-item" onclick="showDescription(event, 'infertility')">Infertility</li>
+                        <li class="list-group-item" onclick="showDescription(event, 'ent-surgery')">ENT Surgery</li>
+                        <li class="list-group-item" onclick="showDescription(event, 'pediatric-surgery')">Pediatric Surgery</li>
+
+                        <!-- Other Departments -->
                         <li class="list-group-item" onclick="showDescription(event, 'dentistry')">Dentistry</li>
                         <li class="list-group-item" onclick="showDescription(event, 'physiotherapy')">Physiotherapy</li>
+                        <li class="list-group-item" onclick="showDescription(event, 'dermatology')">Dermatology</li>
                         <li class="list-group-item" onclick="showDescription(event, 'general-medicine')">General Medicine</li>
                         <li class="list-group-item" onclick="showDescription(event, 'general-surgery')">General Surgery</li>
-
-                        
-                        
-                        <li class="list-group-item" onclick="showDescription(event, 'rehabilitation')">Rehabilitation</li>
-                        
-                        <li class="list-group-item" onclick="showDescription(event, 'pain-management')">Pain Management</li>
+                        <li class="list-group-item" onclick="showDescription(event, 'opthalmology')">Opthalmology</li>
+                        <li class="list-group-item" onclick="showDescription(event, 'plastic-surgery')">Plastic Surgery</li>
+                        <li class="list-group-item" onclick="showDescription(event, 'gastroenterologist')">Gastroenterologist</li>
                         <li class="list-group-item" onclick="showDescription(event, 'respiratory-medicine')">Respiratory Medicine</li>
                         <li class="list-group-item" onclick="showDescription(event, 'urology')">Urology</li>
                         <li class="list-group-item" onclick="showDescription(event, 'nephrology')">Nephrology</li>
-                        <li class="list-group-item" onclick="showDescription(event, 'dermatology-and-cosmetic,')">Dermatology & Cosmetic,</li>
-                        
-                        <li class="list-group-item" onclick="showDescription(event, 'oncosurgery')">Oncology & Oncosurgery</li>
-
+                        <li class="list-group-item" onclick="showDescription(event, 'dermatology-cosmetic')">Dermatology &amp; Cosmetic</li>
+                        <li class="list-group-item" onclick="showDescription(event, 'oncosurgery')">Oncology &amp; Oncosurgery</li>
                     </ul>
                 </div>
-                <div class="service-description">
-                    
-                    <div id="pediatric-surgery" >
+
+                <!-- RIGHT: Details -->
+                <div class="service-description" aria-live="polite">
+                    <div id="neurology">
+                        <h2>Neurology and Neuro Surgery</h2>
+                        <p>Page under updation</p>
+                    </div>
+                    <div id="orthopedic">
+                        <h2>Orthopedic Surgery</h2>
+                        <p>Page under updation</p>
+                    </div>
+                    <div id="obstetrics">
+                        <h2>Obstetrics &amp; Gynaecology</h2>
+                        <p>Page under updation</p>
+                    </div>
+                    <div id="infertility">
+                        <h2>Infertility</h2>
+                        <p>Page under updation</p>
+                    </div>
+                    <div id="ent-surgery">
+                        <h2>ENT Surgery</h2>
+                        <p>Page under updation</p>
+                    </div>
+                    <div id="pediatric-surgery">
                         <h2>Pediatric Surgery</h2>
                         <p>Page under updation</p>
                     </div>
 
-                    <div id="pediatrics" style="display:none;">
-                        <h2>Pediatric Medicine</h2>
-                                                <p>Page under updation</p>
-
+                    <div id="dentistry">
+                        <h2>Dentistry</h2>
+                        <p>Page under updation</p>
                     </div>
-
-                    
-                    <div id="obstetrics" style="display:none;">
-                        <h2>Obstetrics</h2>
-                                                <p>Page under updation</p>
-
+                    <div id="physiotherapy">
+                        <h2>Physiotherapy</h2>
+                        <p>Page under updation</p>
                     </div>
-
-                   
-
-                    
-                    <div id="neurology" style="display:none;">
-                        <h2>Neurology and Neuro Surgery</h2>
-                                                <p>Page under updation</p>
-
+                    <div id="dermatology">
+                        <h2>Dermatology</h2>
+                        <p>Page under updation</p>
                     </div>
-                    
-
-                    <div id="orthopedic" style="display:none;">
-                        <h2>Orthopedic Surgery</h2>
-                                               <p>Page under updation</p>
-
+                    <div id="general-medicine">
+                        <h2>General Medicine</h2>
+                        <p>Page under updation</p>
                     </div>
-                    <div id="ent-surgery" style="display:none;">
-                        <h2>ENT Surgery</h2>
-                                                <p>Page under updation</p>
-
+                    <div id="general-surgery">
+                        <h2>General Surgery</h2>
+                        <p>Page under updation</p>
                     </div>
-                    <div id="general-medicine" style="display:none;">
-                                                <p>Page under updation</p>
-
+                    <div id="opthalmology">
+                        <h2>Opthalmology</h2>
+                        <p>Page under updation</p>
                     </div>
-                    <div id="general-surgery" style="display:none;">
-                                                <p>Page under updation</p>
-
+                    <div id="plastic-surgery">
+                        <h2>Plastic Surgery</h2>
+                        <p>Page under updation</p>
+                    </div>
+                    <div id="gastroenterologist">
+                        <h2>Gastroenterologist</h2>
+                        <p>Page under updation</p>
+                    </div>
+                    <div id="respiratory-medicine">
+                        <h2>Respiratory Medicine</h2>
+                        <p>Page under updation</p>
+                    </div>
+                    <div id="urology">
+                        <h2>Urology</h2>
+                        <p>Page under updation</p>
+                    </div>
+                    <div id="nephrology">
+                        <h2>Nephrology</h2>
+                        <p>Page under updation</p>
+                    </div>
+                    <div id="dermatology-cosmetic">
+                        <h2>Dermatology &amp; Cosmetic</h2>
+                        <p>Page under updation</p>
+                    </div>
+                    <div id="oncosurgery">
+                        <h2>Oncology &amp; Oncosurgery</h2>
+                        <p>Page under updation</p>
                     </div>
                 </div>
+
             </div>
         </div><!-- end sub-page-content -->
         <div class="colourfull-row"></div>
+
         <!-- Footer ================================================== -->
         <footer id="footer"></footer>
-        <!-- back to top -->
         <a href="#." class="back-to-top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
     </div><!-- end #wrapper -->
+
     <!-- All Javascript ============================================== -->
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -225,62 +286,97 @@
     <script src="js/jquery.easypiechart.min.js"></script>
     <script src="js/scripts.js"></script>
     <script src="js/color-switcher.js"></script>
+
     <script>
-  function showDescription(event, serviceId) {
-    event.preventDefault(); // keep the page from jumping
+      function showDescription(event, serviceId) {
+        if (event && event.preventDefault) event.preventDefault(); // keep the page from jumping
 
-    // 1) Swap visible description
-    const descWrap = document.querySelector('.service-description');
-    Array.from(descWrap.children).forEach(el => el.style.display = 'none');
-    document.getElementById(serviceId).style.display = 'block';
+        const descWrap = document.querySelector('.service-description');
 
-    // 2) Update active state in left list
-    document.querySelectorAll('.services-list .list-group-item')
-      .forEach(li => li.classList.remove('active-service'));
-    (event.currentTarget || event.target).classList.add('active-service');
+        // 1) Hide all, show selected
+        Array.from(descWrap.children).forEach(el => el.style.display = 'none');
+        const section = document.getElementById(serviceId);
+        if (section) section.style.display = 'block';
 
-    // 3) Keep page position:
-    //    - Desktop/tablet: just reset the right pane's own scroll
-    //    - Mobile: smoothly scroll the page to the description block
-    if (window.matchMedia('(max-width: 767px)').matches) {
-      const y = descWrap.getBoundingClientRect().top + window.pageYOffset - 80; // adjust -80 for your header
-      window.scrollTo({ top: y, behavior: 'smooth' });
-    } else {
-      descWrap.scrollTop = 0; // only scroll the right pane, not the whole page
-    }
-  }
-</script>
+        // 2) Active state + ensure clicked item stays visible in left scroll
+        document.querySelectorAll('.services-list .list-group-item').forEach(li => li.classList.remove('active-service'));
+        const clicked = (event && (event.currentTarget || event.target)) || null;
+        if (clicked) {
+          clicked.classList.add('active-service');
+          clicked.scrollIntoView({ block: 'nearest' });
+        }
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  // check if there's a hash in the URL (e.g. #neurology)
-  var hash = window.location.hash.substring(1);
-  if (hash) {
-    // delay a tick so elements are ready
-    setTimeout(function() {
-      showDescription({preventDefault:function(){}}, hash);
-    }, 100);
-  }
+        // 3) Desktop: reset only right-pane scroll; Mobile: smooth page scroll to desc
+        if (window.matchMedia('(max-width: 767px)').matches) {
+          const y = descWrap.getBoundingClientRect().top + window.pageYOffset - 80; // adjust for header
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        } else {
+          descWrap.scrollTop = 0;
+        }
 
-  // also handle back/forward navigation
-  window.addEventListener("hashchange", function() {
-    var newHash = window.location.hash.substring(1);
-    if (newHash) {
-      showDescription({preventDefault:function(){}}, newHash);
-    }
-  });
-});
-</script>
+        // 4) Update URL hash without triggering a native jump
+        if (history.replaceState) {
+          history.replaceState(null, '', '#' + serviceId);
+        }
+      }
 
+      // Hash deep-link + back/forward
+      document.addEventListener('DOMContentLoaded', function() {
+        const hash = window.location.hash.slice(1);
+        if (hash) {
+          setTimeout(function(){ showDescription({preventDefault:function(){}}, hash); }, 100);
+        }
+        window.addEventListener('hashchange', function() {
+          const h = window.location.hash.slice(1);
+          if (h) showDescription({preventDefault:function(){}}, h);
+        });
+      });
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 
     <a href="https://wa.me/919994716276?text=Hi,%20I%20have%20a%20enquiry"
-   class="whatsapp-float"
-   target="_blank" 
-   rel="noopener">
-   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
-        alt="WhatsApp" />
-</a>
+       class="whatsapp-float"
+       target="_blank"
+       rel="noopener">
+       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+    </a>
+
+<script>
+  function setPaneHeights(){
+    var cont = document.querySelector('.services-container');
+    if(!cont) return;
+    var rectTop = cont.getBoundingClientRect().top;
+    var available = window.innerHeight - rectTop - 24;
+    available = Math.max(available, 320);
+    var left = document.querySelector('.services-list');
+    var right = document.querySelector('.service-description');
+    if(left){ left.style.height = available + 'px'; }
+    if(right){ right.style.height = available + 'px'; }
+  }
+  window.addEventListener('load', setPaneHeights);
+  window.addEventListener('resize', setPaneHeights);
+  (function(){
+    var tries = 0, t = setInterval(function(){
+      setPaneHeights();
+      if(++tries > 10) clearInterval(t);
+    }, 200);
+    window.addEventListener('hashchange', setPaneHeights);
+  })();
+</script>
+
+<script>
+  (function ($) {
+    // Close the menu when a departments link is tapped/clicked
+    $(document).on('click', 'a[href*="departments.html#"]', function () {
+      // Close dropdown (if Bootstrap added .open)
+      $('.dropdown.open').removeClass('open');
+      // Collapse the mobile nav if open
+      var $nav = $('#primary-nav');
+      if ($nav.hasClass('in')) { $nav.collapse('hide'); } // Bootstrap 3
+    });
+  })(jQuery);
+</script>
+
 </body>
 </html>
