@@ -123,22 +123,85 @@
         .whatsapp-float:hover { transform: scale(1.1); }
         .whatsapp-float img { width: 35px; height: 35px; }
 
-       :root{
-            --accent:#0ea5e9; /* default accent if not overridden */
-            --fonts: system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,
-                    "Nirmala UI","Latha","Vijaya","Noto Sans Tamil",sans-serif;
-        }
-        .dept{ font-family:var(--fonts); margin:24px 0; }
-        .dept .title{ margin:0 0 .35rem; font-size:clamp(1.2rem,2vw+1rem,1.6rem); color: #4e4e4e }
-        .dept .subtitle{ margin:.25rem 0 1rem; color:#4e4e4e; font-weight:600; }
-        .dept .grid{ display:grid; gap:16px; grid-template-columns:1fr; }
-        @media (min-width:768px){ .dept .grid{ grid-template-columns:repeat(2,1fr); } }
-        @media (min-width:1024px){ .dept .grid{ grid-template-columns:repeat(3,1fr); } }
-        .dept h3{ margin:1rem 0 .4rem; font-size:1.05rem; color:#4e4e4e; }
-        .dept ul{ margin:.25rem 0 0; padding-left:1.1rem; }
-        .dept li{ margin:.35rem 0; }
+      
         
             </style>
+
+            <style>
+  :root{
+    --accent:#0ea5e9;
+    --fonts: system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,
+             "Nirmala UI","Latha","Vijaya","Noto Sans Tamil",sans-serif;
+  }
+
+  .dept{ font-family:var(--fonts); margin:24px 0; }
+  .dept-card{
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:16px;
+    padding:24px;
+    box-shadow:0 8px 22px rgba(2,6,23,.06);
+  }
+
+  .dept .title{
+    margin:0 0 .35rem;
+    font-size:clamp(1.25rem,2vw+1rem,1.8rem);
+    color:#00953f;
+    letter-spacing:.2px;
+    line-height:1.25;
+  }
+  .dept .title::after{
+    content:"";
+    display:block;
+    width:72px; height:3px;
+    background:#00953f;
+    border-radius:999px;
+    margin-top:8px;
+  }
+
+  .dept .subtitle{ margin:.5rem 0 1.25rem; color:#646464; font-weight:600; }
+
+  .dept .grid{ display:grid; gap:18px; grid-template-columns:1fr; }
+  @media (min-width:768px){ .dept .grid{ grid-template-columns:repeat(2,1fr); } }
+
+  /* Lists – custom bullets */
+  .dept .list{ list-style:none; margin:0; padding:0; }
+  .dept .list li{
+    margin:.45rem 0;
+    padding-left:22px;
+    position:relative;
+    color:#646464;
+  }
+  .dept .list li::before{
+    content:"";
+    position:absolute; left:0; top:0.75em;
+    width:8px; height:8px; border-radius:50%;
+    border:2px solid #00953f;
+    transform:translateY(-50%);
+  }
+
+  /* Button */
+  .dept .btn-primary{
+    display:inline-block;
+    margin-top:16px;
+    background:#00953f;
+    color:#fff; text-decoration:none;
+    padding:10px 16px;
+    border-radius:10px;
+    font-weight:600;
+    box-shadow:0 8px 18px rgba(192,38,211,.25);
+    transition:transform .12s ease, box-shadow .12s ease, opacity .15s;
+  }
+  .dept .btn-primary:hover{
+    transform:translateY(-1px);
+    opacity:.96;
+    box-shadow:0 12px 22px rgba(192,38,211,.28);
+  }
+  .dept .btn-primary:focus-visible{
+    outline:2px solid #1e293b; outline-offset:2px;
+  }
+</style>
+
 
 <style>
   /* Independent scroll fix */
@@ -171,7 +234,7 @@
                     <ul class="list-group">
                         <!-- Centre of Excellence -->
                         <li class="list-group-item active-service" onclick="showDescription(event, 'neurology')">Neurology and Neuro Surgery</li>
-                        <li class="list-group-item" onclick="showDescription(event, 'orthopedic')">Orthopedic Surgery</li>
+                        <li class="list-group-item" onclick="showDescription(event, 'orthopedics')">Orthopedic Surgery</li>
                         <li class="list-group-item" onclick="showDescription(event, 'obstetrics')">Obstetrics &amp; Gynaecology</li>
                         <li class="list-group-item" onclick="showDescription(event, 'infertility')">Infertility</li>
                         <li class="list-group-item" onclick="showDescription(event, 'ent-surgery')">ENT Surgery</li>
@@ -183,13 +246,12 @@
                         <li class="list-group-item" onclick="showDescription(event, 'dermatology')">Dermatology</li>
                         <li class="list-group-item" onclick="showDescription(event, 'general-medicine')">General Medicine</li>
                         <li class="list-group-item" onclick="showDescription(event, 'general-surgery')">General Surgery</li>
-                        <li class="list-group-item" onclick="showDescription(event, 'opthalmology')">Opthalmology</li>
+                        <li class="list-group-item" onclick="showDescription(event, 'ophthalmology')">Opthalmology</li>
                         <li class="list-group-item" onclick="showDescription(event, 'plastic-surgery')">Plastic Surgery</li>
                         <li class="list-group-item" onclick="showDescription(event, 'gastroenterologist')">Gastroenterologist</li>
                         <li class="list-group-item" onclick="showDescription(event, 'respiratory-medicine')">Respiratory Medicine</li>
                         <li class="list-group-item" onclick="showDescription(event, 'urology')">Urology</li>
                         <li class="list-group-item" onclick="showDescription(event, 'nephrology')">Nephrology</li>
-                        <li class="list-group-item" onclick="showDescription(event, 'dermatology-cosmetic')">Dermatology &amp; Cosmetic</li>
                         <li class="list-group-item" onclick="showDescription(event, 'oncosurgery')">Oncology &amp; Oncosurgery</li>
                     </ul>
                 </div>
@@ -200,86 +262,391 @@
                         <h2>Neurology and Neuro Surgery</h2>
                         <p>Page under updation</p>
                     </div>
-                    <div id="orthopedic">
-                        <h2>Orthopedic Surgery</h2>
-                        <p>Page under updation</p>
-                    </div>
-                  <div id="obstetrics" class="dept" style="--accent:#c026d3">
-                   
-
-                   <h2 class="title">Obstetrics &amp; Gynaecology</h2>
-                   <br>
-                    <p class="subtitle"><strong>Dr. S. SANGEETHA, MBBS., DGO., FRM</strong> —
-                        மகளிர் மகப்பேறு & குழந்தையின்மைக்கான சிகிச்சை நிபுணர், லாப்ராஸ்கோபிக் சர்ஜன்
-                    </p>
-                    <!-- Tamil Services -->
-                    <div class="grid">
-                        <ul>
-                        <li>கர்ப்பகால பரிசோதனைகள்</li>
-                        <li>குடும்பக் கட்டுப்பாடு சிகிச்சை (Laparoscopy Sterilisation)</li>
-                        <li>மாதவிடாய் பிரச்சனைகளுக்கான தீர்வு</li>
-                        <li>சினைப்பை நீர்க்கட்டி பரிசோதனை & சிகிச்சை  (PCOD &amp; Endometriosis)</li>
-                        <li>கர்ப்பப்பை மற்றும் கருப்பை நோய் சிகிச்சை</li>
-                        <li>ஹார்மோன் பரிசோதனைகளுக்கான தீர்வு</li>
-                        <li>கர்ப்பப்பை புற்றுநோய் சிகிச்சை</li>
-                        <li>மார்பகக் கட்டிகள் புற்றுநோய் கண்டறிதல் (Breast Cancer Screening)</li>
-                        </ul>
-                        <ul>
-                        <li>நுண்துளை அறுவை சிகிச்சைகள்  (Laparoscopy / Hysteroscopy)</li>
-                        <li>குழந்தையின்மைக்கான பரிசோதனை & சிகிச்சை  (Infertility Diagnosis &amp; Treatment)</li>
-                        <li>கர்ப்பப்பை இறக்கம் சிகிச்சை & தானாக சிறுநீர் வெளியேறுதல்</li>
-                        <li>கருப்பைக்குள் கருவூட்டல்</li>
-                        <li>வெளிச்சோதனை முறை கருத்தரித்தல் (IVF / ICSI – Intra Cytoplasmic Sperm Injection)</li>
-                        <li>ஆண்மைக்குறைவுக்கான பரிசோதனை மற்றும் சிகிச்சை  (Male Infertility Diagnosis and Treatment)</li>
-                        </ul>
-                    </div>
-                                                <a href="Dr. Sangeetha.html"><button class="btn-primary">View Doctor</button></a> 
-
-                    <!-- English Services -->
-                   
-                    </div>
-
-                    <div id="infertility">
-                        <h2 class="title">Infertility</h2>
-                        <br>
-                        <p class="subtitle"><strong>Dr. S. SANGEETHA, MBBS., DGO., FRM</strong> —
-                        மகளிர் மகப்பேறு & குழந்தையின்மைக்கான சிகிச்சை நிபுணர், லாப்ராஸ்கோபிக் சர்ஜன்
+                    <div id="orthopedics" class="dept dept-card" style="--accent:#ea580c">
+                    <header class="dept-head">
+                        <h2 class="title">Orthopedics</h2>
+                        <p class="subtitle">
+                        <strong>Dr. T. RAJENDRAN, MBBS., DNB</strong><br>
+                        Joint Replacement & Paediatric Ortho Surgeon.
+                        <!-- Placeholder doctor name; update later if needed -->
                         </p>
+                    </header>
+
+                    <h3>Top Conditions Treated</h3>
+                    <div class="grid">
+                        <ul class="list">
+                            <li>
+                    Hip Replacement
+                            </li>
+                            <li>Hip Repair</li>
+                        <li>Achilles Tendon Rupture</li>
+                        <li>Ankle Sprain</li>
+                        <li>Bursitis</li>
+                        <li>Carpal Tunnel Syndrome</li>
+                        <li>Cerebral Palsy</li>
+                        <li>Foot Drop</li>
+                        <li>Hip Pain</li>
+                        <li>Knee Pain</li>
+                        <li>Kyphosis</li>
+                        <li>Spina Bifida</li>
+                        <li>Spinal Muscular Atrophy</li>
+                        <li>Achilles Tendon Tear</li>
+                        <li>Achondroplasia</li>
+                        <li>Golfer’s Elbow</li>
+                        <li>Pelvic Exenteration</li>
+                        <li>Pelvic Scan</li>
+                        <li>Pelvis Fracture Treatment &amp; Management</li>
+                        <li>Periarthritis Shoulder</li>
+                        <li>Phantom Limb Pain</li>
+                        <li>Partial Prosthesis</li>
+                        <li>Plantar Fasciitis</li>
+                        <li>Podiatry Sports</li>
+                        <li>Hamstring Strain</li>
+                        <li>Sports Injury</li>
+                        <li>Hand and Wrist Injuries</li>
+                        <li>Hand Fracture</li>
+                        <li>Hand Pain</li>
+                        <li>Popliteal Bursitis</li>
+                        <li>Heel Pain</li>
+                        <li>Mucopolysaccharidosis</li>
+                        <li>Multiple Epiphyseal Dysplasia</li>
+                        <li>Sports Injury Evaluation &amp; Rehabilitation</li>
+                        <li>Sports Injury Prevention</li>
+                        <li>Sports Injury Treatment &amp; Management</li>
+                        <li>Sports Medicine</li>
+                        <li>Sports Nutrition</li>
+                        <li>Herniated Disc</li>
+                        <li>Regenerative Therapy for Joints</li>
+                        <li>Reflexology</li>
+                        <li>Hip Resurfacing</li>
+                        <li>Synovial Sarcoma</li>
+                        <li>Rotator Cuff Injury Treatment</li>
+                        <li>Rib Fracture</li>
+                        <li>Joint and Muscle Problems</li>
+                        <li>Joint Pain</li>
+                        <li>Joints and Musculoskeletal Disorders</li>
+                        <li>Runner’s Knee</li>
+                        <li>Sacroiliac Joint Pain</li>
+                        <li>Knee Dislocation</li>
+                        <li>Knee Injuries</li>
+                        <li>Tailbone Pain Treatment</li>
+                        <li>Knee Problems</li>
+                        <li>Kneecap Dislocation</li>
+                        <li>Kneecap Pain</li>
+                        <li>Taping</li>
+                        <li>Amputee Care</li>
+                        <li>Sciatica Pain Treatment</li>
+                        <li>Lateral Epicondyle Release (Tennis Elbow)</li>
+                        <li>Leg Fracture</li>
+                        <li>Leg Length Inequality</li>
+                        <li>Legg Calvé Perthes Disease</li>
+                        <li>Limping Child</li>
+                        <li>Shin Bone Pain</li>
+                        <li>Shoulder Impingement</li>
+                        <li>Shoulder Injuries</li>
+                        <li>Shoulder Pain</li>
+                        <li>Shoulder SLAP Tear Lesions</li>
+                        <li>Orthopedic Consultation</li>
+                        <li>Orthotic Test</li>
+                        <li>Orthotist</li>
+                        <li>Osteoarthritis</li>
+                        <li>Osteoarthritis of the Knee</li>
+                        <li>Osteoarthritis Treatment</li>
+                        <li>Osteogenesis Imperfecta</li>
+                        <li>Osteomyelitis</li>
+                        <li>Osteopathic Treatment</li>
+                        </ul>
+
+                        <ul class="list">
+                        <li>Osteopetrosis</li>
+                        <li>Osteopoikilosis</li>
+                        <li>Osteoporosis</li>
+                        <li>Osteoporosis Rehabilitation</li>
+                        <li>Osteoporosis Treatment</li>
+                        <li>Meniscus Injury</li>
+                        <li>Meniscus Tear</li>
+                        <li>Tendon Injury</li>
+                        <li>Tendonitis</li>
+                        <li>Tenosynovitis</li>
+                        <li>Wrist Problems</li>
+                        <li>Skeletal Dysplasias</li>
+                        <li>Skeletal Muscle Therapy</li>
+                        <li>Ankle Brachial Index</li>
+                        <li>Ankle Pain</li>
+                        <li>Ankylosing Spondylitis Treatment</li>
+                        <li>Anti-Doping Counselling in Sports</li>
+                        <li>Specialized Prosthesis</li>
+                        <li>Arm Pain</li>
+                        <li>Arthritis and Pain Management</li>
+                        <li>Arthritis Management</li>
+                        <li>Arthritis Treatment</li>
+                        <li>Arthrogryposis</li>
+                        <li>Articular Degenerative Disease Treatment</li>
+                        <li>Articular Pain Treatment</li>
+                        <li>Bone Trauma</li>
+                        <li>Bone Spur</li>
+                        <li>Bone Loss Management</li>
+                        <li>Bone Fracture</li>
+                        <li>Back Pain Treatment</li>
+                        <li>Trauma Injury Physiotherapy Rehab</li>
+                        <li>Arthritis Treatment (Non-Surgical Options)</li>
+                        <li>Treatment for Backache</li>
+                        <li>Treatment for Calcaneal Spur</li>
+                        <li>Treatment for Cervical Spondylitis</li>
+                        <li>Treatment for Knee Joint Pain (Non-Surgical)</li>
+                        <li>Treatment for Osteoarthritis</li>
+                        <li>Treatment for Pain &amp; Aches</li>
+                        <li>Treatment for Rheumatoid Arthritis</li>
+                        <li>Treatment for Spine Problems</li>
+                        <li>Treatment of Spondylosis</li>
+                        <li>Upper Back Pain</li>
+                        <li>Friedreich Ataxia</li>
+                        <li>Foot Pain</li>
+                        <li>Foot Care</li>
+                        <li>Flat Foot Issue</li>
+                        <li>Finger Pain</li>
+                        <li>Fibrosarcoma</li>
+                        <li>Facet Problems</li>
+                        <li>Facet Joint Problems</li>
+                        <li>Facet Arthropathy</li>
+                        <li>Elbow Pain</li>
+                        <li>Elbow Injury</li>
+                        <li>Slip Disc / Disc Prolapse</li>
+                        <li>Degenerative Joint Disease</li>
+                        <li>Deformity</li>
+                        <li>De Quervain’s Tenosynovitis Treatment</li>
+                        <li>Congenital Vertical Talus</li>
+                        <li>Coccydynia (Tailbone Pain)</li>
+                        <li>Chronic Joint Pain Treatment</li>
+                        <li>Chondromalacia</li>
+                        <li>Cervical Spondylosis</li>
+                        <li>Calf Strains</li>
+                        <li>Buttock Pain</li>
+                        <li>Strains and Sprains</li>
+                        <li>Stiff Elbow</li>
                         
-                        <ul>
-                        <li>Female Infertility Treatment</li>
-                        <li>Andrology Treatment</li>
-                        <li>Fertility Enhancing Surgeries – Female</li>
-                        <li>Fertility Enhancing Surgeries – Male</li>
-                        <li>Endoscopy Treatment (Hysteroscopy, Laparoscopy)</li>
-                        <li>IUI Treatment</li>
-                        <li>Infertility Counselling</li>
 
+                        </ul>
+                    </div>
+
+                    <a href="Dr. Rajendran.html" class="btn-primary">View Doctor</a>
+                    </div>
+
+                <div id="obstetrics" class="dept dept-card" style="--accent:#c026d3">
+                <header class="dept-head">
+                    <h2 class="title">Obstetrics &amp; Gynaecology</h2>
+                    <p class="subtitle">
+                    <strong>Dr. S. SANGEETHA, MBBS., DGO., FRM</strong><br>
+                    மகளிர் மகப்பேறு &amp; குழந்தையின்மைக்கான சிகிச்சை நிபுணர், லாப்ராஸ்கோபிக் சர்ஜன்
+                    </p>
+                </header>
+
+                <!-- Tamil Services -->
+                <div class="grid">
+                    <ul class="list">
+                    <li>கர்ப்பகால பரிசோதனைகள்</li>
+                    <li>குடும்பக் கட்டுப்பாடு சிகிச்சை (Laparoscopy Sterilisation)</li>
+                    <li>மாதவிடாய் பிரச்சனைகளுக்கான தீர்வு</li>
+                    <li>சினைப்பை நீர்க்கட்டி பரிசோதனை &amp; சிகிச்சை (PCOD &amp; Endometriosis)</li>
+                    <li>கர்ப்பப்பை மற்றும் கருப்பை நோய் சிகிச்சை</li>
+                    <li>ஹார்மோன் பரிசோதனைகளுக்கான தீர்வு</li>
+                    <li>கர்ப்பப்பை புற்றுநோய் சிகிச்சை</li>
+                    <li>மார்பகக் கட்டிகள் புற்றுநோய் கண்டறிதல் (Breast Cancer Screening)</li>
                     </ul>
-                    <a href="Dr. Sangeetha.html"><button class="btn-primary">View Doctor</button></a> 
 
-                    </div>
-                    <div id="ent-surgery">
-                        <h2>ENT Surgery</h2>
-                        <p>Page under updation</p>
-                    </div>
-                    <div id="pediatric-surgery">
-                        <h2>Pediatric Surgery</h2>
-                        <p>Page under updation</p>
+                    <ul class="list">
+                    <li>நுண்துளை அறுவை சிகிச்சைகள் (Laparoscopy / Hysteroscopy)</li>
+                    <li>குழந்தையின்மைக்கான பரிசோதனை &amp; சிகிச்சை (Infertility Diagnosis &amp; Treatment)</li>
+                    <li>கர்ப்பப்பை இறக்கம் சிகிச்சை &amp; தானாக சிறுநீர் வெளியேறுதல்</li>
+                    <li>கருப்பைக்குள் கருவூட்டல்</li>
+                    <li>வெளிச்சோதனை முறை கருத்தரித்தல் (IVF / ICSI – Intra Cytoplasmic Sperm Injection)</li>
+                    <li>ஆண்மைக்குறைவுக்கான பரிசோதனை மற்றும் சிகிச்சை (Male Infertility Diagnosis &amp; Treatment)</li>
+                    </ul>
+                </div>
+
+                <a href="Dr. Sangeetha.html" class="btn-primary">View Doctor</a>
+                </div>
+
+
+                 <div id="infertility" class="dept dept-card" style="--accent:#a21caf">
+                <header class="dept-head">
+                    <h2 class="title">Infertility</h2>
+                    <p class="subtitle">
+                    <strong>Dr. S. SANGEETHA, MBBS., DGO., FRM</strong><br>
+                    மகளிர் மகப்பேறு &amp; குழந்தையின்மைக்கான சிகிச்சை நிபுணர், லாப்ராஸ்கோபிக் சர்ஜன்
+                    </p>
+                </header>
+
+                <div class="grid">
+                    <ul class="list">
+                    <li>Female Infertility Treatment</li>
+                    <li>Andrology Treatment</li>
+                    <li>Fertility Enhancing Surgeries – Female</li>
+                    <li>Fertility Enhancing Surgeries – Male</li>
+                    </ul>
+                    <ul class="list">
+                    <li>Endoscopy Treatment (Hysteroscopy, Laparoscopy)</li>
+                    <li>IUI Treatment</li>
+                    <li>Infertility Counselling</li>
+                    </ul>
+                </div>
+
+                <a href="Dr. Sangeetha.html" class="btn-primary">View Doctor</a>
+                </div>
+
+
+                  <div id="ent-surgery" class="dept dept-card" style="--accent:#0ea5e9">
+                    <header class="dept-head">
+                        <h2 class="title">ENT Surgery</h2>
+                        <p class="subtitle">
+                        <strong>Dr. AMRUTHA SATHAPPAN, MBBS., M.S. (ENT)</strong><br>
+                        ENT Specialist (Ear, Nose &amp; Throat Surgeon)
+                        </p>
+                    </header>
+
+                    <div class="grid">
+                        <section aria-labelledby="ent-ear">
+                        <h3 id="ent-ear">Ear</h3>
+                        <ul class="list">
+                            <li>Ear pain</li>
+                            <li>Ear disorders / problems</li>
+                            <li>Ringing noise in the ear (tinnitus)</li>
+                            <li>Ear discharge (pus)</li>
+                            <li>Dizziness / vertigo</li>
+                        </ul>
+                        </section>
+
+                        <section aria-labelledby="ent-nose">
+                        <h3 id="ent-nose">Nose</h3>
+                        <ul class="list">
+                            <li>Nasal blockage / congestion</li>
+                            <li>Post-nasal drip</li>
+                            <li>Frequent sneezing (allergy)</li>
+                            <li>Asthma</li>
+                            <li>Headache (sinus)</li>
+                        </ul>
+                        </section>
+
+                        <section aria-labelledby="ent-throat">
+                        <h3 id="ent-throat">Throat</h3>
+                        <ul class="list">
+                            <li>Throat pain / sore throat</li>
+                            <li>Voice change / hoarseness</li>
+                            <li>Thyroid disorders</li>
+                            <li>Tonsillar swelling / lump</li>
+                            <li>Snoring problem</li>
+                            <li>Ulcer (gastric ulcer)</li>
+                        </ul>
+                        </section>
                     </div>
 
-                    <div id="dentistry">
-                        <h2>Dentistry</h2>
-                        <p>Page under updation</p>
+                    <p class="subtitle" style="margin-top:.75rem;">
+                        Ear, Nose &amp; Throat <strong>endoscopic examination</strong> available.
+                    </p>
+
+                    <a href="Dr Amrutha.html" class="btn-primary">View Doctor</a>
                     </div>
+
+
+                   <div id="pediatric-surgery" class="dept dept-card" style="--accent:#16a34a">
+  <header class="dept-head">
+    <h2 class="title">Pediatric Surgery</h2>
+    <p class="subtitle">
+      <strong>Dr. T.V. Sathappan, M.S., M.Ch., FACS., FICS</strong><br>
+      Laparoscopic Surgeon, Paediatric Surgeon &amp; Paediatric Urologist
+    </p>
+  </header>
+
+  <h3>Key Pediatric Conditions</h3>
+  <div class="grid">
+    <ul class="list">
+      <li>Allergy &amp; Asthma</li>
+      <li>Nutritional Deficiency</li>
+      <li>Pediatric Intensive Care</li>
+      <li>Congenital Heart Disease</li>
+    </ul>
+    <ul class="list">
+      <li>Seizure Disorder</li>
+      <li>Pediatric Skin Conditions</li>
+      <li>Pediatric Infectious Disease</li>
+    </ul>
+  </div>
+
+  <a href="Dr. T.V. Sathappan.html" class="btn-primary">View Doctor</a>
+                    </div>
+
+
+                   <div id="dentistry" class="dept dept-card" style="--accent:#0ea5e9">
+                    <header class="dept-head">
+                        <h2 class="title">Dentistry</h2>
+                        <p class="subtitle">
+                        <strong>Dr. KATHIRVEL MDS</strong><br>
+                        <!-- Placeholder doctor; update later if needed -->
+                        </p>
+                    </header>
+
+                    <h3>Treatments Carried Out</h3>
+                    <div class="grid">
+                        <ul class="list">
+                        <li>Oral prophylaxis</li>
+                        <li>Fillings</li>
+                        <li>Root canal treatments</li>
+                        <li>Bridges</li>
+                        <li>Dentures</li>
+                        <li>Extractions</li>
+                        <li>Wisdom tooth removal</li>
+                        </ul>
+
+                        <ul class="list">
+                        <li>Tooth whitening procedures</li>
+                        <li>Gum grafts</li>
+                        <li>Orthodontic treatments</li>
+                        <li>Aligners</li>
+                        <li>Cyst / Tumour removal</li>
+                        <li>Pan Facial Fracture Treatment</li>
+                        </ul>
+                    </div>
+
+                    <h3>Preventive procedures for Paediatric Care</h3>
+                    <ul class="list">
+                        <li>Fluoride Application</li>
+                        <li>Dental Sealants</li>
+                        <li>Space Maintainers</li>
+                    </ul>
+
+                    
+                    </div>
+
                     <div id="physiotherapy">
                         <h2>Physiotherapy</h2>
                         <p>Page under updation</p>
                     </div>
-                    <div id="dermatology">
-                        <h2>Dermatology</h2>
-                        <p>Page under updation</p>
+                   <div id="dermatology" class="dept dept-card" style="--accent:#db2777">
+                    <header class="dept-head">
+                        <h2 class="title">Dermatology</h2>
+                        <p class="subtitle">
+                        <strong>Dr. HAAMEEM SUBAITHA, MBBS., MD., (DVL)</strong><br>
+                        <!-- Placeholder doctor; update later if needed -->
+                        </p>
+                    </header>
+
+                    <h3>Key Treatments</h3>
+                    <div class="grid">
+                        <ul class="list">
+                        <li>Skin, Hair, and Nail Disorder Consultations</li>
+                        <li>Electrocautery &amp; Radio Frequency Treatments</li>
+                        <li>Chemical Peels</li>
+                        <li>PRP (Platelet-Rich Plasma) &amp; GFC Therapy</li>
+                        </ul>
+                        <ul class="list">
+                        <li>Intralesional Injections</li>
+                        <li>Acne Scar Treatment — Microneedling Radiofrequency (MNRF)</li>
+                        <li>Cryotherapy</li>
+                        </ul>
                     </div>
+
+                    </div>
+
                     <div id="general-medicine">
                         <h2>General Medicine</h2>
                         <p>Page under updation</p>
@@ -288,10 +655,39 @@
                         <h2>General Surgery</h2>
                         <p>Page under updation</p>
                     </div>
-                    <div id="opthalmology">
-                        <h2>Opthalmology</h2>
-                        <p>Page under updation</p>
+                    <div id="ophthalmology" class="dept dept-card" style="--accent:#2563eb">
+                    <header class="dept-head">
+                        <h2 class="title">Ophthalmology</h2>
+                        <p class="subtitle">
+                        <strong>Dr. KURINCHI MBBS,.MS</strong><br>
+                        <!-- Placeholder doctor; update later if needed -->
+                        </p>
+                    </header>
+
+                    <h3>Key Abilities &amp; Procedures</h3>
+                    <div class="grid">
+                        <ul class="list">
+                        <li>Ability to manage all types of outpatient and inpatient cases, including emergencies and post-op care.</li>
+                        <li>Evaluation and treatment of outpatient cases with appropriate investigations and diagnosis.</li>
+                        <li>Glaucoma treatment</li>
+                        </ul>
+
+                        <ul class="list">
+                        <li>
+                            Capable of performing surgical procedures:
+                            <ul class="list">
+                            <li>Chalazion (Incision and Curettage)</li>
+                            <li>Pterygium excision with conjunctival limbal autograft</li>
+                            <li>Dacryocystectomy</li>
+                            <li>Foreign body removal</li>
+                            <li>SICS (Small Incision Cataract Surgery), etc.</li>
+                            </ul>
+                        </li>
+                        </ul>
                     </div>
+
+                    </div>
+
                     <div id="plastic-surgery">
                         <h2>Plastic Surgery</h2>
                         <p>Page under updation</p>
@@ -312,10 +708,7 @@
                         <h2>Nephrology</h2>
                         <p>Page under updation</p>
                     </div>
-                    <div id="dermatology-cosmetic">
-                        <h2>Dermatology &amp; Cosmetic</h2>
-                        <p>Page under updation</p>
-                    </div>
+                   
                     <div id="oncosurgery">
                         <h2>Oncology &amp; Oncosurgery</h2>
                         <p>Page under updation</p>
