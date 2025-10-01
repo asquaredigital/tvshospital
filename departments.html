@@ -122,7 +122,23 @@
         }
         .whatsapp-float:hover { transform: scale(1.1); }
         .whatsapp-float img { width: 35px; height: 35px; }
-    </style>
+
+       :root{
+            --accent:#0ea5e9; /* default accent if not overridden */
+            --fonts: system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,
+                    "Nirmala UI","Latha","Vijaya","Noto Sans Tamil",sans-serif;
+        }
+        .dept{ font-family:var(--fonts); margin:24px 0; }
+        .dept .title{ margin:0 0 .35rem; font-size:clamp(1.2rem,2vw+1rem,1.6rem); color: #4e4e4e }
+        .dept .subtitle{ margin:.25rem 0 1rem; color:#4e4e4e; font-weight:600; }
+        .dept .grid{ display:grid; gap:16px; grid-template-columns:1fr; }
+        @media (min-width:768px){ .dept .grid{ grid-template-columns:repeat(2,1fr); } }
+        @media (min-width:1024px){ .dept .grid{ grid-template-columns:repeat(3,1fr); } }
+        .dept h3{ margin:1rem 0 .4rem; font-size:1.05rem; color:#4e4e4e; }
+        .dept ul{ margin:.25rem 0 0; padding-left:1.1rem; }
+        .dept li{ margin:.35rem 0; }
+        
+            </style>
 
 <style>
   /* Independent scroll fix */
@@ -188,13 +204,60 @@
                         <h2>Orthopedic Surgery</h2>
                         <p>Page under updation</p>
                     </div>
-                    <div id="obstetrics">
-                        <h2>Obstetrics &amp; Gynaecology</h2>
-                        <p>Page under updation</p>
+                  <div id="obstetrics" class="dept" style="--accent:#c026d3">
+                   
+
+                   <h2 class="title">Obstetrics &amp; Gynaecology</h2>
+                   <br>
+                    <p class="subtitle"><strong>Dr. S. SANGEETHA, MBBS., DGO., FRM</strong> —
+                        மகளிர் மகப்பேறு & குழந்தையின்மைக்கான சிகிச்சை நிபுணர், லாப்ராஸ்கோபிக் சர்ஜன்
+                    </p>
+                    <!-- Tamil Services -->
+                    <div class="grid">
+                        <ul>
+                        <li>கர்ப்பகால பரிசோதனைகள்</li>
+                        <li>குடும்பக் கட்டுப்பாடு சிகிச்சை (Laparoscopy Sterilisation)</li>
+                        <li>மாதவிடாய் பிரச்சனைகளுக்கான தீர்வு</li>
+                        <li>சினைப்பை நீர்க்கட்டி பரிசோதனை & சிகிச்சை  (PCOD &amp; Endometriosis)</li>
+                        <li>கர்ப்பப்பை மற்றும் கருப்பை நோய் சிகிச்சை</li>
+                        <li>ஹார்மோன் பரிசோதனைகளுக்கான தீர்வு</li>
+                        <li>கர்ப்பப்பை புற்றுநோய் சிகிச்சை</li>
+                        <li>மார்பகக் கட்டிகள் புற்றுநோய் கண்டறிதல் (Breast Cancer Screening)</li>
+                        </ul>
+                        <ul>
+                        <li>நுண்துளை அறுவை சிகிச்சைகள்  (Laparoscopy / Hysteroscopy)</li>
+                        <li>குழந்தையின்மைக்கான பரிசோதனை & சிகிச்சை  (Infertility Diagnosis &amp; Treatment)</li>
+                        <li>கர்ப்பப்பை இறக்கம் சிகிச்சை & தானாக சிறுநீர் வெளியேறுதல்</li>
+                        <li>கருப்பைக்குள் கருவூட்டல்</li>
+                        <li>வெளிச்சோதனை முறை கருத்தரித்தல் (IVF / ICSI – Intra Cytoplasmic Sperm Injection)</li>
+                        <li>ஆண்மைக்குறைவுக்கான பரிசோதனை மற்றும் சிகிச்சை  (Male Infertility Diagnosis and Treatment)</li>
+                        </ul>
                     </div>
+                                                <a href="Dr. Sangeetha.html"><button class="btn-primary">View Doctor</button></a> 
+
+                    <!-- English Services -->
+                   
+                    </div>
+
                     <div id="infertility">
-                        <h2>Infertility</h2>
-                        <p>Page under updation</p>
+                        <h2 class="title">Infertility</h2>
+                        <br>
+                        <p class="subtitle"><strong>Dr. S. SANGEETHA, MBBS., DGO., FRM</strong> —
+                        மகளிர் மகப்பேறு & குழந்தையின்மைக்கான சிகிச்சை நிபுணர், லாப்ராஸ்கோபிக் சர்ஜன்
+                        </p>
+                        
+                        <ul>
+                        <li>Female Infertility Treatment</li>
+                        <li>Andrology Treatment</li>
+                        <li>Fertility Enhancing Surgeries – Female</li>
+                        <li>Fertility Enhancing Surgeries – Male</li>
+                        <li>Endoscopy Treatment (Hysteroscopy, Laparoscopy)</li>
+                        <li>IUI Treatment</li>
+                        <li>Infertility Counselling</li>
+
+                    </ul>
+                    <a href="Dr. Sangeetha.html"><button class="btn-primary">View Doctor</button></a> 
+
                     </div>
                     <div id="ent-surgery">
                         <h2>ENT Surgery</h2>
