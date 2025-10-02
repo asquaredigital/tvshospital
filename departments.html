@@ -40,6 +40,7 @@
             $("#footer").load("footer.html");
         });
     </script>
+    
     <style>
         /* ===== Two-pane Departments layout ===== */
         .services-container {
@@ -227,7 +228,7 @@
 
         <!-- Sub Page Content ========================================== -->
         <div id="sub-page-content" class="clearfix">
-            <div class="container services-container">
+             <div class="container services-container">
 
                 <!-- LEFT: Departments (order matches menu) -->
                 <div class="services-list">
@@ -238,6 +239,7 @@
                         <li class="list-group-item" onclick="showDescription(event, 'obstetrics')">Obstetrics &amp; Gynaecology</li>
                         <li class="list-group-item" onclick="showDescription(event, 'infertility')">Infertility</li>
                         <li class="list-group-item" onclick="showDescription(event, 'ent-surgery')">ENT Surgery</li>
+
                         <li class="list-group-item" onclick="showDescription(event, 'pediatric-surgery')">Pediatric Surgery</li>
 
                         <!-- Other Departments -->
@@ -247,7 +249,6 @@
                         <li class="list-group-item" onclick="showDescription(event, 'general-medicine')">General Medicine</li>
                         <li class="list-group-item" onclick="showDescription(event, 'general-surgery')">General Surgery</li>
                         <li class="list-group-item" onclick="showDescription(event, 'ophthalmology')">Opthalmology</li>
-                        <li class="list-group-item" onclick="showDescription(event, 'plastic-surgery')">Plastic Surgery</li>
                         <li class="list-group-item" onclick="showDescription(event, 'gastroenterologist')">Gastroenterologist</li>
                         <li class="list-group-item" onclick="showDescription(event, 'respiratory-medicine')">Respiratory Medicine</li>
                         <li class="list-group-item" onclick="showDescription(event, 'urology')">Urology</li>
@@ -751,25 +752,62 @@
 
                     </div>
 
-                    <div id="plastic-surgery">
-                        <h2>Plastic Surgery</h2>
-                        <p>Page under updation</p>
+                
+                    
+                    <div id="gastroenterologist" class="dept dept-card" style="--accent:#f59e0b">
+                    <header class="dept-head">
+                        <h2 class="title">Gastroenterology</h2>
+                        <p class="subtitle">DR.VIVEK MANOHARAN, MBBS.,M.S.,M.CH (GE)</p>
+                    </header>
+
+                    <div class="grid">
+                        <ul class="list">
+                        <li>UGI Scopy</li>
+                        <li>Colonoscopy</li>
+                        <li>Cholecystectomy</li>
+                        <li>Hernial Repair</li>
+                        <li>Variceal Banding</li>
+                        <li>Polypectomy</li>
+                        </ul>
                     </div>
-                    <div id="gastroenterologist">
-                        <h2>Gastroenterologist</h2>
-                        <p>Page under updation</p>
                     </div>
                     <div id="respiratory-medicine">
                         <h2>Respiratory Medicine</h2>
                         <p>Page under updation</p>
                     </div>
-                    <div id="urology">
-                        <h2>Urology</h2>
-                        <p>Page under updation</p>
+                    <div id="urology" class="dept dept-card" style="--accent:#0ea5e9">
+                    <header class="dept-head">
+                        <h2 class="title">Urology</h2>
+                        <p class="subtitle">Procedures &amp; Services</p>
+                    </header>
+
+                    <div class="grid">
+                        <ul class="list">
+                        <li>Cystoscopy</li>
+                        <li>Lithotripsy</li>
+                        <li>Ureteroscopy</li>
+                        <li>Cystectomy</li>
+                        <li>Nephrectomy</li>
+                        <li>Pyeloplasty</li>
+                        <li>PCNL – Percutaneous Nephrolithotomy</li>
+                        <li>Ureteral Stent Placement</li>
+                        </ul>
                     </div>
-                    <div id="nephrology">
-                        <h2>Nephrology</h2>
-                        <p>Page under updation</p>
+                    </div>
+                    <div id="nephrology" class="dept dept-card" style="--accent:#059669">
+                    <header class="dept-head">
+                        <h2 class="title">Nephrology</h2>
+                        <p class="subtitle">DR.GOWTHAM, M.D.,( GEN.Med) / DR.RAKESH XEVIVAR, MD.DM.(NEP)</p>
+                    </header>
+
+                    <div class="grid">
+                        <ul class="list">
+                        <li>Dialysis</li>
+                        <li>AV Fistula Creation</li>
+                        <li>Plasmapheresis</li>
+                        <li>Kidney Biopsy</li>
+                        </ul>
+                    </div>
                     </div>
                    
                     <div id="oncosurgery">
