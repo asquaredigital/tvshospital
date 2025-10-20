@@ -180,6 +180,8 @@
 								<div class="filter active" data-filter="all">All</div>
 								<div class="filter" data-filter=".pharmacy">Pharmacy</div>
 								<div class="filter" data-filter=".XRayandCT">X-Ray and CT</div>
+								<div class="filter" data-filter=".eqip">Advanced Technologies</div>
+
 								
 							</div>
 							
@@ -265,6 +267,115 @@
 										</div>
 										
 									</li>
+
+									<li class="equip">
+										
+										<div class="gallery-item">
+											<div class="gallery-item-thumb">
+												<span class="overlay"></span>
+												<img src="images/Gallery/Equip/C-Arm_11zon.jpg" alt="">
+												<a href="images/Gallery/Equip/C-Arm_11zon.jpg" data-fancybox-group="portfolio" class="hover-button-plus fancybox"></a>
+											</div>
+											
+										</div>
+										
+									</li>
+									<li class="equip">
+										
+										<div class="gallery-item">
+											<div class="gallery-item-thumb">
+												<span class="overlay"></span>
+												<img src="images/Gallery/Equip/Cobblator_11zon.jpg" alt="">
+												<a href="images/Gallery/Equip/Cobblator_11zon.jpg" data-fancybox-group="portfolio" class="hover-button-plus fancybox"></a>
+											</div>
+											
+										</div>
+										
+									</li>
+									<li class="equip">
+										
+										<div class="gallery-item">
+											<div class="gallery-item-thumb">
+												<span class="overlay"></span>
+												<img src="images/Gallery/Equip/CUSA_11zon.jpg" alt="">
+												<a href="images/Gallery/Equip/CUSA_11zon.jpg" data-fancybox-group="portfolio" class="hover-button-plus fancybox"></a>
+											</div>
+											
+										</div>
+										
+									</li>
+									<li class="equip">
+										
+										<div class="gallery-item">
+											<div class="gallery-item-thumb">
+												<span class="overlay"></span>
+												<img src="images/Gallery/Equip/Laproscopy1_11zon.jpg" alt="">
+												<a href="images/Gallery/Equip/Laproscopy1_11zon.jpg" data-fancybox-group="portfolio" class="hover-button-plus fancybox"></a>
+											</div>
+											
+										</div>
+										
+									</li>
+									<li class="equip">
+										
+										<div class="gallery-item">
+											<div class="gallery-item-thumb">
+												<span class="overlay"></span>
+												<img src="images/Gallery/Equip/Laproscopy2_11zon.jpg" alt="">
+												<a href="images/Gallery/Equip/Laproscopy2_11zon.jpg" data-fancybox-group="portfolio" class="hover-button-plus fancybox"></a>
+											</div>
+											
+										</div>
+										
+									</li>
+									<li class="equip">
+										
+										<div class="gallery-item">
+											<div class="gallery-item-thumb">
+												<span class="overlay"></span>
+												<img src="images/Gallery/Equip/Laproscopy3_11zon.jpg" alt="">
+												<a href="images/Gallery/Equip/Laproscopy3_11zon.jpg" data-fancybox-group="portfolio" class="hover-button-plus fancybox"></a>
+											</div>
+											
+										</div>
+										
+									</li>
+									<li class="equip">
+										
+										<div class="gallery-item">
+											<div class="gallery-item-thumb">
+												<span class="overlay"></span>
+												<img src="images/Gallery/Equip/Laproscopy4_11zon.jpg" alt="">
+												<a href="images/Gallery/Equip/Laproscopy4_11zon.jpg" data-fancybox-group="portfolio" class="hover-button-plus fancybox"></a>
+											</div>
+											
+										</div>
+										
+									</li>
+									<li class="equip">
+										
+										<div class="gallery-item">
+											<div class="gallery-item-thumb">
+												<span class="overlay"></span>
+												<img src="images/Gallery/Equip/Operating Microscope_11zon.jpg" alt="">
+												<a href="images/Gallery/Equip/Operating Microscope_11zon.jpg" data-fancybox-group="portfolio" class="hover-button-plus fancybox"></a>
+											</div>
+											
+										</div>
+										
+									</li>
+									<li class="equip">
+										
+										<div class="gallery-item">
+											<div class="gallery-item-thumb">
+												<span class="overlay"></span>
+												<img src="images/Gallery/Equip/Stryker_11zon.jpg" alt="">
+												<a href="images/Gallery/Equip/Stryker_11zon.jpg" data-fancybox-group="portfolio" class="hover-button-plus fancybox"></a>
+											</div>
+											
+										</div>
+										
+									</li>
 									
 								
 									
@@ -317,6 +428,51 @@
 	<script src="js/jquery.fancybox.pack.js"></script>
 	<script src="js/jquery.fancybox-media.js"></script>
 	<script src="js/jquery.mixitup.js"></script>
+	<script src="js/jquery.mixitup.js"></script>
+
+<!-- ✅ Paste here -->
+<script>
+  $(function () {
+    // Init MixItUp
+    var $container = $('#Container-gallery');
+    if (!$container.length) return;
+    $container.mixItUp();
+
+    // Read filter from URL: ?filter=eqip or #eqip
+    var params = new URLSearchParams(window.location.search);
+    var fromQuery = params.get('filter');
+    var fromHash  = window.location.hash ? window.location.hash.substring(1) : null;
+    var target    = fromQuery || fromHash; // prefer query, fallback to hash
+
+    // Apply filter if found
+    if (target) {
+      var selector = (target === 'all') ? 'all' : '.' + target;
+      $container.mixItUp('filter', selector);
+
+      // Update active menu
+      $('.gallery-filter-nav .filter').removeClass('active')
+        .filter('[data-filter="' + selector + '"]').addClass('active');
+    }
+
+    // Update URL when user clicks filters
+    $('.gallery-filter-nav').on('click', '.filter', function () {
+      var sel = $(this).data('filter'); // e.g. ".eqip" or "all"
+      var key = (sel === 'all') ? 'all' : sel.replace('.', '');
+      if (history.replaceState) {
+        var newUrl = (key === 'all') ? (location.pathname + '?filter=all') 
+                                     : (location.pathname + '?filter=' + key);
+        history.replaceState(null, '', newUrl);
+      } else {
+        location.hash = key; // fallback for old browsers
+      }
+    });
+  });
+</script>
+<!-- ✅ End of paste -->
+
+</body>
+</html>
+
 	<script src="js/forms-validation.js"></script>
 	<script src="js/jquery.jcarousel.min.js"></script>
 	<script src="js/jquery.easypiechart.min.js"></script>
